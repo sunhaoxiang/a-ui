@@ -1,7 +1,10 @@
+import Button, { ButtonType, ButtonSize } from './components/Button/button.tsx'
+
 function App() {
   return (
     <>
-      <h1>Vite + React</h1>
+      <Button btnType={ButtonType.Danger}>Danger</Button>
+      <Button btnType={ButtonType.Link} href="www">Link</Button>
     </>
   )
 }
