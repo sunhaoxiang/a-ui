@@ -1,6 +1,6 @@
 import Button, {ButtonSize, ButtonType} from '@/components/Button/button.tsx'
 
-function App() {
+const App = () => {
   return (
     <>
       <Button autoFocus>Default</Button>
