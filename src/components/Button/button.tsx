@@ -1,5 +1,5 @@
 import Classnames from 'classnames'
-import type { ReactNode } from 'react'
+import type { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react'
 
 export enum ButtonType {
   Primary = 'primary',
@@ -22,18 +22,25 @@ interface BaseButtonProps {
   href?: string
 }
 
-function Button(props: BaseButtonProps) {
+type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
+
+type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
+
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
+
+function Button(props: ButtonProps) {
   const {
+    btnType,
     className,
     disabled,
-    btnType,
     size,
     children,
     href,
+    ...restProps
   } = props
 
   // btn, btn-lg, btn-primary
-  const classes = Classnames('btn', {
+  const classes = Classnames('btn', className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size,
     disabled: btnType === ButtonType.Link && disabled,
@@ -44,6 +51,7 @@ function Button(props: BaseButtonProps) {
       <a
         className={classes}
         href={href}
+        {...restProps}
       >
         {children}
       </a>
@@ -53,6 +61,7 @@ function Button(props: BaseButtonProps) {
       <button
         className={classes}
         disabled={disabled}
+        {...restProps}
       >
         {children}
       </button>
