@@ -7,7 +7,7 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  plugins: ['react-refresh'],
+  plugins: ['react-refresh', 'testing-library', 'jest-dom'],
   rules: {
     'react-refresh/only-export-components': 'warn',
     'no-console': 'warn',
