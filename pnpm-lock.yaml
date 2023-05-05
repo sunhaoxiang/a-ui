@@ -51,9 +51,6 @@ devDependencies:
   eslint-plugin-react-refresh:
     specifier: ^0.3.4
     version: 0.3.4(eslint@8.38.0)
-  happy-dom:
-    specifier: ^9.10.9
-    version: 9.10.9
   jsdom:
     specifier: ^22.0.0
     version: 22.0.0
@@ -68,7 +65,7 @@ devDependencies:
     version: 4.3.2(@types/node@18.16.1)(sass@1.62.1)
   vitest:
     specifier: ^0.31.0
-    version: 0.31.0(happy-dom@9.10.9)(jsdom@22.0.0)(sass@1.62.1)
+    version: 0.31.0(jsdom@22.0.0)(sass@1.62.1)
 
 packages:
 
@@ -1790,17 +1787,6 @@ packages:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
     dev: true
 
-  /happy-dom@9.10.9:
-    resolution: {integrity: sha512-3RnOyu6buPMpDAyOpp8yfR5Xi/k2p5MhrDwlG/dgpVHkptFN5IqubdbGOQU5luB7ANh6a08GOuiB+Bo9JCzCBw==}
-    dependencies:
-      css.escape: 1.5.1
-      he: 1.2.0
-      iconv-lite: 0.6.3
-      webidl-conversions: 7.0.0
-      whatwg-encoding: 2.0.0
-      whatwg-mimetype: 3.0.0
-    dev: true
-
   /has-bigints@1.0.2:
     resolution: {integrity: sha512-tSvCKtBr9lkF0Ex0aQiP9N+OpV4zi2r/Nee5VkRDbaqv35RLYMzbwQfFSZZH0kR+Rd6302UJZ2p/bJCEoR3VoQ==}
     dev: true
@@ -1838,11 +1824,6 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
-    dev: true
-
-  /he@1.2.0:
-    resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
-    hasBin: true
     dev: true
 
   /html-encoding-sniffer@3.0.0:
@@ -2939,7 +2920,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest@0.31.0(happy-dom@9.10.9)(jsdom@22.0.0)(sass@1.62.1):
+  /vitest@0.31.0(jsdom@22.0.0)(sass@1.62.1):
     resolution: {integrity: sha512-JwWJS9p3GU9GxkG7eBSmr4Q4x4bvVBSswaCFf1PBNHiPx00obfhHRJfgHcnI0ffn+NMlIh9QGvG75FlaIBdKGA==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -2984,7 +2965,6 @@ packages:
       chai: 4.3.7
       concordance: 5.0.4
       debug: 4.3.4
-      happy-dom: 9.10.9
       jsdom: 22.0.0
       local-pkg: 0.4.3
       magic-string: 0.30.0
