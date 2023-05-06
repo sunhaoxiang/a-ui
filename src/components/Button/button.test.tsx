@@ -1,6 +1,6 @@
 import { render } from '@/utils/test-utils'
+import { describe, expect } from 'vitest'
 import Button from './button'
-import {describe, expect} from 'vitest'
 
 describe('test Button component', () => {
   it('should render the correct default button', () => {
@@ -14,6 +14,7 @@ describe('test Button component', () => {
   it('should render the correct component based on different props', () => {
 
   })
+
 
   it('should render a link when btnType equals link and href is provided', () => {
 
