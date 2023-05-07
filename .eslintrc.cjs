@@ -5,7 +5,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
   ],
-    overrides: [
+  overrides: [
     {
       files: ['**/*.cjs'],
       env: {
