@@ -18,8 +18,8 @@ interface BaseButtonProps {
   disabled?: boolean
   btnType?: ButtonType
   size?: ButtonSize
-  children: ReactNode
   href?: string
+  children: ReactNode
 }
 
 type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
@@ -34,8 +34,8 @@ const Button = (props: ButtonProps) => {
     className,
     disabled,
     size,
-    children,
     href,
+    children,
     ...restProps
   } = props
 
