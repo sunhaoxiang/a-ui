@@ -5,7 +5,7 @@ import MenuItem from '@/components/Menu/menuItem.tsx'
 const App = () => {
   return (
     <>
-      <Menu defaultIndex={0} onSelect={(index) => {alert(index)}}>
+      <Menu defaultIndex={1} onSelect={(index) => {alert(index)}}>
         <MenuItem index={0}>cool link</MenuItem>
         <MenuItem index={1} disabled>cool link 2</MenuItem>
         <MenuItem index={2}>cool link 3</MenuItem>
