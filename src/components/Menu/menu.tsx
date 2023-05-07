@@ -5,10 +5,10 @@ type MenuMode = 'horizontal' | 'vertical'
 
 export interface MenuProps {
   defaultIndex?: number
-  className?: string
   mode?: MenuMode
-  style?: CSSProperties,
-  onSelect?: (selectedIndex: number) => void,
+  className?: string
+  style?: CSSProperties
+  onSelect?: (selectedIndex: number) => void
   children: ReactNode
 }
 
