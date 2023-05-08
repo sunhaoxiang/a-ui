@@ -12,12 +12,9 @@ module.exports = {
         node: true,
       },
     },
-    {
-      files: ['**/*.json'],
-      plugins: ['json-format'],
-    },
   ],
   parser: '@typescript-eslint/parser',
+  ignorePatterns: ['package.json', 'package-lock.json', 'node_modules/'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   plugins: ['react-refresh', 'testing-library', 'jest-dom'],
   rules: {
