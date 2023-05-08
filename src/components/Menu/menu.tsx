@@ -11,7 +11,7 @@ export interface MenuProps {
   className?: string
   style?: CSSProperties
   onSelect?: SelectCallback
-  children: ReactNode
+  children?: ReactNode
 }
 
 interface IMenuContext {
@@ -52,6 +52,7 @@ const Menu = (props: MenuProps) => {
     <ul
       className={classes}
       style={style}
+      role="menu"
     >
       <MenuContext.Provider value={passedContext}>
         {children}

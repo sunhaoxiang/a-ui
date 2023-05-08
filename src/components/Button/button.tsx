@@ -19,7 +19,7 @@ interface BaseButtonProps {
   btnType?: ButtonType
   size?: ButtonSize
   href?: string
-  children: ReactNode
+  children?: ReactNode
 }
 
 type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
