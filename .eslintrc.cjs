@@ -12,6 +12,10 @@ module.exports = {
         node: true,
       },
     },
+    {
+      files: ['**/*.json'],
+      plugins: ['json-format'],
+    },
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
