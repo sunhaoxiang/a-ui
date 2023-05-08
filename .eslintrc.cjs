@@ -3,7 +3,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
+    '@antfu/eslint-config-react',
   ],
   overrides: [
     {
@@ -18,8 +18,8 @@ module.exports = {
   plugins: ['react-refresh', 'testing-library', 'jest-dom'],
   rules: {
     'react-refresh/only-export-components': 'warn',
-    'no-console': 'warn',
-    'no-unused-vars': 'warn',
     '@typescript-eslint/no-unused-vars': 'warn',
+    'no-console': 'warn',
+    'antfu/top-level-function': 'off',
   },
 }
