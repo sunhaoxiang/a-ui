@@ -1,3 +1,4 @@
+/* eslint-disable import/export, react-refresh/only-export-components */
 import { cleanup, render } from '@testing-library/react'
 import { afterEach } from 'vitest'
 
@@ -5,7 +6,7 @@ afterEach(() => {
   cleanup()
 })
 
-function customRender(ui: React.ReactElement, options = {}) {
+const customRender = (ui: React.ReactElement, options = {}) => {
   return render(ui, {
     // wrap provider(s) here if needed
     wrapper: ({ children }) => children,
