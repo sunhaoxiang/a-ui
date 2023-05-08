@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import Classnames from 'classnames'
-import { MenuContext } from './menu.tsx'
 import type { CSSProperties, ReactNode } from 'react'
+import { MenuContext } from './menu.tsx'
 
 export interface MenuItemProps {
   index: number
@@ -28,9 +28,8 @@ const MenuItem = (props: MenuItemProps) => {
   })
 
   const handleClick = () => {
-    if (context.onSelect && !disabled) {
+    if (context.onSelect && !disabled)
       context.onSelect(index)
-    }
   }
 
   return (

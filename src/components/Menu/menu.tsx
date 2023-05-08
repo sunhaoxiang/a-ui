@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react'
+import { createContext, useState } from 'react'
 import Classnames from 'classnames'
 import type { CSSProperties, ReactNode } from 'react'
 
@@ -14,12 +14,12 @@ export interface MenuProps {
   children: ReactNode
 }
 
-interface MenuContext {
+interface IMenuContext {
   index: number
   onSelect?: SelectCallback
 }
 
-export const MenuContext = createContext<MenuContext>({index: 0})
+export const MenuContext = createContext<IMenuContext>({ index: 0 })
 
 const Menu = (props: MenuProps) => {
   const {
@@ -35,14 +35,13 @@ const Menu = (props: MenuProps) => {
 
   const handleClick = (index: number) => {
     setActive(index)
-    if (onSelect) {
+    if (onSelect)
       onSelect(index)
-    }
   }
 
-  const passedContext: MenuContext = {
-    index: currentActive ? currentActive : 0,
-    onSelect: handleClick
+  const passedContext: IMenuContext = {
+    index: currentActive || 0,
+    onSelect: handleClick,
   }
 
   const classes = Classnames('menu', className, {

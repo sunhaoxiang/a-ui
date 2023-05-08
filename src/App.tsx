@@ -1,11 +1,11 @@
-import Button, {ButtonSize, ButtonType} from '@/components/Button/button.tsx'
+import Button, { ButtonSize, ButtonType } from '@/components/Button/button.tsx'
 import Menu from '@/components/Menu/menu.tsx'
 import MenuItem from '@/components/Menu/menuItem.tsx'
 
 const App = () => {
   return (
     <>
-      <Menu defaultIndex={1} onSelect={(index) => {alert(index)}}>
+      <Menu defaultIndex={0} onSelect={(index) => { console.log(index) }}>
         <MenuItem index={0}>cool link</MenuItem>
         <MenuItem index={1} disabled>cool link 2</MenuItem>
         <MenuItem index={2}>cool link 3</MenuItem>
@@ -14,7 +14,7 @@ const App = () => {
       <Button
         btnType={ButtonType.Danger}
         size={ButtonSize.Large}
-        onClick={(e) => {e.preventDefault(); alert('123')}}
+        onClick={(e) => { console.log(e) }}
       >
         Danger
       </Button>

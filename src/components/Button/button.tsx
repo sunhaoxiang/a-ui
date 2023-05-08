@@ -1,5 +1,5 @@
 import Classnames from 'classnames'
-import type { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react'
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
 
 export enum ButtonType {
   Primary = 'primary',
@@ -56,7 +56,8 @@ const Button = (props: ButtonProps) => {
         {children}
       </a>
     )
-  } else {
+  }
+  else {
     return (
       <button
         className={classes}
@@ -71,7 +72,7 @@ const Button = (props: ButtonProps) => {
 
 Button.defaultProps = {
   disabled: false,
-  btnType: ButtonType.Default
+  btnType: ButtonType.Default,
 }
 
 export default Button
