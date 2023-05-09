@@ -43,4 +43,6 @@ const MenuItem = (props: MenuItemProps) => {
   )
 }
 
+MenuItem.displayName = 'MenuItem'
+
 export default MenuItem

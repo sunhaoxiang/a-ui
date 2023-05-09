@@ -1,6 +1,7 @@
-import { createContext, useState } from 'react'
+import { Children, createContext, useState } from 'react'
 import Classnames from 'classnames'
-import type { CSSProperties, ReactNode } from 'react'
+import type { CSSProperties, FunctionComponentElement, ReactNode } from 'react'
+import type { MenuItemProps } from './menuItem.tsx'
 
 type MenuMode = 'horizontal' | 'vertical'
 type SelectCallback = (selectedIndex: number) => void
@@ -33,6 +34,10 @@ const Menu = (props: MenuProps) => {
 
   const [currentActive, setActive] = useState(defaultIndex)
 
+  const classes = Classnames('menu', className, {
+    'menu-vertical': mode === 'vertical',
+  })
+
   const handleClick = (index: number) => {
     setActive(index)
     if (onSelect)
@@ -44,9 +49,17 @@ const Menu = (props: MenuProps) => {
     onSelect: handleClick,
   }
 
-  const classes = Classnames('menu', className, {
-    'menu-vertical': mode === 'vertical',
-  })
+  const renderChildren = () => {
+    return Children.map(children, (child) => {
+      const childElement = child as FunctionComponentElement<MenuItemProps>
+      const { displayName } = childElement.type
+
+      if (displayName === 'MenuItem')
+        return child
+
+      console.error('Warning: Menu has a child which is not a MenuItem component')
+    })
+  }
 
   return (
     <ul
@@ -55,7 +68,7 @@ const Menu = (props: MenuProps) => {
       role="menu"
     >
       <MenuContext.Provider value={passedContext}>
-        {children}
+        {renderChildren()}
       </MenuContext.Provider>
     </ul>
   )
