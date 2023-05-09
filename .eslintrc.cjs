@@ -21,6 +21,7 @@ module.exports = {
     'react-refresh/only-export-components': 'warn',
     '@typescript-eslint/no-unused-vars': 'warn',
     'no-console': 'warn',
+    'no-trailing-spaces': ["error", { "skipBlankLines": true }],
     'antfu/top-level-function': 'off',
   },
 }
