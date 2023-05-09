@@ -36,6 +36,7 @@ const Menu = (props: MenuProps) => {
 
   const classes = Classnames('menu', className, {
     'menu-vertical': mode === 'vertical',
+    'menu-horizontal': mode !== 'vertical',
   })
 
   const handleClick = (index: number) => {
@@ -54,8 +55,8 @@ const Menu = (props: MenuProps) => {
       const childElement = child as FunctionComponentElement<MenuItemProps>
       const { displayName } = childElement.type
 
-      if (displayName === 'MenuItem')
-        return child
+      if (displayName === 'MenuItem' || displayName === 'SubMenu')
+        return childElement
 
       console.error('Warning: Menu has a child which is not a MenuItem component')
     })
