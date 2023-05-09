@@ -1,5 +1,5 @@
 import { Children, createContext, useState } from 'react'
-import Classnames from 'classnames'
+import classnames from 'classnames'
 import type { CSSProperties, FunctionComponentElement, ReactNode } from 'react'
 import type { MenuItemProps } from './menuItem.tsx'
 
@@ -35,7 +35,7 @@ const Menu = (props: MenuProps) => {
 
   const [currentActive, setActive] = useState(defaultIndex)
 
-  const classes = Classnames('menu', className, {
+  const classes = classnames('menu', className, {
     'menu-vertical': mode === 'vertical',
     'menu-horizontal': mode !== 'vertical',
   })

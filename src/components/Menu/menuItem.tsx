@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import Classnames from 'classnames'
+import classnames from 'classnames'
 import type { CSSProperties, ReactNode } from 'react'
 import { MenuContext } from './menu.tsx'
 
@@ -22,7 +22,7 @@ const MenuItem = (props: MenuItemProps) => {
 
   const context = useContext(MenuContext)
 
-  const classes = Classnames('menu-item', className, {
+  const classes = classnames('menu-item', className, {
     'is-disabled': disabled,
     'is-active': context.index === index,
   })

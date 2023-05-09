@@ -1,4 +1,4 @@
-import Classnames from 'classnames'
+import classnames from 'classnames'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
 
 export enum ButtonType {
@@ -40,7 +40,7 @@ const Button = (props: ButtonProps) => {
   } = props
 
   // btn, btn-lg, btn-primary
-  const classes = Classnames('btn', className, {
+  const classes = classnames('btn', className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size,
     disabled: btnType === ButtonType.Link && disabled,
