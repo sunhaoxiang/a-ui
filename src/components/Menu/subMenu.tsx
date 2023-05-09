@@ -1,6 +1,6 @@
-import { Children, useContext } from 'react'
-import Classnames from 'classnames'
-import type { FunctionComponentElement, ReactNode } from 'react'
+import { Children, useContext, useState } from 'react'
+import classnames from 'classnames'
+import type { FunctionComponentElement, ReactNode, MouseEvent } from 'react'
 import { MenuContext } from './menu.tsx'
 import type { MenuItemProps } from './menuItem.tsx'
 
@@ -13,10 +13,41 @@ export interface SubMenuProps {
 
 const SubMenu = (props: SubMenuProps) => {
   const { index, title, className, children } = props
+  const [menuOpen, setOpen] = useState(false)
   const context = useContext(MenuContext)
-  const classes = Classnames('menu-item submenu-item', className, {
+  const classes = classnames('menu-item submenu-item', className, {
     'is-active': context.index === index,
   })
+  const subMenuClasses = classnames('submenu', {
+    'menu-opened': menuOpen,
+  })
+
+  const handleClick = (e: MouseEvent) => {
+    e.preventDefault()
+    setOpen(!menuOpen)
+  }
+
+  let timer: any
+  const handleMouse = (e: MouseEvent, toggle: boolean) => {
+    clearTimeout(timer)
+    e.preventDefault()
+    timer = setTimeout(() => {
+      setOpen(toggle)
+    }, 300)
+  }
+
+  const clickEvents = context.mode === 'vertical'
+    ? {
+        onClick: handleClick,
+      }
+    : {}
+
+  const hoverEvents = context.mode !== 'vertical'
+    ? {
+        onMouseEnter: (e: MouseEvent) => { handleMouse(e, true) },
+        onMouseLeave: (e: MouseEvent) => { handleMouse(e, false) },
+      }
+    : {}
 
   const renderChildren = () => {
     return Children.map(children, (child) => {
@@ -34,11 +65,15 @@ const SubMenu = (props: SubMenuProps) => {
     <li
       key={index}
       className={classes}
+      {...hoverEvents}
     >
-      <div className="submenu-title">
+      <div
+        className="submenu-title"
+        {...clickEvents}
+      >
         {title}
       </div>
-      <ul className="submenu">
+      <ul className={subMenuClasses}>
         {renderChildren()}
       </ul>
     </li>
