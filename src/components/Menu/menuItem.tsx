@@ -4,7 +4,7 @@ import type { CSSProperties, ReactNode } from 'react'
 import { MenuContext } from './menu.tsx'
 
 export interface MenuItemProps {
-  index: number
+  index: string
   disabled?: boolean
   className?: string
   style?: CSSProperties

@@ -5,7 +5,7 @@ import { MenuContext } from './menu.tsx'
 import type { MenuItemProps } from './menuItem.tsx'
 
 export interface SubMenuProps {
-  index: number
+  index: string
   title?: string
   className?: string
   children?: ReactNode

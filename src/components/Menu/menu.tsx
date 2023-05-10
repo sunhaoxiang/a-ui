@@ -4,10 +4,10 @@ import type { CSSProperties, FunctionComponentElement, ReactNode } from 'react'
 import type { MenuItemProps } from './menuItem.tsx'
 
 type MenuMode = 'horizontal' | 'vertical'
-type SelectCallback = (selectedIndex: number) => void
+type SelectCallback = (selectedIndex: string) => void
 
 export interface MenuProps {
-  defaultIndex?: number
+  defaultIndex?: string
   mode?: MenuMode
   className?: string
   style?: CSSProperties
@@ -16,12 +16,12 @@ export interface MenuProps {
 }
 
 interface IMenuContext {
-  index: number
+  index: string
   onSelect?: SelectCallback
   mode?: MenuMode
 }
 
-export const MenuContext = createContext<IMenuContext>({ index: 0 })
+export const MenuContext = createContext<IMenuContext>({ index: '0' })
 
 const Menu = (props: MenuProps) => {
   const {
@@ -40,14 +40,14 @@ const Menu = (props: MenuProps) => {
     'menu-horizontal': mode !== 'vertical',
   })
 
-  const handleClick = (index: number) => {
+  const handleClick = (index: string) => {
     setActive(index)
     if (onSelect)
       onSelect(index)
   }
 
   const passedContext: IMenuContext = {
-    index: currentActive || 0,
+    index: currentActive || '0',
     onSelect: handleClick,
     mode,
   }
