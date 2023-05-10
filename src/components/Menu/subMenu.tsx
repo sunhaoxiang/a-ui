@@ -1,6 +1,6 @@
 import { Children, useContext, useState } from 'react'
 import classnames from 'classnames'
-import type { FunctionComponentElement, ReactNode, MouseEvent } from 'react'
+import type { FunctionComponentElement, MouseEvent, ReactNode } from 'react'
 import { MenuContext } from './menu.tsx'
 import type { MenuItemProps } from './menuItem.tsx'
 
