@@ -46,7 +46,6 @@ const createStyleFile = () => {
     }
   `
   const style = document.createElement('style')
-  // style.type = 'text/css'
   style.innerHTML = cssFile
   return style
 }
