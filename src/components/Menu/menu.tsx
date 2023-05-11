@@ -8,6 +8,7 @@ type SelectCallback = (selectedIndex: string) => void
 
 export interface MenuProps {
   defaultIndex?: string
+  defaultOpenSubMenus?: string[]
   mode?: MenuMode
   className?: string
   style?: CSSProperties
@@ -17,8 +18,9 @@ export interface MenuProps {
 
 interface IMenuContext {
   index: string
-  onSelect?: SelectCallback
+  defaultOpenSubMenus?: string[]
   mode?: MenuMode
+  onSelect?: SelectCallback
 }
 
 export const MenuContext = createContext<IMenuContext>({ index: '0' })
@@ -26,6 +28,7 @@ export const MenuContext = createContext<IMenuContext>({ index: '0' })
 const Menu = (props: MenuProps) => {
   const {
     defaultIndex,
+    defaultOpenSubMenus,
     className,
     mode,
     style,
@@ -48,8 +51,9 @@ const Menu = (props: MenuProps) => {
 
   const passedContext: IMenuContext = {
     index: currentActive || '0',
-    onSelect: handleClick,
+    defaultOpenSubMenus,
     mode,
+    onSelect: handleClick,
   }
 
   const renderChildren = () => {
@@ -79,6 +83,7 @@ const Menu = (props: MenuProps) => {
 
 Menu.defaultProps = {
   defaultIndex: 0,
+  defaultOpenSubMenus: [],
   mode: 'horizontal',
 }
 
