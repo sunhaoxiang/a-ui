@@ -3,7 +3,6 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    '@antfu/eslint-config-react',
     'plugin:prettier/recommended',
   ],
   overrides: [
@@ -23,6 +22,5 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'warn',
     'no-console': 'warn',
     'no-trailing-spaces': ["error", { "skipBlankLines": true }],
-    'antfu/top-level-function': 'off',
   },
 }
