@@ -4,6 +4,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     '@antfu/eslint-config-react',
+    'plugin:prettier/recommended',
   ],
   overrides: [
     {
@@ -16,7 +17,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   ignorePatterns: ['package.json', 'package-lock.json', 'node_modules/'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  plugins: ['react-refresh', 'testing-library', 'jest-dom'],
+  plugins: ['react-refresh', 'testing-library', 'jest-dom', 'prettier'],
   rules: {
     'react-refresh/only-export-components': 'warn',
     '@typescript-eslint/no-unused-vars': 'warn',
