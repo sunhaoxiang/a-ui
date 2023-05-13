@@ -1,16 +1,20 @@
 import classnames from 'classnames'
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
+import type {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  ReactNode
+} from 'react'
 
 export enum ButtonType {
   Primary = 'primary',
   Default = 'default',
   Danger = 'danger',
-  Link = 'link',
+  Link = 'link'
 }
 
 export enum ButtonSize {
   Large = 'lg',
-  Small = 'sm',
+  Small = 'sm'
 }
 
 interface BaseButtonProps {
@@ -29,41 +33,25 @@ type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 
 const Button = (props: ButtonProps) => {
-  const {
-    btnType,
-    className,
-    disabled,
-    size,
-    href,
-    children,
-    ...restProps
-  } = props
+  const { btnType, className, disabled, size, href, children, ...restProps } =
+    props
 
   // btn, btn-lg, btn-primary
   const classes = classnames('btn', className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size,
-    disabled: btnType === ButtonType.Link && disabled,
+    disabled: btnType === ButtonType.Link && disabled
   })
 
   if (btnType === ButtonType.Link && href) {
     return (
-      <a
-        className={classes}
-        href={href}
-        {...restProps}
-      >
+      <a className={classes} href={href} {...restProps}>
         {children}
       </a>
     )
-  }
-  else {
+  } else {
     return (
-      <button
-        className={classes}
-        disabled={disabled}
-        {...restProps}
-      >
+      <button className={classes} disabled={disabled} {...restProps}>
         {children}
       </button>
     )
@@ -72,7 +60,7 @@ const Button = (props: ButtonProps) => {
 
 Button.defaultProps = {
   disabled: false,
-  btnType: ButtonType.Default,
+  btnType: ButtonType.Default
 }
 
 export default Button

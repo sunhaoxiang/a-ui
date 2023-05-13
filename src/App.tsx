@@ -7,19 +7,19 @@ import Icon from '@/components/Icon/icon.tsx'
 const App = () => {
   return (
     <>
-      <Icon
-        icon="coffee"
-        theme="danger"
-        size="2xl"
-      />
+      <Icon icon="coffee" theme="danger" size="2xl" />
       <Menu
         defaultIndex="0"
         defaultOpenSubMenus={['3']}
         mode="vertical"
-        onSelect={(index) => { console.log(index) }}
+        onSelect={index => {
+          console.log(index)
+        }}
       >
         <MenuItem index="0">cool link</MenuItem>
-        <MenuItem index="1" disabled>cool link 2</MenuItem>
+        <MenuItem index="1" disabled>
+          cool link 2
+        </MenuItem>
         <MenuItem index="2">cool link 3</MenuItem>
         <SubMenu index="3" title="dropDown">
           <MenuItem index="3-0">dropdown 1</MenuItem>
@@ -30,13 +30,29 @@ const App = () => {
       <Button
         btnType={ButtonType.Danger}
         size={ButtonSize.Large}
-        onClick={(e) => { console.log(e) }}
+        onClick={e => {
+          console.log(e)
+        }}
       >
         Danger
       </Button>
-      <Button className="custom" btnType={ButtonType.Primary} size={ButtonSize.Small}>Primary</Button>
-      <Button btnType={ButtonType.Link} href="https://www.google.com/" target="_blank">Google</Button>
-      <Button btnType={ButtonType.Link} href="https://www.google.com/" disabled>Disabled</Button>
+      <Button
+        className="custom"
+        btnType={ButtonType.Primary}
+        size={ButtonSize.Small}
+      >
+        Primary
+      </Button>
+      <Button
+        btnType={ButtonType.Link}
+        href="https://www.google.com/"
+        target="_blank"
+      >
+        Google
+      </Button>
+      <Button btnType={ButtonType.Link} href="https://www.google.com/" disabled>
+        Disabled
+      </Button>
     </>
   )
 }

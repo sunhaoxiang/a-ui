@@ -4,18 +4,18 @@ import type { ButtonProps } from './button'
 import { fireEvent, render, screen } from '@/utils/test-utils'
 
 const defaultProps = {
-  onClick: vi.fn(),
+  onClick: vi.fn()
 }
 
 const testProps: ButtonProps = {
   btnType: ButtonType.Primary,
   size: ButtonSize.Large,
-  className: 'klass',
+  className: 'klass'
 }
 
 const disabledProps: ButtonProps = {
   disabled: true,
-  onClick: vi.fn(),
+  onClick: vi.fn()
 }
 
 describe('test Button component', () => {
@@ -39,7 +39,11 @@ describe('test Button component', () => {
   })
 
   it('should render a link when btnType equals link and href is provided', () => {
-    render(<Button btnType={ButtonType.Link} href="http://dummyurl">A Link</Button>)
+    render(
+      <Button btnType={ButtonType.Link} href="http://dummyurl">
+        A Link
+      </Button>
+    )
     const element = screen.getByRole('link')
     expect(element).toBeInTheDocument()
     expect(element.tagName).toEqual('A')

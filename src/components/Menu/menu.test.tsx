@@ -8,29 +8,29 @@ import { fireEvent, render, screen, waitFor } from '@/utils/test-utils.tsx'
 const testProps: MenuProps = {
   defaultIndex: '0',
   className: 'test',
-  onSelect: vi.fn(),
+  onSelect: vi.fn()
 }
 
 const testVerticalProps: MenuProps = {
   defaultIndex: '0',
   mode: 'vertical',
   onSelect: vi.fn(),
-  defaultOpenSubMenus: ['4'],
+  defaultOpenSubMenus: ['4']
 }
 
 const generateMenu = (props: MenuProps) => {
   return (
     <Menu {...props}>
       <MenuItem index="0">active</MenuItem>
-      <MenuItem index="1" disabled>disabled</MenuItem>
+      <MenuItem index="1" disabled>
+        disabled
+      </MenuItem>
       <MenuItem index="2">xyz</MenuItem>
       <SubMenu index="3" title="dropdown">
         <MenuItem index="3-0">drop1</MenuItem>
       </SubMenu>
       <SubMenu index="4" title="opened">
-        <MenuItem index="4-0">
-          opened1
-        </MenuItem>
+        <MenuItem index="4-0">opened1</MenuItem>
       </SubMenu>
     </Menu>
   )

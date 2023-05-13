@@ -1,7 +1,5 @@
 const Alert = () => {
-  return (
-    <div>Alert</div>
-  )
+  return <div>Alert</div>
 }
 
 export default Alert

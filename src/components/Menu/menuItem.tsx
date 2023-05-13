@@ -12,32 +12,21 @@ export interface MenuItemProps {
 }
 
 const MenuItem = (props: MenuItemProps) => {
-  const {
-    index,
-    disabled,
-    className,
-    style,
-    children,
-  } = props
+  const { index, disabled, className, style, children } = props
 
   const context = useContext(MenuContext)
 
   const classes = classnames('menu-item', className, {
     'is-disabled': disabled,
-    'is-active': context.index === index,
+    'is-active': context.index === index
   })
 
   const handleClick = () => {
-    if (context.onSelect && !disabled)
-      context.onSelect(index)
+    if (context.onSelect && !disabled) context.onSelect(index)
   }
 
   return (
-    <li
-      className={classes}
-      style={style}
-      onClick={handleClick}
-    >
+    <li className={classes} style={style} onClick={handleClick}>
       {children}
     </li>
   )

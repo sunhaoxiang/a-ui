@@ -16,17 +16,18 @@ const SubMenu = (props: SubMenuProps) => {
   const context = useContext(MenuContext)
   const openedSubMenus = context.defaultOpenSubMenus as Array<string>
   const { index, title, className, children } = props
-  const isOpened = (index && context.mode === 'vertical')
-    ? openedSubMenus.includes(index)
-    : false
+  const isOpened =
+    index && context.mode === 'vertical'
+      ? openedSubMenus.includes(index)
+      : false
   const [menuOpen, setOpen] = useState(isOpened)
   const classes = classnames('menu-item submenu-item', className, {
     'is-active': context.index === index,
     'is-opened': menuOpen,
-    'is-vertical': context.mode === 'vertical',
+    'is-vertical': context.mode === 'vertical'
   })
   const subMenuClasses = classnames('submenu', {
-    'menu-opened': menuOpen,
+    'menu-opened': menuOpen
   })
 
   const handleClick = (e: MouseEvent) => {
@@ -43,47 +44,47 @@ const SubMenu = (props: SubMenuProps) => {
     }, 300)
   }
 
-  const clickEvents = context.mode === 'vertical'
-    ? {
-        onClick: handleClick,
-      }
-    : {}
+  const clickEvents =
+    context.mode === 'vertical'
+      ? {
+          onClick: handleClick
+        }
+      : {}
 
-  const hoverEvents = context.mode !== 'vertical'
-    ? {
-        onMouseEnter: (e: MouseEvent) => { handleMouse(e, true) },
-        onMouseLeave: (e: MouseEvent) => { handleMouse(e, false) },
-      }
-    : {}
+  const hoverEvents =
+    context.mode !== 'vertical'
+      ? {
+          onMouseEnter: (e: MouseEvent) => {
+            handleMouse(e, true)
+          },
+          onMouseLeave: (e: MouseEvent) => {
+            handleMouse(e, false)
+          }
+        }
+      : {}
 
   const renderChildren = () => {
-    return Children.map(children, (child) => {
+    return Children.map(children, child => {
       const childElement = child as FunctionComponentElement<MenuItemProps>
       const { displayName } = childElement.type
 
-      if (displayName === 'MenuItem')
+      if (displayName === 'MenuItem') {
         return childElement
+      }
 
-      console.error('Warning: SubMenu has a child which is not a MenuItem component')
+      console.error(
+        'Warning: SubMenu has a child which is not a MenuItem component'
+      )
     })
   }
 
   return (
-    <li
-      key={index}
-      className={classes}
-      {...hoverEvents}
-    >
-      <div
-        className="submenu-title"
-        {...clickEvents}
-      >
+    <li key={index} className={classes} {...hoverEvents}>
+      <div className="submenu-title" {...clickEvents}>
         {title}
         <Icon icon="angle-down" className="arrow-icon" />
       </div>
-      <ul className={subMenuClasses}>
-        {renderChildren()}
-      </ul>
+      <ul className={subMenuClasses}>{renderChildren()}</ul>
     </li>
   )
 }
