@@ -3,6 +3,7 @@ import classnames from 'classnames'
 import type { FunctionComponentElement, MouseEvent, ReactNode } from 'react'
 import { MenuContext } from './menu.tsx'
 import type { MenuItemProps } from './menuItem.tsx'
+import Icon from '@/components/Icon/icon.tsx'
 
 export interface SubMenuProps {
   index: string
@@ -21,6 +22,8 @@ const SubMenu = (props: SubMenuProps) => {
   const [menuOpen, setOpen] = useState(isOpened)
   const classes = classnames('menu-item submenu-item', className, {
     'is-active': context.index === index,
+    'is-opened': menuOpen,
+    'is-vertical': context.mode === 'vertical',
   })
   const subMenuClasses = classnames('submenu', {
     'menu-opened': menuOpen,
@@ -76,6 +79,7 @@ const SubMenu = (props: SubMenuProps) => {
         {...clickEvents}
       >
         {title}
+        <Icon icon="angle-down" className="arrow-icon" />
       </div>
       <ul className={subMenuClasses}>
         {renderChildren()}
