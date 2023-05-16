@@ -1,4 +1,4 @@
-import Button, { ButtonSize, ButtonType } from '@/components/Button/button.tsx'
+import Button from '@/components/Button/button.tsx'
 import Menu from '@/components/Menu/menu.tsx'
 import SubMenu from '@/components/Menu/subMenu.tsx'
 import MenuItem from '@/components/Menu/menuItem.tsx'
@@ -11,7 +11,6 @@ const App = () => {
       <Menu
         defaultIndex="0"
         defaultOpenSubMenus={['3']}
-        mode="vertical"
         onSelect={index => {
           console.log(index)
         }}
@@ -28,29 +27,21 @@ const App = () => {
       </Menu>
       <Button autoFocus>Default</Button>
       <Button
-        btnType={ButtonType.Danger}
-        size={ButtonSize.Large}
+        btnType="danger"
+        size="lg"
         onClick={e => {
           console.log(e)
         }}
       >
         Danger
       </Button>
-      <Button
-        className="custom"
-        btnType={ButtonType.Primary}
-        size={ButtonSize.Small}
-      >
+      <Button className="custom" btnType="primary" size="sm">
         Primary
       </Button>
-      <Button
-        btnType={ButtonType.Link}
-        href="https://www.google.com/"
-        target="_blank"
-      >
+      <Button btnType="link" href="https://www.google.com/" target="_blank">
         Google
       </Button>
-      <Button btnType={ButtonType.Link} href="https://www.google.com/" disabled>
+      <Button btnType="link" href="https://www.google.com/" disabled>
         Disabled
       </Button>
     </>
