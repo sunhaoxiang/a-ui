@@ -1,10 +1,10 @@
 import { Children, useContext, useState } from 'react'
 import classnames from 'classnames'
-import { CSSTransition } from 'react-transition-group'
 import type { FunctionComponentElement, MouseEvent, ReactNode } from 'react'
 import { MenuContext } from './menu.tsx'
 import type { MenuItemProps } from './menuItem.tsx'
 import Icon from '@/components/Icon/icon.tsx'
+import Transition from '@/components/Transition/transition.tsx'
 
 export interface SubMenuProps {
   index: string
@@ -82,15 +82,9 @@ const SubMenu = (props: SubMenuProps) => {
         {title}
         <Icon icon="angle-down" className="arrow-icon" />
       </div>
-      <CSSTransition
-        in={menuOpen}
-        timeout={300}
-        classNames="zoom-in-top"
-        appear
-        unmountOnExit
-      >
+      <Transition in={menuOpen} timeout={300} animation="zoom-in-top">
         <ul className="submenu">{renderChildren()}</ul>
-      </CSSTransition>
+      </Transition>
     </li>
   )
 }
