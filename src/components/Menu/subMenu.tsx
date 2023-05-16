@@ -27,9 +27,6 @@ const SubMenu = (props: SubMenuProps) => {
     'is-opened': menuOpen,
     'is-vertical': context.mode === 'vertical'
   })
-  const subMenuClasses = classnames('submenu', {
-    'menu-opened': menuOpen
-  })
 
   const handleClick = (e: MouseEvent) => {
     e.preventDefault()
@@ -90,8 +87,9 @@ const SubMenu = (props: SubMenuProps) => {
         timeout={300}
         classNames="zoom-in-top"
         appear
+        unmountOnExit
       >
-        <ul className={subMenuClasses}>{renderChildren()}</ul>
+        <ul className="submenu">{renderChildren()}</ul>
       </CSSTransition>
     </li>
   )
