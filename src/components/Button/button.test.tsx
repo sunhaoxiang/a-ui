@@ -1,5 +1,5 @@
 import { describe, expect, vi } from 'vitest'
-import Button, { ButtonSize, ButtonType } from './button'
+import Button from './button'
 import type { ButtonProps } from './button'
 import { fireEvent, render, screen } from '@/utils/test-utils'
 
@@ -8,8 +8,8 @@ const defaultProps = {
 }
 
 const testProps: ButtonProps = {
-  btnType: ButtonType.Primary,
-  size: ButtonSize.Large,
+  btnType: 'primary',
+  size: 'lg',
   className: 'klass'
 }
 
@@ -40,7 +40,7 @@ describe('test Button component', () => {
 
   it('should render a link when btnType equals link and href is provided', () => {
     render(
-      <Button btnType={ButtonType.Link} href="http://dummyurl">
+      <Button btnType="link" href="http://dummyurl">
         A Link
       </Button>
     )
