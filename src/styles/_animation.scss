@@ -2,6 +2,7 @@
   opacity: 0;
   transform: scaleY(0);
 }
+
 .zoom-in-top-enter-active {
   opacity: 1;
   transform: scaleY(1);
@@ -13,6 +14,7 @@
 .zoom-in-top-exit {
   opacity: 1;
 }
+
 .zoom-in-top-exit-active {
   opacity: 0;
   transform: scaleY(0);
