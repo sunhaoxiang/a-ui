@@ -227,3 +227,13 @@ $menu-item-disabled-color: $gray-600 !default;
 //submenu
 $submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12),
   0 0 6px 0 rgba(0, 0, 0, 0.04);
+
+// alerts
+$alert-padding-y: 0.75rem !default;
+$alert-padding-x: 1.25rem !default;
+$alert-margin-bottom: 1rem !default;
+$alert-border-radius: $border-radius !default;
+$alert-title-font-weight: $font-weight-bold !default;
+$alert-border-width: $border-width !default;
+$alert-description-font-size: $font-size-sm !default;
+$alert-description-top-margin: 0.3rem !default;
