@@ -3,10 +3,12 @@ import Menu from '@/components/Menu/menu.tsx'
 import SubMenu from '@/components/Menu/subMenu.tsx'
 import MenuItem from '@/components/Menu/menuItem.tsx'
 import Icon from '@/components/Icon/icon.tsx'
+import Alert from '@/components/Alert/alert.tsx'
 
 const App = () => {
   return (
     <>
+      <Alert title="123" type="success" />
       <Icon icon="coffee" theme="danger" size="2xl" />
       <Menu
         defaultIndex="0"
