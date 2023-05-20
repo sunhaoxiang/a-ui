@@ -35,11 +35,15 @@ const Alert = (props: AlertProps) => {
 
   return (
     <Transition in={!hide} timeout={300} animation="zoom-in-top">
-      <div className={classes}>
+      <div className={classes} role="alert">
         <span className={titleClass}>{title}</span>
         {description && <p className="alert-desc">{description}</p>}
         {closable && (
-          <span className="alert-close" onClick={handleClose}>
+          <span
+            className="alert-close"
+            role="alert-close-button"
+            onClick={handleClose}
+          >
             <Icon icon="times" />
           </span>
         )}
