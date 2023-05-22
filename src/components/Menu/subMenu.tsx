@@ -1,8 +1,14 @@
-import { Children, useContext, useState } from 'react'
+import {
+  Children,
+  useContext,
+  useState,
+  FunctionComponentElement,
+  MouseEvent,
+  ReactNode
+} from 'react'
 import classnames from 'classnames'
-import type { FunctionComponentElement, MouseEvent, ReactNode } from 'react'
 import { MenuContext } from './menu.tsx'
-import type { MenuItemProps } from './menuItem.tsx'
+import { MenuItemProps } from './menuItem.tsx'
 import Icon from '@/components/Icon/icon.tsx'
 import Transition from '@/components/Transition/transition.tsx'
 

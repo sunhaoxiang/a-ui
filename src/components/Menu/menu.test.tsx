@@ -1,8 +1,7 @@
 import { beforeEach, describe, expect, vi } from 'vitest'
-import Menu from './menu'
+import Menu, { MenuProps } from './menu'
 import MenuItem from './menuItem'
 import SubMenu from './subMenu'
-import type { MenuProps } from './menu'
 import { fireEvent, render, screen, waitFor } from '@/utils/test-utils.tsx'
 
 const testProps: MenuProps = {

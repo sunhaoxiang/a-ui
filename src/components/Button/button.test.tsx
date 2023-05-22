@@ -1,6 +1,5 @@
 import { describe, expect, vi } from 'vitest'
-import Button from './button'
-import type { ButtonProps } from './button'
+import Button, { ButtonProps } from './button'
 import { fireEvent, render, screen } from '@/utils/test-utils'
 
 const defaultProps = {
