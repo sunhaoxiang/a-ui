@@ -1,4 +1,12 @@
-import type { ReactNode } from 'react'
+import {
+  FC,
+  useState,
+  FunctionComponentElement,
+  ReactNode,
+  Children
+} from 'react'
+import classNames from 'classnames'
+import { TabItemProps } from './tabItem'
 
 export interface TabsProps {
   defaultIndex?: number
@@ -8,10 +16,67 @@ export interface TabsProps {
   children?: ReactNode
 }
 
-const Tabs = (props: TabsProps) => {
+const Tabs: FC<TabsProps> = props => {
   const { defaultIndex, className, onSelect, children, type } = props
 
-  return <div>Tabs</div>
+  const [activeIndex, setActiveIndex] = useState(defaultIndex)
+
+  const handleClick = (index: number, disabled: boolean | undefined) => {
+    if (!disabled) {
+      setActiveIndex(index)
+      if (onSelect) {
+        onSelect(index)
+      }
+    }
+  }
+
+  const tabClass = classNames('tabs', className)
+
+  const navClass = classNames('tabs-nav', {
+    'nav-line': type === 'line',
+    'nav-card': type === 'card'
+  })
+
+  const renderNavLinks = () => {
+    return Children.map(children, (child, index) => {
+      const childElement = child as FunctionComponentElement<TabItemProps>
+      const { label, disabled } = childElement.props
+      const classes = classNames('viking-tabs-nav-item', {
+        'is-active': activeIndex === index,
+        disabled: disabled
+      })
+      return (
+        <li
+          className={classes}
+          key={`nav-item-${index}`}
+          onClick={() => {
+            handleClick(index, disabled)
+          }}
+        >
+          {label}
+        </li>
+      )
+    })
+  }
+  const renderContent = () => {
+    return Children.map(children, (child, index) => {
+      if (index === activeIndex) {
+        return child
+      }
+    })
+  }
+
+  return (
+    <div className={tabClass}>
+      <ul className={navClass}>{renderNavLinks()}</ul>
+      <div className="viking-tabs-content">{renderContent()}</div>
+    </div>
+  )
+}
+
+Tabs.defaultProps = {
+  defaultIndex: 0,
+  type: 'line'
 }
 
 export default Tabs
