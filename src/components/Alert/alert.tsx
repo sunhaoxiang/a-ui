@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import classNames from 'classnames'
 import Icon from '@/components/Icon/icon.tsx'
 import Transition from '@/components/Transition/transition.tsx'
@@ -13,7 +13,7 @@ export interface AlertProps {
   onClose?: () => void
 }
 
-const Alert = (props: AlertProps) => {
+const Alert: FC<AlertProps> = props => {
   const { title, description, type, onClose, closable } = props
 
   const [hide, setHide] = useState(false)
