@@ -41,7 +41,7 @@ const Tabs: FC<TabsProps> = props => {
     return Children.map(children, (child, index) => {
       const childElement = child as FunctionComponentElement<TabItemProps>
       const { label, disabled } = childElement.props
-      const classes = classNames('viking-tabs-nav-item', {
+      const classes = classNames('tabs-nav-item', {
         'is-active': activeIndex === index,
         disabled: disabled
       })
@@ -69,7 +69,7 @@ const Tabs: FC<TabsProps> = props => {
   return (
     <div className={tabClass}>
       <ul className={navClass}>{renderNavLinks()}</ul>
-      <div className="viking-tabs-content">{renderContent()}</div>
+      <div className="tabs-content">{renderContent()}</div>
     </div>
   )
 }

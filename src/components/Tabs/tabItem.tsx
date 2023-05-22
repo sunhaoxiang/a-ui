@@ -1,7 +1,7 @@
-import React, { FC, ReactNode } from 'react'
+import { FC, ReactNode, ReactElement } from 'react'
 
 export interface TabItemProps {
-  label: string | React.ReactElement
+  label: string | ReactElement
   disabled?: boolean
   children?: ReactNode
 }
