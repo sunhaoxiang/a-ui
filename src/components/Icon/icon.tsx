@@ -1,8 +1,11 @@
+import { FC } from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  FontAwesomeIcon,
+  FontAwesomeIconProps
+} from '@fortawesome/react-fontawesome'
 import classnames from 'classnames'
-import type { FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
 
 library.add(fas)
 
@@ -21,7 +24,7 @@ export interface IconProps extends FontAwesomeIconProps {
   className?: string
 }
 
-const Icon = (props: IconProps) => {
+const Icon: FC<IconProps> = props => {
   const { theme, className, ...restProps } = props
 
   const classes = classnames('icon', className, {
