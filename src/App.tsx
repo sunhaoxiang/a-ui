@@ -4,10 +4,16 @@ import SubMenu from '@/components/Menu/subMenu.tsx'
 import MenuItem from '@/components/Menu/menuItem.tsx'
 import Icon from '@/components/Icon/icon.tsx'
 import Alert from '@/components/Alert/alert.tsx'
+import Tabs from '@/components/Tabs/tabs.tsx'
+import TabItem from '@/components/Tabs/tabItem.tsx'
 
 const App = () => {
   return (
     <>
+      <Tabs>
+        <TabItem label="label1">123</TabItem>
+        <TabItem label="label2">456</TabItem>
+      </Tabs>
       <Alert title="123" type="success" />
       <Icon icon="coffee" theme="danger" size="2xl" />
       <Menu
