@@ -1,9 +1,10 @@
-import classnames from 'classnames'
-import type {
+import {
+  FC,
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
   ReactNode
 } from 'react'
+import classnames from 'classnames'
 
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
 
@@ -24,7 +25,7 @@ type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
 
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 
-const Button = (props: ButtonProps) => {
+const Button: FC<ButtonProps> = props => {
   const { btnType, className, disabled, size, href, children, ...restProps } =
     props
 
