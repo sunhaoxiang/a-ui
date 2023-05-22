@@ -1,6 +1,5 @@
-import { useContext } from 'react'
+import { FC, useContext, CSSProperties, ReactNode } from 'react'
 import classnames from 'classnames'
-import type { CSSProperties, ReactNode } from 'react'
 import { MenuContext } from './menu.tsx'
 
 export interface MenuItemProps {
@@ -11,7 +10,7 @@ export interface MenuItemProps {
   children: ReactNode
 }
 
-const MenuItem = (props: MenuItemProps) => {
+const MenuItem: FC<MenuItemProps> = props => {
   const { index, disabled, className, style, children } = props
 
   const context = useContext(MenuContext)

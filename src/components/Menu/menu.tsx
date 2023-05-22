@@ -1,7 +1,14 @@
-import { Children, createContext, useState } from 'react'
+import {
+  FC,
+  Children,
+  createContext,
+  useState,
+  CSSProperties,
+  FunctionComponentElement,
+  ReactNode
+} from 'react'
 import classnames from 'classnames'
-import type { CSSProperties, FunctionComponentElement, ReactNode } from 'react'
-import type { MenuItemProps } from './menuItem.tsx'
+import { MenuItemProps } from './menuItem.tsx'
 
 type MenuMode = 'horizontal' | 'vertical'
 type SelectCallback = (selectedIndex: string) => void
@@ -25,7 +32,7 @@ interface IMenuContext {
 
 export const MenuContext = createContext<IMenuContext>({ index: '0' })
 
-const Menu = (props: MenuProps) => {
+const Menu: FC<MenuProps> = props => {
   const {
     defaultIndex,
     defaultOpenSubMenus,
@@ -79,7 +86,7 @@ const Menu = (props: MenuProps) => {
 }
 
 Menu.defaultProps = {
-  defaultIndex: 0,
+  defaultIndex: '0',
   defaultOpenSubMenus: [],
   mode: 'horizontal'
 }
