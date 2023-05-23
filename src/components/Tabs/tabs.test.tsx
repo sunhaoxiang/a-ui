@@ -7,7 +7,9 @@ const testProps: TabsProps = {
   defaultIndex: 1,
   onSelect: vi.fn()
 }
+
 let wrapper: RenderResult
+
 describe('test Tabs Component', () => {
   beforeEach(() => {
     wrapper = render(
@@ -20,9 +22,11 @@ describe('test Tabs Component', () => {
       </Tabs>
     )
   })
+
   afterEach(() => {
     vi.clearAllMocks()
   })
+
   it('should render the correct default Tabs', () => {
     const { container } = wrapper
     expect(container.querySelector('.tabs-nav')).toHaveClass('nav-line')
