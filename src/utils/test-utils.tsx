@@ -1,4 +1,4 @@
-/* eslint-disable import/export, react-refresh/only-export-components */
+/* eslint-disable react-refresh/only-export-components */
 import { render } from '@testing-library/react'
 
 const customRender = (ui: React.ReactElement, options = {}) => {

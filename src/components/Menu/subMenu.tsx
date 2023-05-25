@@ -39,7 +39,7 @@ const SubMenu = (props: SubMenuProps) => {
     setOpen(!menuOpen)
   }
 
-  let timer: any
+  let timer: ReturnType<typeof setTimeout>
   const handleMouse = (e: MouseEvent, toggle: boolean) => {
     clearTimeout(timer)
     e.preventDefault()
