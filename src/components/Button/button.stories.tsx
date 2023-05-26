@@ -4,14 +4,26 @@ import Button from './button.tsx'
 const buttonMeta: Meta<typeof Button> = {
   title: 'Button1',
   component: Button,
+  argTypes: {
+    btnType: {
+      options: ['primary', 'default', 'danger', 'link'],
+      control: {
+        type: 'radio'
+      }
+    }
+  },
   tags: ['autodocs']
 }
 
 export default buttonMeta
 
-type Story = StoryObj<typeof buttonMeta>
+type Story = StoryObj<typeof Button>
 
-export const DefaultButton: Story = () => <Button>Default</Button>
+export const DefaultButton: Story = {
+  args: {
+    children: 'Default'
+  }
+}
 
 export const ButtonWithSize: Story = () => (
   <>
