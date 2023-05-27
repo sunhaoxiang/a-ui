@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import Button from './button.tsx'
 
 const buttonMeta: Meta<typeof Button> = {
-  title: 'Button1',
+  title: 'Button',
   component: Button,
   // argTypes: {
   //   btnType: {
@@ -19,33 +19,64 @@ export default buttonMeta
 
 type Story = StoryObj<typeof Button>
 
+const Template: Story = {
+  render: args => <Button {...args} />
+}
+
+// export const DefaultButton: Story = {
+//   render: args => <Button {...args}>Default Button</Button>
+// }
+
 export const DefaultButton: Story = {
-  render: args => <Button {...args}>Default Button</Button>
+  ...Template,
+  args: {
+    children: 'Default Button'
+  }
 }
 
-export const ButtonWithSize: Story = {
-  render: args => (
-    <>
-      <Button {...args} size="lg">
-        Large Button
-      </Button>
-      <Button size="sm">Small Button</Button>
-    </>
-  )
+export const DisabledButton: Story = {
+  ...Template,
+  args: {
+    disabled: true,
+    children: 'Disabled Button'
+  }
 }
 
-export const ButtonWithType: Story = {
-  render: args => (
-    <>
-      <Button {...args} btnType="primary">
-        Primary Button
-      </Button>
-      <Button {...args} btnType="danger">
-        Danger Button
-      </Button>
-      <Button {...args} btnType="link" href="https://google.com">
-        Link Button
-      </Button>
-    </>
-  )
+export const PrimaryButton: Story = {
+  ...Template,
+  args: {
+    btnType: 'primary',
+    children: 'Primary Button'
+  }
+}
+export const DangerButton: Story = {
+  ...Template,
+  args: {
+    btnType: 'danger',
+    children: 'Danger Button'
+  }
+}
+export const LinkButton: Story = {
+  ...Template,
+  args: {
+    btnType: 'link',
+    href: 'https://www.google.com',
+    children: 'Link Button'
+  }
+}
+
+export const LargeButton: Story = {
+  ...Template,
+  args: {
+    size: 'lg',
+    children: 'Large Button'
+  }
+}
+
+export const SmallButton: Story = {
+  ...Template,
+  args: {
+    size: 'sm',
+    children: 'Small Button'
+  }
 }
