@@ -32,7 +32,7 @@ interface IMenuContext {
 
 export const MenuContext = createContext<IMenuContext>({ index: '0' })
 
-const Menu: FC<MenuProps> = props => {
+export const Menu: FC<MenuProps> = props => {
   const {
     defaultIndex,
     defaultOpenSubMenus,
