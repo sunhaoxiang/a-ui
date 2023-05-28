@@ -11,7 +11,6 @@ import classnames from 'classnames'
 import { MenuItemProps } from './menuItem.tsx'
 
 type MenuMode = 'horizontal' | 'vertical'
-type SelectCallback = (selectedIndex: string) => void
 
 export interface MenuProps {
   defaultIndex?: string
@@ -19,7 +18,7 @@ export interface MenuProps {
   mode?: MenuMode
   className?: string
   style?: CSSProperties
-  onSelect?: SelectCallback
+  onSelect?: (selectedIndex: string) => void
   children?: ReactNode
 }
 
@@ -27,7 +26,7 @@ interface IMenuContext {
   index: string
   defaultOpenSubMenus?: string[]
   mode?: MenuMode
-  onSelect?: SelectCallback
+  onSelect?: (selectedIndex: string) => void
 }
 
 export const MenuContext = createContext<IMenuContext>({ index: '0' })
