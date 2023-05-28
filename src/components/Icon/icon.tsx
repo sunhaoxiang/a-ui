@@ -24,7 +24,7 @@ export interface IconProps extends FontAwesomeIconProps {
   className?: string
 }
 
-const Icon: FC<IconProps> = props => {
+export const Icon: FC<IconProps> = props => {
   const { theme, className, ...restProps } = props
 
   const classes = classnames('icon', className, {
