@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import Button from './button.tsx'
+import Icon from '../Icon/icon.tsx'
 
 const buttonMeta: Meta<typeof Button> = {
   title: 'General/Button',
@@ -74,4 +75,12 @@ export const SmallButton: Story = {
     size: 'sm',
     children: 'Small Button'
   }
+}
+
+export const IconButton: Story = {
+  render: args => (
+    <Button {...args} btnType="danger">
+      <Icon icon="trash" />
+    </Button>
+  )
 }
