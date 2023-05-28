@@ -12,7 +12,7 @@ export default iconMeta
 
 type Story = StoryObj<typeof Icon>
 
-const Template: Story = {
+export const DefaultIcon: Story = {
   render: args => (
     <>
       <Icon {...args} icon="check" size="3x" />
@@ -27,6 +27,22 @@ const Template: Story = {
   )
 }
 
-export const DefaultIcon: Story = {
-  ...Template
+export const DifferentThemeIcon: Story = {
+  render: args => (
+    <>
+      <Icon {...args} icon="check" size="3x" theme="success" />
+      <Icon {...args} icon="times" size="3x" theme="danger" />
+      <Icon {...args} icon="anchor" size="3x" theme="primary" />
+      <Icon {...args} icon="exclamation-circle" size="3x" theme="warning" />
+    </>
+  )
+}
+
+export const CustomColorIcon: Story = {
+  render: args => (
+    <>
+      <Icon {...args} icon="spinner" size="3x" theme="primary" spin />
+      <Icon {...args} icon="spinner" size="3x" theme="success" pulse />
+    </>
+  )
 }
