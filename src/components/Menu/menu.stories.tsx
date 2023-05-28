@@ -7,11 +7,13 @@ const menuMeta: Meta<typeof Menu> = {
   id: 'Menu',
   title: 'Menu',
   component: Menu,
-  // argTypes: {
-  //   defaultOpenSubMenus: {
-  //     control: 'array'
-  //   }
-  // },
+  argTypes: {
+    onSelect: {
+      control: {
+        type: null
+      }
+    }
+  },
   tags: ['autodocs']
 }
 
@@ -27,9 +29,9 @@ const Template: Story = {
       <MenuItem index="2" disabled>
         disabled
       </MenuItem>
-      <SubMenu index="3" title="下拉选项">
-        <MenuItem index="3-0">下拉选项一</MenuItem>
-        <MenuItem index="3-1">下拉选项二</MenuItem>
+      <SubMenu index="3" title="dropDown">
+        <MenuItem index="3-0">drop down 1</MenuItem>
+        <MenuItem index="3-1">drop down 2</MenuItem>
       </SubMenu>
     </Menu>
   )
