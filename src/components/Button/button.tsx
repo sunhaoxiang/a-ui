@@ -11,10 +11,15 @@ export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
 export type ButtonSize = 'lg' | 'sm'
 
 interface BaseButtonProps {
+  /** Set the class name of button */
   className?: string
+  /** Set the disabled of button */
   disabled?: boolean
+  /** Set the type of button */
   btnType?: ButtonType
+  /** Set the size of button */
   size?: ButtonSize
+  /** Set the href of button */
   href?: string
   children?: ReactNode
 }
