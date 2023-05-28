@@ -16,7 +16,7 @@ export interface TabsProps {
   children?: ReactNode
 }
 
-const Tabs: FC<TabsProps> = props => {
+export const Tabs: FC<TabsProps> = props => {
   const { defaultIndex, className, onSelect, children, type } = props
 
   const [activeIndex, setActiveIndex] = useState(defaultIndex)
