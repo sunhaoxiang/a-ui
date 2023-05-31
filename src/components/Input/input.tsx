@@ -23,7 +23,7 @@ export interface InputProps
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const { disabled, size, icon, prepend, append, style, ...restProps } = props
 
-  const cnames = classNames('input-wrapper', {
+  const classes = classNames('input-wrapper', {
     [`input-size-${size}`]: size,
     'is-disabled': disabled,
     'input-group': prepend || append,
@@ -44,7 +44,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   }
 
   return (
-    <div className={cnames} style={style}>
+    <div className={classes} style={style}>
       {prepend && <div className="input-group-prepend">{prepend}</div>}
       {icon && (
         <div className="icon-wrapper">
