@@ -5,13 +5,6 @@ import Icon from '../Icon/icon.tsx'
 const buttonMeta: Meta<typeof Button> = {
   title: 'General/Button',
   component: Button,
-  parameters: {
-    docs: {
-      description: {
-        className: 'my-description'
-      }
-    }
-  },
   tags: ['autodocs']
 }
 
