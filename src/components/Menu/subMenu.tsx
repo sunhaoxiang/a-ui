@@ -29,7 +29,7 @@ export const SubMenu: FC<SubMenuProps> = props => {
       ? openedSubMenus.includes(index)
       : false
   const [menuOpen, setOpen] = useState(isOpened)
-  const classes = classnames('menu-item submenu-item', className, {
+  const classes = classnames('a-menu-item a-submenu-item', className, {
     'is-active': context.index === index,
     'is-opened': menuOpen,
     'is-vertical': context.mode === 'vertical'

@@ -66,10 +66,10 @@ describe('test Menu and MenuItem component', () => {
   })
   it('should render the correct Menu and MenuItem based on default props', () => {
     expect(menuElement).toBeInTheDocument()
-    expect(menuElement).toHaveClass('menu test')
+    expect(menuElement).toHaveClass('a-menu test')
     expect(menuElement.querySelectorAll(':scope > li').length).toEqual(5)
-    expect(activeElement).toHaveClass('menu-item is-active')
-    expect(disabledElement).toHaveClass('menu-item is-disabled')
+    expect(activeElement).toHaveClass('a-menu-item is-active')
+    expect(disabledElement).toHaveClass('a-menu-item is-disabled')
   })
   it('click items should change active and call the right callback', () => {
     const thirdItem = screen.getByText('xyz')
@@ -111,7 +111,7 @@ describe('test Menu and MenuItem component in vertical mode', () => {
     subMenuItemOpenedElement = screen.queryByText('opened1')
   })
   it('should render vertical mode when mode is set to vertical', () => {
-    expect(menuElement).toHaveClass('menu-vertical')
+    expect(menuElement).toHaveClass('a-menu-vertical')
   })
   it('should show dropdown items when click on subMenu for vertical mode', async () => {
     expect(subMenuItemDrop1Element).not.toBeInTheDocument()

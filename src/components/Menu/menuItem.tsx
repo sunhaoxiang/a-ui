@@ -15,7 +15,7 @@ export const MenuItem: FC<MenuItemProps> = props => {
 
   const context = useContext(MenuContext)
 
-  const classes = classnames('menu-item', className, {
+  const classes = classnames('a-menu-item', className, {
     'is-disabled': disabled,
     'is-active': context.index === index
   })
