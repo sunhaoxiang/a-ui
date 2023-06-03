@@ -4,13 +4,14 @@ $alert-colors: (
   'warning': $warning,
   'danger': $danger
 );
-.alert {
+
+.a-alert {
   position: relative;
   padding: $alert-padding-y $alert-padding-x;
   margin-bottom: $alert-margin-bottom;
   border: $alert-border-width solid transparent;
   border-radius: $alert-border-radius;
-  .alert-close {
+  .a-alert-close {
     position: absolute;
     top: 0;
     right: 0;
@@ -21,13 +22,14 @@ $alert-colors: (
   .bold-title {
     font-weight: $font-weight-bold;
   }
-  .alert-desc {
+  .a-alert-desc {
     font-size: $alert-description-font-size;
     margin: $alert-description-top-margin 0 0;
   }
 }
+
 @each $color, $value in $alert-colors {
-  .alert-#{$color} {
+  .a-alert-#{$color} {
     @include alert-style($value, darken($value, 5%), $white);
   }
 }

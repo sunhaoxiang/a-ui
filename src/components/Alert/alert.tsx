@@ -18,11 +18,11 @@ const Alert: FC<AlertProps> = props => {
 
   const [hide, setHide] = useState(false)
 
-  const classes = classNames('alert', {
-    [`alert-${type}`]: type
+  const classes = classNames('a-alert', {
+    [`a-alert-${type}`]: type
   })
 
-  const titleClass = classNames('alert-title', {
+  const titleClass = classNames('a-alert-title', {
     'bold-title': description
   })
 
@@ -37,10 +37,10 @@ const Alert: FC<AlertProps> = props => {
     <Transition in={!hide} timeout={300} animation="zoom-in-top">
       <div className={classes} role="alert">
         <span className={titleClass}>{title}</span>
-        {description && <p className="alert-desc">{description}</p>}
+        {description && <p className="a-alert-desc">{description}</p>}
         {closable && (
           <span
-            className="alert-close"
+            className="a-alert-close"
             role="alert-close-button"
             onClick={handleClose}
           >
