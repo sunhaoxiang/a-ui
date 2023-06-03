@@ -23,7 +23,7 @@ const Alert: FC<AlertProps> = props => {
   })
 
   const titleClass = classNames('a-alert-title', {
-    'a-alert-bold-title': description
+    'bold-title': description
   })
 
   const handleClose = () => {

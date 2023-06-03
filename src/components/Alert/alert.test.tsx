@@ -31,7 +31,7 @@ describe('test Alert Component', () => {
   it('should render the correct Alert based on different type and description', () => {
     render(<Alert {...typeProps} />)
     const element = screen.getByRole('alert')
-    expect(element.querySelector('.a-alert-bold-title')).toBeInTheDocument()
+    expect(element.querySelector('.bold-title')).toBeInTheDocument()
     expect(element).toHaveClass('a-alert-success')
     expect(screen.queryByText('hello')).toBeInTheDocument()
     expect(screen.queryByText('times')).not.toBeInTheDocument()
