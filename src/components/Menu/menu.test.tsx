@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, vi } from 'vitest'
 import Menu, { MenuProps } from './menu'
 import MenuItem from './menuItem'
 import SubMenu from './subMenu'
-import { fireEvent, render, screen, waitFor } from '@/utils/test-utils.tsx'
+import { fireEvent, render, screen } from '@/utils/test-utils.tsx'
 
 const testProps: MenuProps = {
   defaultIndex: '0',
@@ -37,11 +37,8 @@ const generateMenu = (props: MenuProps) => {
 
 const createStyleFile = () => {
   const cssFile = `
-    .submenu {
+    .a-submenu {
       display: none;
-    }
-    .submenu.menu-opened {
-      display: block;
     }
   `
   const style = document.createElement('style')
@@ -85,15 +82,11 @@ describe('test Menu and MenuItem component', () => {
   it('should show dropdown items when hover on subMenu', async () => {
     expect(subMenuItemElement).not.toBeInTheDocument()
     fireEvent.mouseEnter(subMenuElement)
-    await waitFor(() => {
-      expect(screen.getByText('drop1')).toBeInTheDocument()
-    })
+    expect(await screen.findByText('drop1')).toBeInTheDocument()
     fireEvent.click(screen.getByText('drop1'))
     expect(testProps.onSelect).toHaveBeenCalledWith('3-0')
     fireEvent.mouseLeave(subMenuElement)
-    await waitFor(() => {
-      expect(screen.getByText('drop1')).not.toBeVisible()
-    })
+    expect(await screen.findByText('drop1')).not.toBeVisible()
   })
 })
 
