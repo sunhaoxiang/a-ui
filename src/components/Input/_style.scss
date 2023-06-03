@@ -46,6 +46,7 @@
     outline: 0;
     box-shadow: $input-focus-box-shadow;
     // Avoid using mixin so we can pass custom focus shadow properly
+    z-index: 0;
   }
   &::placeholder {
     color: $input-placeholder-color;
