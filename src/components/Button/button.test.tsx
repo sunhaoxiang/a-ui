@@ -23,7 +23,7 @@ describe('test Button component', () => {
     const element = screen.getByRole('button')
     expect(element).toBeInTheDocument()
     expect(element.tagName).toEqual('BUTTON')
-    expect(element).toHaveClass('btn btn-default')
+    expect(element).toHaveClass('a-btn a-btn-default')
     expect(element).not.toBeDisabled()
     expect(defaultProps.onClick).not.toHaveBeenCalled()
     fireEvent.click(element)
@@ -34,7 +34,7 @@ describe('test Button component', () => {
     render(<Button {...testProps}>A Button</Button>)
     const element = screen.getByRole('button')
     expect(element).toBeInTheDocument()
-    expect(element).toHaveClass('btn-primary btn-lg klass')
+    expect(element).toHaveClass('a-btn-primary a-btn-lg klass')
   })
 
   it('should render a link when btnType equals link and href is provided', () => {
@@ -46,7 +46,7 @@ describe('test Button component', () => {
     const element = screen.getByRole('link')
     expect(element).toBeInTheDocument()
     expect(element.tagName).toEqual('A')
-    expect(element).toHaveClass('btn btn-link')
+    expect(element).toHaveClass('a-btn a-btn-link')
   })
 
   it('should render disabled button when disabled set to true', () => {

@@ -30,9 +30,9 @@ export const Button: FC<ButtonProps> = props => {
     props
 
   // btn, btn-lg, btn-primary
-  const classes = classnames('btn', className, {
-    [`btn-${btnType}`]: btnType,
-    [`btn-${size}`]: size,
+  const classes = classnames('a-btn', className, {
+    [`a-btn-${btnType}`]: btnType,
+    [`a-btn-${size}`]: size,
     disabled: btnType === 'link' && disabled
   })
 
