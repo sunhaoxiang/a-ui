@@ -7,7 +7,7 @@ export interface TabItemProps {
 }
 
 export const TabItem: FC<TabItemProps> = ({ children }) => {
-  return <div className="tab-panel">{children}</div>
+  return <div className="a-tab-panel">{children}</div>
 }
 
 export default TabItem

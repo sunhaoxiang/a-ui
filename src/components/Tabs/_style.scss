@@ -1,4 +1,4 @@
-.tabs-nav {
+.a-tabs-nav {
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
@@ -7,7 +7,7 @@
   border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
 }
 
-.tabs-nav-item {
+.a-tabs-nav-item {
   display: block;
   padding: $nav-link-padding-y $nav-link-padding-x;
   cursor: pointer;
@@ -28,8 +28,8 @@
   }
 }
 
-.nav-line {
-  .tabs-nav-item {
+.a-nav-line {
+  .a-tabs-nav-item {
     &.is-active {
       border-bottom: $nav-tabs-border-width * 2 solid
         $nav-tabs-link-active-color;
@@ -37,8 +37,8 @@
   }
 }
 
-.nav-card {
-  .tabs-nav-item {
+.a-nav-card {
+  .a-tabs-nav-item {
     border: $nav-tabs-border-width solid transparent;
     margin-bottom: -$nav-tabs-border-width;
     &.is-active {
@@ -49,6 +49,6 @@
   }
 }
 
-.tabs-content {
+.a-tabs-content {
   margin-top: $nav-tabs-content-margin;
 }

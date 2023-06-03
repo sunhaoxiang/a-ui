@@ -30,18 +30,18 @@ export const Tabs: FC<TabsProps> = props => {
     }
   }
 
-  const tabClass = classNames('tabs', className)
+  const tabClass = classNames('a-tabs', className)
 
-  const navClass = classNames('tabs-nav', {
-    'nav-line': type === 'line',
-    'nav-card': type === 'card'
+  const navClass = classNames('a-tabs-nav', {
+    'a-nav-line': type === 'line',
+    'a-nav-card': type === 'card'
   })
 
   const renderNavLinks = () => {
     return Children.map(children, (child, index) => {
       const childElement = child as FunctionComponentElement<TabItemProps>
       const { label, disabled } = childElement.props
-      const classes = classNames('tabs-nav-item', {
+      const classes = classNames('a-tabs-nav-item', {
         'is-active': activeIndex === index,
         disabled: disabled
       })
@@ -69,7 +69,7 @@ export const Tabs: FC<TabsProps> = props => {
   return (
     <div className={tabClass}>
       <ul className={navClass}>{renderNavLinks()}</ul>
-      <div className="tabs-content">{renderContent()}</div>
+      <div className="a-tabs-content">{renderContent()}</div>
     </div>
   )
 }
