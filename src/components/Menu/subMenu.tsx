@@ -85,12 +85,12 @@ export const SubMenu: FC<SubMenuProps> = props => {
 
   return (
     <li key={index} className={classes} {...hoverEvents}>
-      <div className="submenu-title" {...clickEvents}>
+      <div className="a-submenu-title" {...clickEvents}>
         {title}
         <Icon icon="angle-down" className="arrow-icon" />
       </div>
       <Transition in={menuOpen} timeout={300} animation="zoom-in-top">
-        <ul className="submenu">{renderChildren()}</ul>
+        <ul className="a-submenu">{renderChildren()}</ul>
       </Transition>
     </li>
   )
