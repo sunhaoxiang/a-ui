@@ -23,12 +23,12 @@ export interface InputProps
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const { disabled, size, icon, prepend, append, style, ...restProps } = props
 
-  const classes = classNames('input-wrapper', {
-    [`input-size-${size}`]: size,
-    'is-disabled': disabled,
-    'input-group': prepend || append,
-    'input-group-append': !!append,
-    'input-group-prepend': !!prepend
+  const classes = classNames('a-input-wrapper', {
+    [`a-input-size-${size}`]: size,
+    'a-is-disabled': disabled,
+    'a-input-group': prepend || append,
+    'a-input-group-append-wrapper': !!append,
+    'a-input-group-prepend-wrapper': !!prepend
   })
 
   const fixControlledValue = (value: any) => {
@@ -45,19 +45,19 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 
   return (
     <div className={classes} style={style}>
-      {prepend && <div className="input-group-prepend">{prepend}</div>}
+      {prepend && <div className="a-input-group-prepend">{prepend}</div>}
       {icon && (
-        <div className="icon-wrapper">
+        <div className="a-icon-wrapper">
           <Icon icon={icon} title={`title-${icon}`} />
         </div>
       )}
       <input
         ref={ref}
-        className="input-inner"
+        className="a-input-inner"
         disabled={disabled}
         {...restProps}
       />
-      {append && <div className="input-group-append">{append}</div>}
+      {append && <div className="a-input-group-append">{append}</div>}
     </div>
   )
 })

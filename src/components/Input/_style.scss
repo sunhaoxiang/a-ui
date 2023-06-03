@@ -1,9 +1,9 @@
-.input-wrapper {
+.a-input-wrapper {
   display: flex;
   width: 100%;
   margin-bottom: 30px;
   position: relative;
-  .icon-wrapper {
+  .a-icon-wrapper {
     position: absolute;
     height: 100%;
     width: 35px;
@@ -18,10 +18,10 @@
     }
   }
 }
-.icon-wrapper + .input-inner {
+.a-icon-wrapper + .a-input-inner {
   padding-right: 35px;
 }
-.input-inner {
+.a-input-inner {
   width: 100%;
   padding: $input-padding-y $input-padding-x;
   font-family: $input-font-family;
@@ -60,8 +60,8 @@
     opacity: 1;
   }
 }
-.input-group-prepend,
-.input-group-append {
+.a-input-group-prepend,
+.a-input-group-append {
   display: flex;
   align-items: center;
   padding: $input-padding-y $input-padding-x;
@@ -76,27 +76,33 @@
   border: $input-border-width solid $input-group-addon-border-color;
   border-radius: $input-border-radius;
 }
-.input-group-append + .btn {
+.a-input-group-append + .btn {
   padding: 0;
   border: 0;
 }
-.input-group > .input-group-prepend,
-.input-group.input-group-append > .input-inner {
+.a-input-group > .a-input-group-prepend,
+.a-input-group.a-input-group-append-wrapper > .a-input-inner {
   @include border-right-radius(0);
 }
-
-.input-group > .input-group-append,
-.input-group.input-group-prepend > .input-inner {
-  @include border-left-radius(0);
+.a-input-group.a-input-group-prepend-wrapper > .a-input-inner {
+  border-left: none;
 }
 
-.input-size-sm .input-inner {
+.a-input-group > .a-input-group-append,
+.a-input-group.a-input-group-prepend-wrapper > .a-input-inner {
+  @include border-left-radius(0);
+}
+.a-input-group.a-input-group-append-wrapper > .a-input-inner {
+  border-right: none;
+}
+
+.a-input-size-sm .a-input-inner {
   padding: $input-padding-y-sm $input-padding-x-sm;
   font-size: $input-font-size-sm;
   border-radius: $input-border-radius-sm;
 }
 
-.input-size-lg .input-inner {
+.a-input-size-lg .a-input-inner {
   padding: $input-padding-y-lg $input-padding-x-lg;
   font-size: $input-font-size-lg;
   border-radius: $input-border-radius-lg;
