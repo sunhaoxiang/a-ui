@@ -4,13 +4,13 @@ import Input from './input.tsx'
 const inputMeta: Meta<typeof Input> = {
   title: 'Data Entry/Input',
   component: Input,
-  parameters: {
-    docs: {
-      description: {
-        className: 'my-description'
-      }
-    }
-  },
+  decorators: [
+    Story => (
+      <div style={{ width: '350px' }}>
+        <Story />
+      </div>
+    )
+  ],
   tags: ['autodocs']
 }
 
