@@ -13,7 +13,7 @@ export interface AlertProps {
   onClose?: () => void
 }
 
-const Alert: FC<AlertProps> = props => {
+export const Alert: FC<AlertProps> = props => {
   const { title, description, type, onClose, closable } = props
 
   const [hide, setHide] = useState(false)
