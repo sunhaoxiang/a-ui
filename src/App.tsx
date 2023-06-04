@@ -6,6 +6,7 @@ import Icon from '@/components/Icon/icon.tsx'
 import Alert from '@/components/Alert/alert.tsx'
 import Tabs from '@/components/Tabs/tabs.tsx'
 import TabItem from '@/components/Tabs/tabItem.tsx'
+import Input from '@/components/Input/input.tsx'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <TabItem label="label1">123</TabItem>
         <TabItem label="label2">456</TabItem>
       </Tabs>
+      <Input placeholder="google" prepend="https://" append=".com" />
       <Alert title="123" type="success" />
       <Icon icon="coffee" theme="danger" size="2xl" />
       <Menu
