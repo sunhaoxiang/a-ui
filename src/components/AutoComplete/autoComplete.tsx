@@ -1,5 +1,6 @@
 import { FC, useState, ChangeEvent, ReactElement } from 'react'
 import Input, { InputProps } from '@/components/Input/input.tsx'
+import Icon from '@/components/Icon/icon.tsx'
 
 interface DataSourceObject {
   value: string
@@ -21,6 +22,7 @@ export const AutoComplete: FC<AutoCompleteProps> = props => {
 
   const [inputValue, setInputValue] = useState(value)
   const [suggestions, setSuggestions] = useState<DataSourceType[]>([])
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim()
@@ -28,7 +30,9 @@ export const AutoComplete: FC<AutoCompleteProps> = props => {
     if (value) {
       const result = fetchSuggestions(value)
       if (result instanceof Promise) {
+        setLoading(true)
         result.then(data => {
+          setLoading(false)
           setSuggestions(data)
         })
       } else {
@@ -68,6 +72,11 @@ export const AutoComplete: FC<AutoCompleteProps> = props => {
   return (
     <div className="a-auto-complete">
       <Input value={inputValue} onChange={handleChange} {...restProps} />
+      {loading && (
+        <ul>
+          <Icon icon="spinner" spin />
+        </ul>
+      )}
       {suggestions.length > 0 && generateDropdown()}
     </div>
   )
