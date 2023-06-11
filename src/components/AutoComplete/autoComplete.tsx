@@ -179,11 +179,6 @@ export const AutoComplete: FC<AutoCompleteProps> = props => {
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />
-      {loading && (
-        <ul>
-          <Icon icon="spinner" spin />
-        </ul>
-      )}
       {generateDropdown()}
     </div>
   )
