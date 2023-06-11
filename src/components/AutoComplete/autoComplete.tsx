@@ -148,7 +148,7 @@ export const AutoComplete: FC<AutoCompleteProps> = props => {
       >
         <ul className="a-suggestion-list">
           {loading && (
-            <div className="suggstions-loading-icon">
+            <div className="suggestion-loading-icon">
               <Icon icon="spinner" spin />
             </div>
           )}
