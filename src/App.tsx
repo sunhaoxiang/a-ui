@@ -1,59 +1,30 @@
-import Button from '@/components/Button/button.tsx'
-import Menu from '@/components/Menu/menu.tsx'
-import SubMenu from '@/components/Menu/subMenu.tsx'
-import MenuItem from '@/components/Menu/menuItem.tsx'
-import Icon from '@/components/Icon/icon.tsx'
-import Alert from '@/components/Alert/alert.tsx'
-import Tabs from '@/components/Tabs/tabs.tsx'
-import TabItem from '@/components/Tabs/tabItem.tsx'
-import Input from '@/components/Input/input.tsx'
+// import { ChangeEvent } from 'react'
+// import axios from 'axios'
 
 const App = () => {
+  // const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+  //   const files = e.target.files
+  //   if (files) {
+  //     const uploadedFile = files[0]
+  //     const formData = new FormData()
+  //     formData.append(uploadedFile.name, uploadedFile)
+  //     axios
+  //       .post('https://jsonplaceholder.typicode.com/posts', formData, {
+  //         headers: {
+  //           'Content-Type': 'multipart/form-data'
+  //         }
+  //       })
+  //       .then(res => {
+  //         console.log(res)
+  //       })
+  //   }
+  // }
+
   return (
     <>
-      <Tabs>
-        <TabItem label="label1">123</TabItem>
-        <TabItem label="label2">456</TabItem>
-      </Tabs>
-      <Input placeholder="google" prepend="https://" append=".com" />
-      <Alert title="123" type="success" />
-      <Icon icon="coffee" theme="danger" size="2xl" />
-      <Menu
-        defaultIndex="0"
-        defaultOpenSubMenus={['3']}
-        onSelect={index => {
-          console.log(index)
-        }}
-      >
-        <MenuItem index="0">cool link</MenuItem>
-        <MenuItem index="1" disabled>
-          cool link 2
-        </MenuItem>
-        <MenuItem index="2">cool link 3</MenuItem>
-        <SubMenu index="3" title="dropDown">
-          <MenuItem index="3-0">dropdown 1</MenuItem>
-          <MenuItem index="3-0">dropdown 2</MenuItem>
-        </SubMenu>
-      </Menu>
-      <Button autoFocus>Default</Button>
-      <Button
-        btnType="danger"
-        size="lg"
-        onClick={e => {
-          console.log(e)
-        }}
-      >
-        Danger
-      </Button>
-      <Button className="custom" btnType="primary" size="sm">
-        Primary
-      </Button>
-      <Button btnType="link" href="https://www.google.com/" target="_blank">
-        Google
-      </Button>
-      <Button btnType="link" href="https://www.google.com/" disabled>
-        Disabled
-      </Button>
+      <div>
+        {/*<input type="file" name="myFile" onChange={handleFileChange} />*/}
+      </div>
     </>
   )
 }
