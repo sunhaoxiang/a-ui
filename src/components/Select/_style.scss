@@ -24,14 +24,14 @@
       cursor: not-allowed;
     }
   }
-  .icon-wrapper {
+  .a-icon-wrapper {
     transition: transform 0.25s ease-in-out;
     transform: rotate(0deg) !important;
   }
 }
 
 .a-select.menu-is-open {
-  .icon-wrapper {
+  .a-icon-wrapper {
     transform: rotate(180deg) !important;
   }
 }
