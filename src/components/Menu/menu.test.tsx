@@ -4,6 +4,14 @@ import MenuItem from './menuItem'
 import SubMenu from './subMenu'
 import { fireEvent, render, screen } from '@/utils/test-utils.tsx'
 
+vi.mock('@/components/Icon/icon.tsx', () => {
+  return {
+    default: () => {
+      return <i className="fa" />
+    }
+  }
+})
+
 const testProps: MenuProps = {
   defaultIndex: '0',
   className: 'test',
