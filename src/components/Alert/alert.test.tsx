@@ -6,6 +6,14 @@ import { AlertProps } from './alert.tsx'
 
 config.disabled = true
 
+vi.mock('@/components/Icon/icon.tsx', () => {
+  return {
+    default: (props: any) => {
+      return <span>{props.icon}</span>
+    }
+  }
+})
+
 const testProps: AlertProps = {
   title: 'title',
   onClose: vi.fn()
@@ -21,7 +29,7 @@ describe('test Alert Component', () => {
   it('should render the correct default Alert', () => {
     render(<Alert {...testProps} />)
     const element = screen.getByRole('alert')
-    const closeElement = screen.getByRole('alert-close-button')
+    const closeElement = screen.getByText('times')
     expect(element).toBeInTheDocument()
     expect(element).toHaveClass('a-alert-default')
     fireEvent.click(closeElement)
