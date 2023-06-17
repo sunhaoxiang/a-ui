@@ -31,6 +31,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     'a-input-group-prepend-wrapper': !!prepend
   })
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const fixControlledValue = (value: any) => {
     if (typeof value === 'undefined' || value === null) {
       return ''

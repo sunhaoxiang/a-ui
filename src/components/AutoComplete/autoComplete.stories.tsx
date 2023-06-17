@@ -103,9 +103,12 @@ export const AjaxAutoComplete: Story = {
       return fetch(`https://api.github.com/search/users?q=${query}`)
         .then(res => res.json())
         .then(({ items }) => {
-          return items
-            .slice(0, 10)
-            .map((item: any) => ({ value: item.login, ...item }))
+          return (
+            items
+              .slice(0, 10)
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              .map((item: any) => ({ value: item.login, ...item }))
+          )
         })
     }
 
