@@ -4,7 +4,9 @@ import Button from '@/components/Button/button.tsx'
 
 export interface UploadProps {
   action: string
+  beforeUpload?: (file: File) => boolean | Promise<File>
   onProgress?: (percentage: number, file: File) => void
+  onChange?: (file: File) => void
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onSuccess?: (data: any, file: File) => void
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -12,7 +14,8 @@ export interface UploadProps {
 }
 
 export const Upload: FC<UploadProps> = props => {
-  const { action, onProgress, onSuccess, onError } = props
+  const { action, beforeUpload, onProgress, onChange, onSuccess, onError } =
+    props
 
   const fileInput = useRef<HTMLInputElement>(null)
 
@@ -36,35 +39,56 @@ export const Upload: FC<UploadProps> = props => {
   const uploadFiles = (files: FileList) => {
     const postFiles = Array.from(files)
     postFiles.forEach(file => {
-      const formData = new FormData()
-      formData.append(file.name, file)
-      axios
-        .post(action, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          },
-          onUploadProgress: (e: AxiosProgressEvent) => {
-            const percentage = e.total
-              ? Math.round((e.loaded * 100) / e.total)
-              : 0
-            if (percentage < 100) {
-              if (onProgress) {
-                onProgress(percentage, file)
-              }
+      if (!beforeUpload) {
+        post(file)
+      } else {
+        const result = beforeUpload(file)
+        if (result instanceof Promise) {
+          result.then(processedFile => {
+            post(processedFile)
+          })
+        } else if (result) {
+          post(file)
+        }
+      }
+    })
+  }
+
+  const post = (file: File) => {
+    const formData = new FormData()
+    formData.append(file.name, file)
+    axios
+      .post(action, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        },
+        onUploadProgress: (e: AxiosProgressEvent) => {
+          const percentage = e.total
+            ? Math.round((e.loaded * 100) / e.total)
+            : 0
+          if (percentage < 100) {
+            if (onProgress) {
+              onProgress(percentage, file)
             }
           }
-        })
-        .then(res => {
-          if (onSuccess) {
-            onSuccess(res.data, file)
-          }
-        })
-        .catch(err => {
-          if (onError) {
-            onError(err, file)
-          }
-        })
-    })
+        }
+      })
+      .then(res => {
+        if (onSuccess) {
+          onSuccess(res.data, file)
+        }
+        if (onChange) {
+          onChange(file)
+        }
+      })
+      .catch(err => {
+        if (onError) {
+          onError(err, file)
+        }
+        if (onChange) {
+          onChange(file)
+        }
+      })
   }
 
   return (
