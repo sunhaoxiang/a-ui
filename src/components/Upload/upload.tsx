@@ -20,6 +20,8 @@ export interface UploadFile {
 export interface UploadProps {
   action: string
   defaultFileList?: UploadFile[]
+  accept?: string
+  multiple?: boolean
   name?: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   headers?: { [key: string]: any }
@@ -27,19 +29,21 @@ export interface UploadProps {
   data?: { [key: string]: any }
   withCredentials?: boolean
   beforeUpload?: (file: File) => boolean | Promise<File>
-  onProgress?: (percentage: number, file: File) => void
-  onChange?: (file: File) => void
+  onProgress?: (percentage: number, file: UploadFile) => void
+  onChange?: (file: UploadFile) => void
   onRemove?: (file: UploadFile) => void
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onSuccess?: (data: any, file: File) => void
+  onSuccess?: (data: any, file: UploadFile) => void
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onError?: (err: any, file: File) => void
+  onError?: (err: any, file: UploadFile) => void
 }
 
 export const Upload: FC<UploadProps> = props => {
   const {
     action,
     defaultFileList,
+    accept,
+    multiple,
     name,
     headers,
     data,
@@ -124,7 +128,9 @@ export const Upload: FC<UploadProps> = props => {
       percent: 0,
       raw: file
     }
-    setFileList([_file, ...fileList])
+    setFileList(prevList => {
+      return [_file, ...prevList]
+    })
     const formData = new FormData()
     formData.append(name || 'file', file)
     if (data) {
@@ -146,7 +152,7 @@ export const Upload: FC<UploadProps> = props => {
           if (percentage < 100) {
             updateFileList(_file, { percent: percentage, status: 'uploading' })
             if (onProgress) {
-              onProgress(percentage, file)
+              onProgress(percentage, _file)
             }
           }
         }
@@ -154,19 +160,19 @@ export const Upload: FC<UploadProps> = props => {
       .then(res => {
         updateFileList(_file, { status: 'success', response: res.data })
         if (onSuccess) {
-          onSuccess(res.data, file)
+          onSuccess(res.data, _file)
         }
         if (onChange) {
-          onChange(file)
+          onChange(_file)
         }
       })
       .catch(err => {
         updateFileList(_file, { status: 'error', error: err })
         if (onError) {
-          onError(err, file)
+          onError(err, _file)
         }
         if (onChange) {
-          onChange(file)
+          onChange(_file)
         }
       })
   }
@@ -181,6 +187,8 @@ export const Upload: FC<UploadProps> = props => {
         className="a-file-input"
         style={{ display: 'none' }}
         type="file"
+        accept={accept}
+        multiple={multiple}
         onChange={handleFileChange}
       />
       <UploadList fileList={fileList} onRemove={handleRemove} />
