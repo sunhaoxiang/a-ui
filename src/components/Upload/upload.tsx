@@ -20,6 +20,12 @@ export interface UploadFile {
 export interface UploadProps {
   action: string
   defaultFileList?: UploadFile[]
+  name?: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  headers?: { [key: string]: any }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data?: { [key: string]: any }
+  withCredentials?: boolean
   beforeUpload?: (file: File) => boolean | Promise<File>
   onProgress?: (percentage: number, file: File) => void
   onChange?: (file: File) => void
@@ -34,6 +40,10 @@ export const Upload: FC<UploadProps> = props => {
   const {
     action,
     defaultFileList,
+    name,
+    headers,
+    data,
+    withCredentials,
     beforeUpload,
     onProgress,
     onChange,
@@ -116,12 +126,19 @@ export const Upload: FC<UploadProps> = props => {
     }
     setFileList([_file, ...fileList])
     const formData = new FormData()
-    formData.append(file.name, file)
+    formData.append(name || 'file', file)
+    if (data) {
+      Object.keys(data).forEach(key => {
+        formData.append(key, data[key])
+      })
+    }
     axios
       .post(action, formData, {
         headers: {
+          ...headers,
           'Content-Type': 'multipart/form-data'
         },
+        withCredentials,
         onUploadProgress: (e: AxiosProgressEvent) => {
           const percentage = e.total
             ? Math.round((e.loaded * 100) / e.total)
@@ -169,6 +186,10 @@ export const Upload: FC<UploadProps> = props => {
       <UploadList fileList={fileList} onRemove={handleRemove} />
     </div>
   )
+}
+
+Upload.defaultProps = {
+  name: 'file'
 }
 
 export default Upload
