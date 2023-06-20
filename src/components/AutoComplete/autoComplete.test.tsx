@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, vi } from 'vitest'
+import { beforeEach, describe, it, expect, vi } from 'vitest'
 import { config } from 'react-transition-group'
 import {
   AutoComplete,

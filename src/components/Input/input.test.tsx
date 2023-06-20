@@ -1,4 +1,4 @@
-import { describe, expect, vi } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { fireEvent, render, screen } from '@/utils/test-utils'
 import { Input, InputProps } from './input'
 

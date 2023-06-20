@@ -1,4 +1,4 @@
-import { describe, expect, vi } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { config } from 'react-transition-group'
 import { fireEvent, render, screen } from '@/utils/test-utils'
 import Alert from './alert.tsx'

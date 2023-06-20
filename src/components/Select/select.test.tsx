@@ -1,4 +1,4 @@
-import { describe, expect, vi } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { config } from 'react-transition-group'
 import Select, { SelectProps } from './select.tsx'
 import Option from './option.tsx'

@@ -1,4 +1,4 @@
-import { describe, expect, vi } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent, screen, RenderResult } from '@/utils/test-utils'
 import Tabs, { TabsProps } from './tabs.tsx'
 import TabItem from './tabItem.tsx'

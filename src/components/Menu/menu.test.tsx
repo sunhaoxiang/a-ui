@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, vi } from 'vitest'
+import { beforeEach, describe, it, expect, vi } from 'vitest'
 import Menu, { MenuProps } from './menu'
 import MenuItem from './menuItem'
 import SubMenu from './subMenu'
