@@ -1,7 +1,7 @@
-import { useRef, useState, FC, ChangeEvent } from 'react'
+import { useRef, useState, FC, ReactNode, ChangeEvent } from 'react'
 import axios, { AxiosProgressEvent } from 'axios'
 import UploadList from './uploadList.tsx'
-import Button from '@/components/Button/button.tsx'
+import Dragger from './dragger.tsx'
 
 export type UploadFileStatus = 'ready' | 'uploading' | 'success' | 'error'
 export interface UploadFile {
@@ -22,6 +22,7 @@ export interface UploadProps {
   defaultFileList?: UploadFile[]
   accept?: string
   multiple?: boolean
+  drag?: boolean
   name?: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   headers?: { [key: string]: any }
@@ -36,6 +37,7 @@ export interface UploadProps {
   onSuccess?: (data: any, file: UploadFile) => void
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onError?: (err: any, file: UploadFile) => void
+  children?: ReactNode
 }
 
 export const Upload: FC<UploadProps> = props => {
@@ -44,6 +46,7 @@ export const Upload: FC<UploadProps> = props => {
     defaultFileList,
     accept,
     multiple,
+    drag,
     name,
     headers,
     data,
@@ -53,7 +56,8 @@ export const Upload: FC<UploadProps> = props => {
     onChange,
     onRemove,
     onSuccess,
-    onError
+    onError,
+    children
   } = props
 
   const fileInput = useRef<HTMLInputElement>(null)
@@ -179,18 +183,32 @@ export const Upload: FC<UploadProps> = props => {
 
   return (
     <div className="a-upload-component">
-      <Button btnType="primary" onClick={handleClick}>
-        Upload File
-      </Button>
-      <input
-        ref={fileInput}
+      <div
         className="a-file-input"
-        style={{ display: 'none' }}
-        type="file"
-        accept={accept}
-        multiple={multiple}
-        onChange={handleFileChange}
-      />
+        style={{ display: 'inline-block' }}
+        onClick={handleClick}
+      >
+        {drag ? (
+          <Dragger
+            onFile={files => {
+              uploadFiles(files)
+            }}
+          >
+            {children}
+          </Dragger>
+        ) : (
+          children
+        )}
+        <input
+          ref={fileInput}
+          className="a-file-input"
+          style={{ display: 'none' }}
+          type="file"
+          accept={accept}
+          multiple={multiple}
+          onChange={handleFileChange}
+        />
+      </div>
       <UploadList fileList={fileList} onRemove={handleRemove} />
     </div>
   )
