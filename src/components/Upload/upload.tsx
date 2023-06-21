@@ -162,6 +162,7 @@ export const Upload: FC<UploadProps> = props => {
         }
       })
       .then(res => {
+        console.log(res)
         updateFileList(_file, { status: 'success', response: res.data })
         if (onSuccess) {
           onSuccess(res.data, _file)
@@ -184,7 +185,7 @@ export const Upload: FC<UploadProps> = props => {
   return (
     <div className="a-upload-component">
       <div
-        className="a-file-input"
+        className="a-upload-input"
         style={{ display: 'inline-block' }}
         onClick={handleClick}
       >
