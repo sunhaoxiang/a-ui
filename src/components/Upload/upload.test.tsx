@@ -20,6 +20,7 @@ const testProps: UploadProps = {
   onSuccess: vi.fn(),
   onChange: vi.fn(),
   onRemove: vi.fn(),
+  onError: vi.fn(),
   drag: true
 }
 
@@ -68,6 +69,22 @@ describe('test upload component', () => {
       expect.objectContaining({
         raw: testFile,
         status: 'success',
+        name: 'test.png'
+      })
+    )
+  })
+
+  it('upload files failed should works fine', async () => {
+    mockedAxios.post.mockRejectedValue({ data: 'error' })
+    fireEvent.change(fileInput, { target: { files: [testFile] } })
+    expect(await screen.findByText('test.png')).toBeInTheDocument()
+    expect(await screen.findByText('times-circle')).toBeInTheDocument()
+    expect(testProps.onError).toHaveBeenCalledWith(
+      'error',
+      expect.objectContaining({
+        raw: testFile,
+        status: 'error',
+        error: 'error',
         name: 'test.png'
       })
     )
