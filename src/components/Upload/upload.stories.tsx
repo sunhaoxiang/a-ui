@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
-import Upload from './upload.tsx'
+import Upload, { UploadFile } from './upload.tsx'
 import Button from '@/components/Button/button.tsx'
 import Icon from '@/components/Icon/icon.tsx'
 
@@ -28,6 +28,43 @@ export const SimpleUpload: Story = {
       </Button>
     </Upload>
   )
+}
+
+export const DefaultFiles: Story = {
+  render: args => {
+    const defaultFileList: UploadFile[] = [
+      {
+        uid: '123',
+        size: 1234,
+        name: 'xxx.md',
+        status: 'uploading',
+        percent: 66
+      },
+      {
+        uid: '122',
+        size: 1234,
+        name: 'yyy.md',
+        status: 'success'
+      },
+      {
+        uid: '121',
+        size: 1234,
+        name: 'zzz.md',
+        status: 'error'
+      }
+    ]
+    return (
+      <Upload
+        {...args}
+        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+        defaultFileList={defaultFileList}
+      >
+        <Button>
+          <Icon icon="upload" /> Click to Upload
+        </Button>
+      </Upload>
+    )
+  }
 }
 
 export const CheckUploadSize: Story = {
