@@ -60,6 +60,17 @@ describe('test upload component', () => {
         name: 'test.png'
       })
     )
+    // remove the uploaded file
+    expect(screen.queryByText('times')).toBeInTheDocument()
+    fireEvent.click(screen.getByText('times'))
+    expect(screen.queryByText('test.png')).not.toBeInTheDocument()
+    expect(testProps.onRemove).toHaveBeenCalledWith(
+      expect.objectContaining({
+        raw: testFile,
+        status: 'success',
+        name: 'test.png'
+      })
+    )
   })
 
   it('drag and drop files should works fine')
