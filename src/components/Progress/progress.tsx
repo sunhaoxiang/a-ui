@@ -20,7 +20,7 @@ export const Progress: FC<ProgressProps> = props => {
       >
         <div
           className={`a-progress-bar-inner color-${theme}`}
-          style={{ width: `${percent}` }}
+          style={{ width: `${percent}%` }}
         >
           {showText && <span className="inner-text">{`${percent}%`}</span>}
         </div>
