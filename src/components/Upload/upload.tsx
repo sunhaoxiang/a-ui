@@ -162,8 +162,9 @@ export const Upload: FC<UploadProps> = props => {
         }
       })
       .then(res => {
-        console.log(res)
         updateFileList(_file, { status: 'success', response: res.data })
+        _file.status = 'success'
+        _file.response = res.data
         if (onSuccess) {
           onSuccess(res.data, _file)
         }
