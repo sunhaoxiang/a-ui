@@ -73,5 +73,26 @@ describe('test upload component', () => {
     )
   })
 
-  it('drag and drop files should works fine')
+  it('drag and drop files should works fine', async () => {
+    mockedAxios.post.mockResolvedValue({ data: 'cool' })
+    fireEvent.dragOver(uploadArea)
+    expect(uploadArea).toHaveClass('is-dragover')
+    fireEvent.dragLeave(uploadArea)
+    expect(uploadArea).not.toHaveClass('is-dragover')
+    fireEvent.drop(uploadArea, {
+      dataTransfer: {
+        files: [testFile]
+      }
+    })
+    expect(await screen.findByText('test.png')).toBeInTheDocument()
+    expect(testProps.onSuccess).toHaveBeenCalledWith(
+      'cool',
+      expect.objectContaining({
+        raw: testFile,
+        status: 'success',
+        response: 'cool',
+        name: 'test.png'
+      })
+    )
+  })
 })
