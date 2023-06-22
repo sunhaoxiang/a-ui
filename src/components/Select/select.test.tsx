@@ -8,6 +8,7 @@ config.disabled = true
 
 vi.mock('@/components/Icon/icon.tsx', () => {
   return {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     default: (props: any) => {
       return <span onClick={props.onClick}>{props.icon}</span>
     }
