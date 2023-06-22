@@ -174,6 +174,8 @@ export const Upload: FC<UploadProps> = props => {
       })
       .catch(err => {
         updateFileList(_file, { status: 'error', error: err })
+        _file.status = 'error'
+        _file.error = err
         if (onError) {
           onError(err, _file)
         }
