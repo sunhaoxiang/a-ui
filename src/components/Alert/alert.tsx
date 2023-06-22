@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import classNames from 'classnames'
+import classnames from 'classnames'
 import Icon from '@/components/Icon/icon.tsx'
 import Transition from '@/components/Transition/transition.tsx'
 
@@ -18,11 +18,11 @@ export const Alert: FC<AlertProps> = props => {
 
   const [hide, setHide] = useState(false)
 
-  const classes = classNames('a-alert', {
+  const classes = classnames('a-alert', {
     [`a-alert-${type}`]: type
   })
 
-  const titleClass = classNames('a-alert-title', {
+  const titleClass = classnames('a-alert-title', {
     'bold-title': description
   })
 

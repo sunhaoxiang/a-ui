@@ -4,7 +4,7 @@ import {
   ChangeEvent,
   forwardRef
 } from 'react'
-import classNames from 'classnames'
+import classnames from 'classnames'
 import Icon from '@/components/Icon/icon.tsx'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
@@ -23,7 +23,7 @@ export interface InputProps
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const { disabled, size, icon, prepend, append, style, ...restProps } = props
 
-  const classes = classNames('a-input-wrapper', {
+  const classes = classnames('a-input-wrapper', {
     [`a-input-size-${size}`]: size,
     'a-is-disabled': disabled,
     'a-input-group': prepend || append,
