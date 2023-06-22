@@ -30,7 +30,7 @@ export const SimpleUpload: Story = {
   )
 }
 
-export const CheckUploadUpload: Story = {
+export const CheckUploadSize: Story = {
   render: args => {
     const checkFileSize = (file: File) => {
       if (Math.round(file.size / 1024) > 50) {
