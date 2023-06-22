@@ -48,7 +48,7 @@ describe('test upload component', () => {
       expect.objectContaining({
         raw: testFile,
         status: 'success',
-        // response: 'cool',
+        response: 'cool',
         name: 'test.png'
       })
     )
