@@ -173,11 +173,11 @@ export const Upload: FC<UploadProps> = props => {
         }
       })
       .catch(err => {
-        updateFileList(_file, { status: 'error', error: err })
+        updateFileList(_file, { status: 'error', error: err.data })
         _file.status = 'error'
-        _file.error = err
+        _file.error = err.data
         if (onError) {
-          onError(err, _file)
+          onError(err.data, _file)
         }
         if (onChange) {
           onChange(_file)
