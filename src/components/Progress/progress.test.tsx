@@ -12,7 +12,7 @@ const themeProps: ProgressProps = {
   theme: 'success'
 }
 
-const DoNotShowTextProps: ProgressProps = {
+const doNotShowTextProps: ProgressProps = {
   percent: 50,
   showText: false
 }
@@ -45,7 +45,7 @@ describe('test Progress component', () => {
   })
 
   it('should render the Progress without inner text', () => {
-    render(<Progress {...DoNotShowTextProps} />)
+    render(<Progress {...doNotShowTextProps} />)
     const element = screen.getByRole('progressbar')
     expect(element.querySelector('.inner-text')).not.toBeInTheDocument()
   })
