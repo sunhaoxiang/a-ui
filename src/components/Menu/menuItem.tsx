@@ -1,5 +1,5 @@
 import { FC, useContext, CSSProperties, ReactNode } from 'react'
-import classnames from 'classnames'
+import classNames from 'classnames'
 import { MenuContext } from './menu.tsx'
 
 export interface MenuItemProps {
@@ -15,7 +15,7 @@ export const MenuItem: FC<MenuItemProps> = props => {
 
   const context = useContext(MenuContext)
 
-  const classes = classnames('a-menu-item', className, {
+  const classes = classNames('a-menu-item', className, {
     'is-disabled': disabled,
     'is-active': context.index === index
   })

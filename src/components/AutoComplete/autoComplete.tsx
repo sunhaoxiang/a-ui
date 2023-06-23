@@ -7,7 +7,7 @@ import {
   KeyboardEvent,
   ReactElement
 } from 'react'
-import classnames from 'classnames'
+import classNames from 'classnames'
 import Input, { InputProps } from '@/components/Input/input.tsx'
 import Icon from '@/components/Icon/icon.tsx'
 import Transition from '@/components/Transition/transition.tsx'
@@ -153,7 +153,7 @@ export const AutoComplete: FC<AutoCompleteProps> = props => {
             </div>
           )}
           {suggestions.map((item, index) => {
-            const classes = classnames('suggestion-item', {
+            const classes = classNames('suggestion-item', {
               'is-active': index === highlightIndex
             })
             return (

@@ -5,7 +5,7 @@ import {
   FontAwesomeIcon,
   FontAwesomeIconProps
 } from '@fortawesome/react-fontawesome'
-import classnames from 'classnames'
+import classNames from 'classnames'
 
 library.add(fas)
 
@@ -27,7 +27,7 @@ export interface IconProps extends FontAwesomeIconProps {
 export const Icon: FC<IconProps> = props => {
   const { theme, className, ...restProps } = props
 
-  const classes = classnames('a-icon', className, {
+  const classes = classNames('a-icon', className, {
     [`a-icon-${theme}`]: theme
   })
 

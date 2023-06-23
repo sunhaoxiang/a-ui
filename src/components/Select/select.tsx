@@ -10,7 +10,7 @@ import {
   ReactNode,
   MouseEvent
 } from 'react'
-import classnames from 'classnames'
+import classNames from 'classnames'
 import { SelectOptionProps } from './option.tsx'
 import Input from '@/components/Input/input.tsx'
 import Icon from '@/components/Icon/icon.tsx'
@@ -136,7 +136,7 @@ export const Select: FC<SelectProps> = props => {
     })
   }
 
-  const containerClass = classnames('a-select', {
+  const containerClass = classNames('a-select', {
     'menu-is-open': menuOpen,
     'is-disabled': disabled,
     'is-multiple': multiple

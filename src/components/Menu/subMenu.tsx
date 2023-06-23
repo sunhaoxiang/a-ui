@@ -7,7 +7,7 @@ import {
   MouseEvent,
   ReactNode
 } from 'react'
-import classnames from 'classnames'
+import classNames from 'classnames'
 import { MenuContext } from './menu.tsx'
 import { MenuItemProps } from './menuItem.tsx'
 import Icon from '@/components/Icon/icon.tsx'
@@ -29,7 +29,7 @@ export const SubMenu: FC<SubMenuProps> = props => {
       ? openedSubMenus.includes(index)
       : false
   const [menuOpen, setOpen] = useState(isOpened)
-  const classes = classnames('a-menu-item a-submenu-item', className, {
+  const classes = classNames('a-menu-item a-submenu-item', className, {
     'is-active': context.index === index,
     'is-opened': menuOpen,
     'is-vertical': context.mode === 'vertical'

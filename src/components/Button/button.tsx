@@ -4,7 +4,7 @@ import {
   ButtonHTMLAttributes,
   ReactNode
 } from 'react'
-import classnames from 'classnames'
+import classNames from 'classnames'
 
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
 
@@ -29,8 +29,7 @@ export const Button: FC<ButtonProps> = props => {
   const { btnType, className, disabled, size, href, children, ...restProps } =
     props
 
-  // btn, btn-lg, btn-primary
-  const classes = classnames('a-btn', className, {
+  const classes = classNames('a-btn', className, {
     [`a-btn-${btnType}`]: btnType,
     [`a-btn-${size}`]: size,
     disabled: btnType === 'link' && disabled

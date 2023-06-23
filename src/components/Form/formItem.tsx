@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react'
-import classnames from 'classnames'
+import classNames from 'classnames'
 
 export interface FormItemProps {
   label?: string
@@ -9,7 +9,7 @@ export interface FormItemProps {
 export const FormItem: FC<FormItemProps> = props => {
   const { label, children } = props
 
-  const rowClass = classnames('a-row', {
+  const rowClass = classNames('a-row', {
     'a-row-no-label': !label
   })
   return (

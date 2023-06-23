@@ -5,7 +5,7 @@ import {
   ReactNode,
   Children
 } from 'react'
-import classnames from 'classnames'
+import classNames from 'classnames'
 import { TabItemProps } from './tabItem'
 
 export interface TabsProps {
@@ -30,9 +30,9 @@ export const Tabs: FC<TabsProps> = props => {
     }
   }
 
-  const tabClass = classnames('a-tabs', className)
+  const tabClass = classNames('a-tabs', className)
 
-  const navClass = classnames('a-tabs-nav', {
+  const navClass = classNames('a-tabs-nav', {
     'a-nav-line': type === 'line',
     'a-nav-card': type === 'card'
   })
@@ -41,7 +41,7 @@ export const Tabs: FC<TabsProps> = props => {
     return Children.map(children, (child, index) => {
       const childElement = child as FunctionComponentElement<TabItemProps>
       const { label, disabled } = childElement.props
-      const classes = classnames('a-tabs-nav-item', {
+      const classes = classNames('a-tabs-nav-item', {
         'is-active': activeIndex === index,
         disabled: disabled
       })

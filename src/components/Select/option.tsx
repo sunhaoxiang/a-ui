@@ -1,5 +1,5 @@
 import { FC, useContext, ReactNode, MouseEvent } from 'react'
-import classnames from 'classnames'
+import classNames from 'classnames'
 import Icon from '@/components/Icon/icon.tsx'
 import { SelectContext } from './select.tsx'
 export interface SelectOptionProps {
@@ -20,7 +20,7 @@ export const Option: FC<SelectOptionProps> = ({
   const { onSelect, selectedValues, multiple } = useContext(SelectContext)
   const isSelected = selectedValues.includes(value)
 
-  const classes = classnames('a-select-item', {
+  const classes = classNames('a-select-item', {
     'is-disabled': disabled,
     'is-selected': isSelected
   })

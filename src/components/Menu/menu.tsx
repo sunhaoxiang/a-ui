@@ -7,7 +7,7 @@ import {
   FunctionComponentElement,
   ReactNode
 } from 'react'
-import classnames from 'classnames'
+import classNames from 'classnames'
 import { MenuItemProps } from './menuItem.tsx'
 
 type MenuMode = 'horizontal' | 'vertical'
@@ -44,7 +44,7 @@ export const Menu: FC<MenuProps> = props => {
 
   const [currentActive, setActive] = useState(defaultIndex)
 
-  const classes = classnames('a-menu', className, {
+  const classes = classNames('a-menu', className, {
     'a-menu-vertical': mode === 'vertical',
     'a-menu-horizontal': mode !== 'vertical'
   })
