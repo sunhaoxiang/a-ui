@@ -58,7 +58,8 @@ export const FormItem: FC<FormItemProps> = props => {
         label,
         name,
         value,
-        rules,
+        rules: rules || [],
+        errors: [],
         isValid: true
       }
     })

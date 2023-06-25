@@ -1,5 +1,6 @@
 import { useState, useReducer } from 'react'
 import Schema, { RuleItem, ValidateError } from 'async-validator'
+import { each, mapValues } from 'lodash-es'
 
 export type CustomRuleFunc = ({
   getFieldValue
@@ -21,8 +22,15 @@ export interface FieldsState {
   [key: string]: FieldDetail
 }
 
+export interface ValidateErrorType extends Error {
+  errors: ValidateError[]
+  fields: Record<string, ValidateError[]>
+}
+
 export interface FormState {
   isValid: boolean
+  isSubmitting: boolean
+  errors: Record<string, ValidateError[]>
 }
 
 export interface FieldAction {
@@ -64,7 +72,9 @@ function fieldsReducer(state: FieldsState, action: FieldAction): FieldsState {
 
 function useStore() {
   const [form, setForm] = useState<FormState>({
-    isValid: true
+    isValid: true,
+    isSubmitting: false,
+    errors: {}
   })
 
   const [fields, dispatch] = useReducer(fieldsReducer, {})
@@ -95,7 +105,7 @@ function useStore() {
       await validator.validate(valueMap)
     } catch (e) {
       isValid = false
-      const err = e as any
+      const err = e as ValidateErrorType
       errors = err.errors
     } finally {
       dispatch({
@@ -106,12 +116,54 @@ function useStore() {
     }
   }
 
+  const validateAllFields = async () => {
+    let isValid = true
+    let errors: Record<string, ValidateError[]> = {}
+    const valueMap = mapValues(fields, item => item.value)
+    const descriptor = mapValues(fields, item => transformRules(item.rules))
+    const validator = new Schema(descriptor)
+    setForm({ ...form, isSubmitting: true })
+    try {
+      await validator.validate(valueMap)
+    } catch (e) {
+      isValid = false
+      const err = e as ValidateErrorType
+      errors = err.fields
+      each(fields, (value, name) => {
+        // There are errors
+        if (errors[name]) {
+          const itemErrors = errors[name]
+          dispatch({
+            type: 'updateValidateResult',
+            name,
+            value: { isValid: false, errors: itemErrors }
+          })
+          // There are rules and no errors
+        } else if (value.rules.length > 0 && !errors[name]) {
+          dispatch({
+            type: 'updateValidateResult',
+            name,
+            value: { isValid: true, errors: [] }
+          })
+        }
+      })
+    } finally {
+      setForm({ ...form, isSubmitting: false, isValid, errors })
+    }
+    return {
+      isValid,
+      errors,
+      values: valueMap
+    }
+  }
+
   return {
     form,
     fields,
     dispatch,
     validateField,
-    getFieldValue
+    getFieldValue,
+    validateAllFields
   }
 }
 
