@@ -8,9 +8,9 @@ import {
   ReactNode,
   ReactElement
 } from 'react'
-import { RuleItem } from 'async-validator'
 import classNames from 'classnames'
 import { FormContext } from './form.tsx'
+import { CustomRule } from './useStore.tsx'
 
 export type SomeRequired<T, K extends keyof T> = Required<Pick<T, K>> &
   Omit<T, K>
@@ -22,7 +22,7 @@ export interface FormItemProps {
   trigger?: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getValueFromEvent?: (event: any) => any
-  rules?: RuleItem[]
+  rules?: CustomRule[]
   validateTrigger?: string
   children?: ReactNode
 }
@@ -68,6 +68,17 @@ export const FormItem: FC<FormItemProps> = props => {
   const fieldState = fields[name]
   // set default value to fix warning: A component is changing an uncontrolled input to be controlled.
   const value = (fieldState && fieldState.value) || ''
+  const errors = fieldState && fieldState.errors
+  const isRequired = !!rules?.some(
+    rule => typeof rule !== 'function' && rule.required
+  )
+  const hasError = errors?.length > 0
+  const labelClass = classNames({
+    'a-form-item-required': isRequired
+  })
+  const itemClass = classNames('a-form-item-control', {
+    'a-form-item-has-error': hasError
+  })
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onValueUpdate = (e: any) => {
     const value = getValueFromEvent(e)
@@ -115,10 +126,20 @@ export const FormItem: FC<FormItemProps> = props => {
     <div className={rowClass}>
       {label && (
         <div className="a-form-item-label">
-          <label title={label}>{label}</label>
+          <label title={label} className={labelClass}>
+            {label}
+          </label>
         </div>
       )}
-      <div className="a-form-item">{returnChildNode}</div>
+      <div className="a-form-item">
+        <div className={itemClass}>{returnChildNode}</div>
+        {hasError && (
+          // TODO Multiple lines display error
+          <div className="a-form-item-explain">
+            <span>{errors[0].message}</span>
+          </div>
+        )}
+      </div>
     </div>
   )
 }

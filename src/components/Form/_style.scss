@@ -13,11 +13,37 @@
       > label {
         margin-bottom: 0;
       }
+      > label.a-form-item-required:before {
+        display: inline-block;
+        margin-right: 4px;
+        color: $danger;
+        font-size: 14px;
+        font-family: SimSun, sans-serif;
+        line-height: 1;
+        content: '*';
+      }
     }
     .a-form-item {
       flex-basis: 70%;
+      position: relative;
       .a-input-wrapper {
         margin-bottom: 0;
+      }
+      .a-form-item-has-error.a-form-item-control {
+        .a-input-inner {
+          border: 1px solid $danger;
+          &:focus {
+            box-shadow: $input-focus-box-shadow-error;
+          }
+        }
+      }
+      .a-form-item-explain {
+        position: absolute;
+        bottom: -25px;
+        left: 0;
+        line-height: 25px;
+        color: $danger;
+        min-width: 100px;
       }
     }
   }
