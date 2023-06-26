@@ -1,4 +1,10 @@
-import { createContext, FC, ReactNode, FormEvent } from 'react'
+import {
+  createContext,
+  forwardRef,
+  useImperativeHandle,
+  ReactNode,
+  FormEvent
+} from 'react'
 import { ValidateError } from 'async-validator'
 import useStore, { FormState } from './useStore.ts'
 
@@ -24,13 +30,25 @@ export type IFormContext = Pick<
 > &
   Pick<FormProps, 'initialValues'>
 
+export type IFormRef = Omit<
+  ReturnType<typeof useStore>,
+  'form' | 'fields' | 'dispatch'
+>
+
 export const FormContext = createContext<IFormContext>({} as IFormContext)
 
-export const Form: FC<FormProps> = props => {
+export const Form = forwardRef<IFormRef, FormProps>((props, ref) => {
   const { name, initialValues, onFinish, onFinishFailed, children } = props
 
-  const { form, fields, dispatch, validateField, validateAllFields } =
-    useStore()
+  const { form, fields, dispatch, ...restProps } = useStore(initialValues)
+
+  const { validateField, validateAllFields } = restProps
+
+  useImperativeHandle(ref, () => {
+    return {
+      ...restProps
+    }
+  })
 
   const passedContext: IFormContext = {
     fields,
@@ -58,19 +76,13 @@ export const Form: FC<FormProps> = props => {
   }
 
   return (
-    <>
-      <form name={name} className="a-form" onSubmit={submitForm}>
-        <FormContext.Provider value={passedContext}>
-          {childrenNode}
-        </FormContext.Provider>
-      </form>
-      <div>
-        <pre style={{ whiteSpace: 'pre-wrap' }}>{JSON.stringify(fields)}</pre>
-        <pre style={{ whiteSpace: 'pre-wrap' }}>{JSON.stringify(form)}</pre>
-      </div>
-    </>
+    <form name={name} className="a-form" onSubmit={submitForm}>
+      <FormContext.Provider value={passedContext}>
+        {childrenNode}
+      </FormContext.Provider>
+    </form>
   )
-}
+})
 
 Form.defaultProps = {
   name: 'a_form'
