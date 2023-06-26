@@ -1,6 +1,8 @@
 import { createContext, FC, ReactNode, FormEvent } from 'react'
 import { ValidateError } from 'async-validator'
-import useStore from './useStore.ts'
+import useStore, { FormState } from './useStore.ts'
+
+export type RenderProps = (form: FormState) => ReactNode
 
 export interface FormProps {
   name?: string
@@ -13,7 +15,7 @@ export interface FormProps {
     values: Record<string, any>,
     errors: Record<string, ValidateError[]>
   ) => void
-  children?: ReactNode
+  children?: ReactNode | RenderProps
 }
 
 export type IFormContext = Pick<
@@ -48,11 +50,18 @@ export const Form: FC<FormProps> = props => {
     }
   }
 
+  let childrenNode: ReactNode
+  if (typeof children === 'function') {
+    childrenNode = children(form)
+  } else {
+    childrenNode = children
+  }
+
   return (
     <>
       <form name={name} className="a-form" onSubmit={submitForm}>
         <FormContext.Provider value={passedContext}>
-          {children}
+          {childrenNode}
         </FormContext.Provider>
       </form>
       <div>
