@@ -12,6 +12,7 @@ export type CustomRule = RuleItem | CustomRuleFunc
 
 export interface FieldDetail {
   name: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value: any
   rules: CustomRule[]
   isValid: boolean
