@@ -3,16 +3,19 @@
     "outDir": "build",
     "module": "ESNext",
     "target": "ES5",
+    "skipLibCheck": true,
     "declaration": true,
-    "jsx": "react-jsx",
     /* Bundler mode */
-    "moduleResolution": "node",
-    "allowImportingTsExtensions": true,
-    "emitDeclarationOnly": true,
+    "moduleResolution": "bundler",
+//    "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-jsx",
+    "types": ["vitest/globals"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src"],
-  "exclude": [
-    "src/**/*.test.tsx",
-    "src/**/*.stories.tsx"
-  ]
+  "exclude": ["src/**/*.test.tsx", "src/**/*.stories.tsx"]
 }

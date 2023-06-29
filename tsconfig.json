@@ -1,17 +1,16 @@
 {
   "compilerOptions": {
-    "outDir": "build",
-    "target": "ES5",
+    "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
-    "declaration": true,
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "noEmit": true,
     "jsx": "react-jsx",
     "types": ["vitest/globals"],
     "baseUrl": ".",
@@ -25,6 +24,5 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src"],
-  "exclude": ["src/**/*.test.tsx", "src/**/*.stories.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
