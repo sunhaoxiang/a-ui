@@ -149,8 +149,7 @@ export const FullForm: Story = {
     const confirmRules: CustomRule[] = [
       { type: 'string', required: true, min: 3, max: 12 },
       ({ getFieldValue }) => ({
-        asyncValidator(rule, value) {
-          console.log(rule)
+        asyncValidator(_rule, value) {
           return new Promise((resolve, reject) => {
             if (value !== getFieldValue('password')) {
               reject('The two passwords that you entered do not match!')
