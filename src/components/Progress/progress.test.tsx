@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@/utils/test-utils'
-import Progress, { ProgressProps } from './progress
+import Progress, { ProgressProps } from './progress'
 
 const defaultProps: ProgressProps = {
   percent: 50,
