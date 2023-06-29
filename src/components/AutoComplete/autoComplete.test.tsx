@@ -11,7 +11,7 @@ import {
 
 config.disabled = true
 
-vi.mock('@/components/Icon/icon', () => {
+vi.mock('@/components/Icon', () => {
   return {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     default: (props: any) => {

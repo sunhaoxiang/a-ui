@@ -4,7 +4,7 @@ import MenuItem from './menuItem'
 import SubMenu from './subMenu'
 import { fireEvent, render, screen } from '@/utils/test-utils'
 
-vi.mock('@/components/Icon/icon', () => {
+vi.mock('@/components/Icon', () => {
   return {
     default: () => {
       return <i className="fa" />

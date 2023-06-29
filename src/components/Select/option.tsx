@@ -1,6 +1,6 @@
 import { FC, useContext, ReactNode, MouseEvent } from 'react'
 import classNames from 'classnames'
-import Icon from '@/components/Icon/icon'
+import Icon from '@/components/Icon'
 import { SelectContext } from './select'
 export interface SelectOptionProps {
   index?: string

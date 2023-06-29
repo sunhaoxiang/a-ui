@@ -9,8 +9,8 @@ import {
 } from 'react'
 import classNames from 'classnames'
 import Input, { InputProps } from '@/components/Input/input'
-import Icon from '@/components/Icon/icon'
-import Transition from '@/components/Transition/transition'
+import Icon from '@/components/Icon'
+import Transition from '@/components/Transition'
 import useDebounce from '@/hooks/useDebounce'
 import useClickOutside from '@/hooks/useClickOutside'
 

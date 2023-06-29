@@ -12,9 +12,9 @@ import {
 } from 'react'
 import classNames from 'classnames'
 import { SelectOptionProps } from './option'
-import Input from '@/components/Input/input'
-import Icon from '@/components/Icon/icon'
-import Transition from '@/components/Transition/transition'
+import Input from '@/components/Input'
+import Icon from '@/components/Icon'
+import Transition from '@/components/Transition'
 import useClickOutside from '@/hooks/useClickOutside'
 
 export interface SelectProps {

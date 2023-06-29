@@ -3,7 +3,7 @@ import axios from 'axios'
 import { fireEvent, render, screen, RenderResult } from '@/utils/test-utils'
 import { Upload, UploadProps } from './upload'
 
-vi.mock('@/components/Icon/icon', () => {
+vi.mock('@/components/Icon', () => {
   return {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     default: (props: any) => {

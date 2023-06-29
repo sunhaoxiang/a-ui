@@ -3,10 +3,9 @@ import { useRef } from 'react'
 import Form, { IFormRef } from './form'
 import Item from './formItem'
 import { CustomRule } from './useStore'
-import Input from '@/components/Input/input'
-import Select from '@/components/Select/select'
-import Option from '@/components/Select/option'
-import Button from '@/components/Button/button'
+import Input from '@/components/Input'
+import Select from '@/components/Select'
+import Button from '@/components/Button'
 
 const formMeta: Meta<typeof Form> = {
   title: 'General/Form',
@@ -81,9 +80,9 @@ export const RegForm: Story = {
           valuePropName="defaultValue"
         >
           <Select placeholder="Please select Gender">
-            <Option value="Male" />
-            <Option value="Female" />
-            <Option value="Other" />
+            <Select.Option value="Male" />
+            <Select.Option value="Female" />
+            <Select.Option value="Other" />
           </Select>
         </Item>
         <div
