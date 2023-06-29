@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
-import Upload, { UploadFile } from './upload.tsx'
-import Button from '@/components/Button/button.tsx'
-import Icon from '@/components/Icon/icon.tsx'
+import Upload, { UploadFile } from './upload'
+import Button from '@/components/Button'
+import Icon from '@/components/Icon'
 
 const uploadMeta: Meta<typeof Upload> = {
   title: 'Data Entry/Upload',

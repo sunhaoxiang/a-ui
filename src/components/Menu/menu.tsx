@@ -8,7 +8,7 @@ import {
   ReactNode
 } from 'react'
 import classNames from 'classnames'
-import { MenuItemProps } from './menuItem.tsx'
+import { MenuItemProps } from './menuItem'
 
 type MenuMode = 'horizontal' | 'vertical'
 

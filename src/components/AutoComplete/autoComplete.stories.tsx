@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
-import AutoComplete, { DataSourceType } from './autoComplete.tsx'
+import AutoComplete, { DataSourceType } from './autoComplete
 
 interface LakersPlayerProps {
   value: string

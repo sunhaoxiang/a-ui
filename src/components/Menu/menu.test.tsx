@@ -2,9 +2,9 @@ import { beforeEach, describe, it, expect, vi } from 'vitest'
 import Menu, { MenuProps } from './menu'
 import MenuItem from './menuItem'
 import SubMenu from './subMenu'
-import { fireEvent, render, screen } from '@/utils/test-utils.tsx'
+import { fireEvent, render, screen } from '@/utils/test-utils'
 
-vi.mock('@/components/Icon/icon.tsx', () => {
+vi.mock('@/components/Icon/icon', () => {
   return {
     default: () => {
       return <i className="fa" />

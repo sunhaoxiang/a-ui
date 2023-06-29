@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
-import Select from './select.tsx'
-import Option from './option.tsx'
+import Select from './select'
+import Option from './option'
 
 const selectMeta: Meta<typeof Select> = {
   title: 'Data Entry/Select',

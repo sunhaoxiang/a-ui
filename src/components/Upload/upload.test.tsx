@@ -1,9 +1,9 @@
 import { describe, it, expect, vi, Mocked } from 'vitest'
 import axios from 'axios'
-import { fireEvent, render, screen, RenderResult } from '@/utils/test-utils.tsx'
-import { Upload, UploadProps } from './upload.tsx'
+import { fireEvent, render, screen, RenderResult } from '@/utils/test-utils'
+import { Upload, UploadProps } from './upload'
 
-vi.mock('@/components/Icon/icon.tsx', () => {
+vi.mock('@/components/Icon/icon', () => {
   return {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     default: (props: any) => {

@@ -11,11 +11,11 @@ import {
   MouseEvent
 } from 'react'
 import classNames from 'classnames'
-import { SelectOptionProps } from './option.tsx'
-import Input from '@/components/Input/input.tsx'
-import Icon from '@/components/Icon/icon.tsx'
-import Transition from '@/components/Transition/transition.tsx'
-import useClickOutside from '@/hooks/useClickOutside.tsx'
+import { SelectOptionProps } from './option'
+import Input from '@/components/Input/input'
+import Icon from '@/components/Icon/icon'
+import Transition from '@/components/Transition/transition'
+import useClickOutside from '@/hooks/useClickOutside'
 
 export interface SelectProps {
   defaultValue?: string | string[]

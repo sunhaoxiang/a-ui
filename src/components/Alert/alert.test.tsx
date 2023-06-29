@@ -1,12 +1,12 @@
 import { describe, it, expect, vi } from 'vitest'
 import { config } from 'react-transition-group'
 import { fireEvent, render, screen } from '@/utils/test-utils'
-import Alert from './alert.tsx'
-import { AlertProps } from './alert.tsx'
+import Alert from './alert'
+import { AlertProps } from './alert'
 
 config.disabled = true
 
-vi.mock('@/components/Icon/icon.tsx', () => {
+vi.mock('@/components/Icon/icon', () => {
   return {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     default: (props: any) => {

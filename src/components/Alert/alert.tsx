@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import classNames from 'classnames'
-import Icon from '@/components/Icon/icon.tsx'
-import Transition from '@/components/Transition/transition.tsx'
+import Icon from '@/components/Icon/icon'
+import Transition from '@/components/Transition/transition'
 
 export type AlertType = 'success' | 'default' | 'danger' | 'warning'
 

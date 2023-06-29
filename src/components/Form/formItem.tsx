@@ -9,8 +9,8 @@ import {
   ReactElement
 } from 'react'
 import classNames from 'classnames'
-import { FormContext } from './form.tsx'
-import { CustomRule } from './useStore.tsx'
+import { FormContext } from './form'
+import { CustomRule } from './useStore'
 
 export type SomeRequired<T, K extends keyof T> = Required<Pick<T, K>> &
   Omit<T, K>

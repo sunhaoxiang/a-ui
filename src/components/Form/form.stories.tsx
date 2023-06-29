@@ -1,12 +1,12 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { useRef } from 'react'
-import Form, { IFormRef } from './form.tsx'
-import Item from './formItem.tsx'
-import { CustomRule } from './useStore.tsx'
-import Input from '@/components/Input/input.tsx'
-import Select from '@/components/Select/select.tsx'
-import Option from '@/components/Select/option.tsx'
-import Button from '@/components/Button/button.tsx'
+import Form, { IFormRef } from './form'
+import Item from './formItem'
+import { CustomRule } from './useStore'
+import Input from '@/components/Input/input'
+import Select from '@/components/Select/select'
+import Option from '@/components/Select/option'
+import Button from '@/components/Button/button'
 
 const formMeta: Meta<typeof Form> = {
   title: 'General/Form',

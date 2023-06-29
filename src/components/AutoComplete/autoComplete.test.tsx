@@ -1,21 +1,17 @@
 import { beforeEach, describe, it, expect, vi } from 'vitest'
 import { config } from 'react-transition-group'
-import {
-  AutoComplete,
-  AutoCompleteProps,
-  DataSourceType
-} from './autoComplete.tsx'
+import { AutoComplete, AutoCompleteProps, DataSourceType } from './autoComplete'
 import {
   fireEvent,
   render,
   RenderResult,
   screen,
   waitFor
-} from '@/utils/test-utils.tsx'
+} from '@/utils/test-utils'
 
 config.disabled = true
 
-vi.mock('@/components/Icon/icon.tsx', () => {
+vi.mock('@/components/Icon/icon', () => {
   return {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     default: (props: any) => {

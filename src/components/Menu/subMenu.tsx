@@ -8,10 +8,10 @@ import {
   ReactNode
 } from 'react'
 import classNames from 'classnames'
-import { MenuContext } from './menu.tsx'
-import { MenuItemProps } from './menuItem.tsx'
-import Icon from '@/components/Icon/icon.tsx'
-import Transition from '@/components/Transition/transition.tsx'
+import { MenuContext } from './menu'
+import { MenuItemProps } from './menuItem'
+import Icon from '@/components/Icon/icon'
+import Transition from '@/components/Transition/transition'
 
 export interface SubMenuProps {
   index: string

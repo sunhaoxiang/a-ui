@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
-import Tabs from './tabs.tsx'
-import TabItem from './tabItem.tsx'
-import Icon from '@/components/Icon/icon.tsx'
+import Tabs from './tabs'
+import TabItem from './tabItem'
+import Icon from '@/components/Icon'
 
 const tabsMeta: Meta<typeof Tabs> = {
   title: 'Data Display/Tabs/Tabs',

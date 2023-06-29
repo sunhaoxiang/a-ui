@@ -1,7 +1,7 @@
 import { useRef, useState, FC, ReactNode, ChangeEvent } from 'react'
 import axios, { AxiosProgressEvent } from 'axios'
-import UploadList from './uploadList.tsx'
-import Dragger from './dragger.tsx'
+import UploadList from './uploadList'
+import Dragger from './dragger'
 
 export type UploadFileStatus = 'ready' | 'uploading' | 'success' | 'error'
 export interface UploadFile {

@@ -1,12 +1,12 @@
 import { describe, it, expect, vi } from 'vitest'
 import { config } from 'react-transition-group'
-import Select, { SelectProps } from './select.tsx'
-import Option from './option.tsx'
-import { fireEvent, render, screen } from '@/utils/test-utils.tsx'
+import Select, { SelectProps } from './select'
+import Option from './option'
+import { fireEvent, render, screen } from '@/utils/test-utils'
 
 config.disabled = true
 
-vi.mock('@/components/Icon/icon.tsx', () => {
+vi.mock('@/components/Icon/icon', () => {
   return {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     default: (props: any) => {

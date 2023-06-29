@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { fireEvent, render, screen } from '@/utils/test-utils'
-import Button, { ButtonProps } from './button.tsx'
+import Button, { ButtonProps } from './button'
 
 const defaultProps = {
   onClick: vi.fn()

@@ -1,3 +1,3 @@
-import AutoComplete from './autoComplete.tsx'
+import AutoComplete from './autoComplete'
 
 export default AutoComplete

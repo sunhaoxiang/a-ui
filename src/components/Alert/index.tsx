@@ -1,3 +1,3 @@
-import Alert from './alert.tsx'
+import Alert from './alert'
 
 export default Alert

@@ -8,11 +8,11 @@ import {
   ReactElement
 } from 'react'
 import classNames from 'classnames'
-import Input, { InputProps } from '@/components/Input/input.tsx'
-import Icon from '@/components/Icon/icon.tsx'
-import Transition from '@/components/Transition/transition.tsx'
-import useDebounce from '@/hooks/useDebounce.tsx'
-import useClickOutside from '@/hooks/useClickOutside.tsx'
+import Input, { InputProps } from '@/components/Input/input'
+import Icon from '@/components/Icon/icon'
+import Transition from '@/components/Transition/transition'
+import useDebounce from '@/hooks/useDebounce'
+import useClickOutside from '@/hooks/useClickOutside'
 
 interface DataSourceObject {
   value: string

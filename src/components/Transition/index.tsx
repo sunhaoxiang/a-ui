@@ -1,3 +1,3 @@
-import Transition from './transition.tsx'
+import Transition from './transition'
 
 export default Transition

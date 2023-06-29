@@ -5,7 +5,7 @@ import {
   forwardRef
 } from 'react'
 import classNames from 'classnames'
-import Icon from '@/components/Icon/icon.tsx'
+import Icon from '@/components/Icon/icon'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 type InputSize = 'lg' | 'sm'

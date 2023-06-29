@@ -1,9 +1,9 @@
 import { describe, it, expect, vi } from 'vitest'
-import { fireEvent, render, screen, waitFor } from '@/utils/test-utils.tsx'
-import Form, { FormProps } from './form.tsx'
-import Item from './formItem.tsx'
-import Input from '@/components/Input/input.tsx'
-import Button from '@/components/Button/button.tsx'
+import { fireEvent, render, screen, waitFor } from '@/utils/test-utils'
+import Form, { FormProps } from './form'
+import Item from './formItem'
+import Input from '@/components/Input/input'
+import Button from '@/components/Button/button'
 
 const testProps: FormProps = {
   name: 'test-form',

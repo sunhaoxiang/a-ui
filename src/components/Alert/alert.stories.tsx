@@ -1,16 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react'
-import Alert from './alert.tsx'
+import Alert from './alert'
 
 const alertMeta: Meta<typeof Alert> = {
   title: 'Feedback/Alert',
   component: Alert,
-  // decorators: [
-  //   Story => (
-  //     <div style={{ width: '350px' }}>
-  //       <Story />
-  //     </div>
-  //   )
-  // ],
   tags: ['autodocs']
 }
 

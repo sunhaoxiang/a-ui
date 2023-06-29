@@ -1,7 +1,7 @@
 import { FC } from 'react'
-import { UploadFile } from './upload.tsx'
-import Icon from '@/components/Icon/icon.tsx'
-import Progress from '@/components/Progress/progress.tsx'
+import { UploadFile } from './upload'
+import Icon from '@/components/Icon/icon'
+import Progress from '@/components/Progress/progress'
 
 interface UploadListProps {
   fileList: UploadFile[]
