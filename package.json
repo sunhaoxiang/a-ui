@@ -1,19 +1,62 @@
 {
   "name": "a-ui",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "React components library",
+  "author": "Sunhaoxiang",
+  "private": false,
   "type": "module",
+  "main": "./dist/a-ui.umd.cjs",
+  "module": "./dist/a-ui.js",
+  "unpkg": "./dist/a-ui.umd.cjs",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/a-ui.js",
+      "require": "./dist/a-ui.umd.cjs",
+      "types": "./dist/main.d.ts"
+    },
+    "./style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
+  "license": "MIT",
+  "keywords": [
+    "Component",
+    "UI",
+    "React"
+  ],
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sunhaoxiang/a-ui"
+  },
+  "files": ["dist"],
+  "sideEffects": [
+    "dist/style.css"
+  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "scripts": {
     "dev": "vite",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --fix --cache",
     "test": "vitest",
     "prettier": "prettier --write \"src/**/*.{ts,tsx,scss}\"",
     "coverage": "vitest run --coverage",
-    "build": "tsc && vite build",
+    "build": "vite build && tsc --project tsconfig.build.json",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "build-ts": "tsc -p tsconfig.build.json"
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",

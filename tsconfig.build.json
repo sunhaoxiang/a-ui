@@ -1,21 +1,11 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "build",
-    "module": "ESNext",
+    "outDir": "dist",
     "target": "ES5",
-    "skipLibCheck": true,
-    "declaration": true,
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-//    "allowImportingTsExtensions": true,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react-jsx",
-    "types": ["vitest/globals"],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "declaration": true
   },
-  "include": ["src"],
-  "exclude": ["src/**/*.test.tsx", "src/**/*.stories.tsx"]
+  "exclude": ["src/**/*.test.tsx", "src/**/*.stories.tsx", "src/test/**/*", "src/utils/test-utils.tsx"]
 }

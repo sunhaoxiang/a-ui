@@ -22,5 +22,24 @@ export default defineConfig({
     // you might want to disable it, if you don't have tests that rely on CSS
     // since parsing CSS is slow
     // css: true,
+  },
+  build: {
+    lib: {
+      // The entry file will contain exports that can be imported by users of your package
+      entry: res('src/main.tsx'),
+      name: 'a-ui'
+      // fileName: format => `a-ui.${format}.js`
+    },
+    rollupOptions: {
+      // Make sure to externalize those dependencies that you don't want packaged into the library
+      external: ['react', 'react-dom'],
+      output: {
+        // A global variable is provided for these externalized dependencies in the UMD build pattern
+        globals: {
+          react: 'React',
+          'react-dom': 'react-dom'
+        }
+      }
+    }
   }
 })
