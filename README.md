@@ -8,7 +8,7 @@
 
 ## Documentation
 
-It's the A UI website for the latest version of A UI.
+It's the https://github.com/sunhaoxiang/a-ui website for the latest version of A UI.
 
 ## Installation
 
