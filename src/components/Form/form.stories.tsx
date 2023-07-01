@@ -8,7 +8,7 @@ import Select from '@/components/Select'
 import Button from '@/components/Button'
 
 const formMeta: Meta<typeof Form> = {
-  title: 'General/Form',
+  title: 'Data Entry/Form',
   component: Form,
   decorators: [
     Story => (
