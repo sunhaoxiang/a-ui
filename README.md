@@ -1,5 +1,5 @@
 <h1 align="center">A UI</h1>
-<p align="center">A React UI library.</p>
+<h2 align="center">A React UI library.</h2>
 
 ## Features
 
