@@ -5,6 +5,7 @@ import { each, mapValues } from 'lodash-es'
 export type CustomRuleFunc = ({
   getFieldValue
 }: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getFieldValue: (key: string) => any
 }) => RuleItem
 
