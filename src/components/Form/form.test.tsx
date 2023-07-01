@@ -108,15 +108,9 @@ describe('testing Form component', () => {
     fireEvent.change(nameInput, { target: { value: '' } })
     fireEvent.blur(nameInput)
     expect(await findByText('name error')).toBeInTheDocument()
-    // waitFor(() => {
-    //   expect(getByText('name error')).toBeInTheDocument()
-    // })
     fireEvent.change(nameInput, { target: { value: '12' } })
     fireEvent.blur(nameInput)
     expect(await findByText('less than 3')).toBeInTheDocument()
-    // waitFor(() => {
-    //   expect(getByText('less than 3')).toBeInTheDocument()
-    // })
   })
 
   it('custom rules should work', async () => {

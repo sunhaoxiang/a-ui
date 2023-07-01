@@ -44,10 +44,6 @@ export interface FieldAction {
 function fieldsReducer(state: FieldsState, action: FieldAction): FieldsState {
   switch (action.type) {
     case 'addField':
-      console.log({
-        ...state,
-        [action.name]: { ...action.value }
-      })
       return {
         ...state,
         [action.name]: { ...action.value }
