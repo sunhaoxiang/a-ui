@@ -26,7 +26,10 @@ module.exports = {
   },
   plugins: ['react-refresh', 'testing-library', 'jest-dom'],
   rules: {
-    'react-refresh/only-export-components': 'warn',
+    'react-refresh/only-export-components': [
+      'warn',
+      { allowConstantExport: true }
+    ],
     '@typescript-eslint/no-unused-vars': 'warn',
     'no-console': 'off',
     'no-trailing-spaces': [
@@ -34,6 +37,6 @@ module.exports = {
       {
         skipBlankLines: true
       }
-    ]
+    ],
   }
 }
