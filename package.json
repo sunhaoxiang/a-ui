@@ -49,7 +49,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --fix --cache",
+    "lint": "eslint src --ext ts,tsx --max-warnings 5 --report-unused-disable-directives --fix --cache",
     "test": "vitest",
     "prettier": "prettier --write \"src/**/*.{ts,tsx,scss}\"",
     "coverage": "vitest run --coverage",
