@@ -145,6 +145,9 @@ devDependencies:
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
+  rollup-plugin-exclude-dependencies-from-bundle:
+    specifier: ^1.1.23
+    version: 1.1.23(rollup@3.21.0)
   sass:
     specifier: ^1.62.1
     version: 1.62.1
@@ -8724,6 +8727,14 @@ packages:
     hasBin: true
     dependencies:
       glob: 7.2.3
+    dev: true
+
+  /rollup-plugin-exclude-dependencies-from-bundle@1.1.23(rollup@3.21.0):
+    resolution: {integrity: sha512-nDoFtxlpajcqaLkPftoUcHxHYFd8tydHleOVubdf2JmyQtWTbhCNK05O4VGxLr7EUKSK9KeXqbWuQXkTqeJcRg==}
+    peerDependencies:
+      rollup: '*'
+    dependencies:
+      rollup: 3.21.0
     dev: true
 
   /rollup@3.21.0:
