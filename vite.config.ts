@@ -4,12 +4,13 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import libCss from 'vite-plugin-libcss'
 
 const res = path => resolve(__dirname, path)
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), libCss()],
   resolve: {
     alias: {
       '@': res('src')
