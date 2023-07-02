@@ -50,5 +50,4 @@ jobs:
         with:
           FOLDER: storybook-static
           BRANCH: gh-pages
-          # TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          # REPOSITORY-NAME: xxx/xxx
+          TOKEN: ${{ secrets.ACCESS_TOKEN }}
