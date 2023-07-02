@@ -1,0 +1,54 @@
+name: Auto Deploy
+
+on:
+  push:
+    branches:
+      - storybook
+
+jobs:
+  storybook:
+    name: Storybook
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Pnpm
+        id: pnpm-install
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get Pnpm Store
+        id: pnpm-store
+        shell: bash
+        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Setup Pnpm Cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-store.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-pnpm-store-
+
+      - name: Install Dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: Build Storybook
+        run: pnpm run build-storybook
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          FOLDER: storybook-static
+          BRANCH: gh-pages
+          # TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          # REPOSITORY-NAME: xxx/xxx
