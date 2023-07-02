@@ -29,6 +29,7 @@ export default defineConfig({
     lib: {
       // The entry file will contain exports that can be imported by users of your package
       entry: res('src/main.tsx'),
+      formats: ['es'],
       name: 'a-ui'
       // fileName: format => `a-ui.${format}.js`
     },
