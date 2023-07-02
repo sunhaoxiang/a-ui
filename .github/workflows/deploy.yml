@@ -50,4 +50,5 @@ jobs:
         with:
           FOLDER: storybook-static
           BRANCH: gh-pages
+          JEKYLL: false
           TOKEN: ${{ secrets.ACCESS_TOKEN }}
