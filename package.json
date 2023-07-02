@@ -62,7 +62,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepublishOnly": "npm run test:run && npm run lint && npm run build"
+    "prepublishOnly": "npm run test:run && npm run lint && npm run build",
+    "release": "release-it"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
@@ -113,6 +114,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "release-it": "^15.11.0",
     "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.23",
     "sass": "^1.62.1",
     "storybook": "^7.0.20",
