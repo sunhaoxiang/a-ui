@@ -5,6 +5,7 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import libCss from 'vite-plugin-libcss'
+import excludeDependenciesFromBundle from 'rollup-plugin-exclude-dependencies-from-bundle'
 
 const res = path => resolve(__dirname, path)
 
@@ -33,7 +34,8 @@ export default defineConfig({
     },
     rollupOptions: {
       // Make sure to externalize those dependencies that you don't want packaged into the library
-      external: ['react', 'react-dom'],
+      // external: ['react', 'react-dom'],
+      plugins: [excludeDependenciesFromBundle()],
       output: {
         // A global variable is provided for these externalized dependencies in the UMD build pattern
         globals: {
