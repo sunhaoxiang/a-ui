@@ -4,8 +4,8 @@ import Icon from '@/components/Icon'
 
 const buttonMeta: Meta<typeof Button> = {
   title: 'General/Button',
-  component: Button,
-  tags: ['autodocs']
+  component: Button
+  // tags: ['autodocs']
 }
 
 export default buttonMeta

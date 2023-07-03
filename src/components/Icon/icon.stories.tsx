@@ -3,8 +3,8 @@ import Icon from './icon'
 
 const iconMeta: Meta<typeof Icon> = {
   title: 'General/Icon',
-  component: Icon,
-  tags: ['autodocs']
+  component: Icon
+  // tags: ['autodocs']
 }
 
 export default iconMeta
