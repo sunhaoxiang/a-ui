@@ -7,6 +7,18 @@ library.add(fas)
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: {
+        order: [
+          'Introduction',
+          'General',
+          'Navigation',
+          'Data Entry',
+          'Data Display',
+          'Feedback'
+        ]
+      }
+    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
