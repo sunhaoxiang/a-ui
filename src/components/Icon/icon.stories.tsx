@@ -1,10 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react'
-import Icon from './icon'
+import Icon from '@/components/Icon'
 
 const iconMeta: Meta<typeof Icon> = {
   title: 'General/Icon',
   component: Icon
-  // tags: ['autodocs']
 }
 
 export default iconMeta

@@ -1,11 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react'
-import Button from './button'
+import Button from '@/components/Button'
 import Icon from '@/components/Icon'
 
 const buttonMeta: Meta<typeof Button> = {
   title: 'General/Button',
   component: Button
-  // tags: ['autodocs']
 }
 
 export default buttonMeta
