@@ -5,13 +5,18 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import libCss from 'vite-plugin-libcss'
+import dts from 'vite-plugin-dts'
 import excludeDependenciesFromBundle from 'rollup-plugin-exclude-dependencies-from-bundle'
 
 const res = path => resolve(__dirname, path)
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), libCss()],
+  plugins: [
+    react(),
+    libCss(),
+    dts({ tsconfigPath: res('tsconfig.build.json') })
+  ],
   resolve: {
     alias: {
       '@': res('src')
