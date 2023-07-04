@@ -13,6 +13,7 @@ const preview: Preview = {
           'Introduction',
           'General',
           'Navigation',
+          ['Menu'],
           'Data Entry',
           'Data Display',
           'Feedback'

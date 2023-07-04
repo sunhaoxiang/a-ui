@@ -5,8 +5,7 @@ import MenuItem from './menuItem'
 
 const MenuItemMeta: Meta<typeof MenuItem> = {
   title: 'Navigation/Menu/MenuItem',
-  component: MenuItem,
-  tags: ['autodocs']
+  component: MenuItem
 }
 
 export default MenuItemMeta

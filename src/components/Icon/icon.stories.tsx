@@ -3,7 +3,12 @@ import Icon from '@/components/Icon'
 
 const iconMeta: Meta<typeof Icon> = {
   title: 'General/Icon',
-  component: Icon
+  component: Icon,
+  argTypes: {
+    icon: {
+      description: 'Font Awesome icon name'
+    }
+  }
 }
 
 export default iconMeta

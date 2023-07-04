@@ -1,0 +1,46 @@
+import { Meta,  Stories, Title, ArgTypes } from '@storybook/blocks'
+import * as MenuStories from './menu.stories.tsx'
+import * as menuItemStories from './menuItem.stories.tsx'
+import * as subMenuStories from './subMenu.stories.tsx'
+
+<Meta of={MenuStories} />
+
+<Title>Menu</Title>
+
+## Usage
+
+```jsx
+import { Menu } from '@a-front-end-project/a-ui'
+
+const App = () => (
+  <Menu defaultIndex="0">
+    <Menu.Item index="0">cool link</Menu.Item>
+    <Menu.Item index="1">cool link 2</Menu.Item>
+    <Menu.Item index="2" disabled>
+      disabled
+    </Menu.Item>
+    <Menu.SubMenu index="3" title="dropDown">
+      <Menu.Item index="3-0">drop down 1</Menu.Item>
+      <Menu.Item index="3-1">drop down 2</Menu.Item>
+    </Menu.SubMenu>
+  </Menu>
+)
+```
+
+## Examples
+
+<Stories />
+
+## Props
+
+### Menu
+
+<ArgTypes of={MenuStories} />
+
+### Menu.Item
+
+<ArgTypes of={menuItemStories} />
+
+### Menu.SubMenu
+
+<ArgTypes of={subMenuStories} />
