@@ -58,7 +58,7 @@
     "test:run": "vitest run",
     "prettier": "prettier --write \"src/**/*.{ts,tsx,scss}\"",
     "coverage": "vitest run --coverage",
-    "build": "vite build && tsc --project tsconfig.build.json",
+    "build": "vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
