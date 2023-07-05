@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { useState } from 'react'
 import AutoComplete, { DataSourceType } from './autoComplete'
 
-interface LakersPlayerProps {
+interface CustomProps {
   value: string
   number: number
 }
@@ -52,6 +52,40 @@ export const SimpleAutoComplete: Story = {
         placeholder="Simple AutoComplete"
       />
     )
+  },
+  parameters: {
+    docs: {
+      source: {
+        language: 'tsx',
+        code: `
+import { useState } from 'react'
+import { AutoComplete } from '@a-front-end-project/a-ui'
+
+const App = () => {
+  const [value, setValue] = useState('')
+  const mockVal = (str: string, repeat = 1) => ({
+    value: str.repeat(repeat)
+  })
+  const handleFetch = (query: string) => {
+    return !query
+      ? []
+      : [mockVal(query), mockVal(query, 2), mockVal(query, 3)]
+  }
+  const handleSelect = (item: DataSourceType) => {
+    setValue(item.value)
+  }
+  return (
+    <AutoComplete
+      value={value}
+      fetchSuggestions={handleFetch}
+      onSelect={handleSelect}
+      placeholder="Simple AutoComplete"
+    />
+  )
+}
+              `
+      }
+    }
   }
 }
 
@@ -68,7 +102,7 @@ export const CustomAutoComplete: Story = {
         : [mockVal(query), mockVal(query, 2), mockVal(query, 3)]
     }
     const renderOption = (item: DataSourceType) => {
-      const itemWithNumber = item as DataSourceType<LakersPlayerProps>
+      const itemWithNumber = item as DataSourceType<CustomProps>
       return (
         <>
           <b>Name: {itemWithNumber.value}</b>
@@ -90,6 +124,54 @@ export const CustomAutoComplete: Story = {
         onSelect={handleSelect}
       />
     )
+  },
+  parameters: {
+    docs: {
+      source: {
+        language: 'tsx',
+        code: `
+import { useState } from 'react'
+import { AutoComplete } from '@a-front-end-project/a-ui'
+
+const App = () => {
+  const [value, setValue] = useState('')
+  const mockVal = (str: string, repeat = 1) => ({
+    value: str.repeat(repeat),
+    number: Math.floor(Math.random() * 1000)
+  })
+  const handleFetch = (query: string) => {
+    return !query
+      ? []
+      : [mockVal(query), mockVal(query, 2), mockVal(query, 3)]
+  }
+  const renderOption = (item: DataSourceType) => {
+    const itemWithNumber = item as DataSourceType<CustomProps>
+    return (
+      <>
+        <b>Name: {itemWithNumber.value}</b>
+        <span> - </span>
+        <span>Number: {itemWithNumber.number}</span>
+      </>
+    )
+  }
+
+  const handleSelect = (item: DataSourceType) => {
+    setValue(item.value)
+  }
+
+  return (
+    <AutoComplete
+      value={value}
+      fetchSuggestions={handleFetch}
+      placeholder="Custom AutoComplete"
+      renderOption={renderOption}
+      onSelect={handleSelect}
+    />
+  )
+}
+        `
+      }
+    }
   }
 }
 
@@ -126,5 +208,47 @@ export const AjaxAutoComplete: Story = {
         renderOption={renderOption}
       />
     )
+  },
+  parameters: {
+    docs: {
+      source: {
+        language: 'tsx',
+        code: `
+import { AutoComplete } from '@a-front-end-project/a-ui'
+
+const App = () => {
+  const handleFetch = (query: string) => {
+    return fetch(\`https://api.github.com/search/users?q=\${query}\`)
+      .then(res => res.json())
+      .then(({ items }) => {
+        return (
+          items
+            .slice(0, 10)
+            .map((item: any) => ({ value: item.login, ...item }))
+        )
+      })
+  }
+
+  const renderOption = (item: DataSourceType) => {
+    const itemWithGithub = item as DataSourceType<GithubUserProps>
+    return (
+      <>
+        <b>Name: {itemWithGithub.value}</b>
+        <span>url: {itemWithGithub.url}</span>
+      </>
+    )
+  }
+
+  return (
+    <AutoComplete
+      fetchSuggestions={handleFetch}
+      placeholder="Ajax AutoComplete"
+      renderOption={renderOption}
+    />
+  )
+}
+        `
+      }
+    }
   }
 }
