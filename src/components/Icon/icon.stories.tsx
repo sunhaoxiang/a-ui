@@ -6,7 +6,8 @@ const iconMeta: Meta<typeof Icon> = {
   component: Icon,
   argTypes: {
     icon: {
-      description: 'Font Awesome icon name'
+      description:
+        'Font Awesome icon name. The Icon component is based on Font Awesome solid icons. You can find the list of available icon names [here](https://fontawesome.com/search?o=r&m=free&s=solid).'
     }
   }
 }

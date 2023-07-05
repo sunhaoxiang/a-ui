@@ -1,4 +1,4 @@
-import { Meta, Controls, Stories, Title } from '@storybook/blocks'
+import { Meta, Stories, Title, ArgTypes } from '@storybook/blocks'
 import * as ButtonStories from './button.stories.tsx'
 
 <Meta of={ButtonStories} />
@@ -9,6 +9,10 @@ import * as ButtonStories from './button.stories.tsx'
 
 ```jsx
 import { Button } from '@a-front-end-project/a-ui'
+
+const App = () => (
+  <Button>Default Button</Button>
+)
 ```
 ## Examples
 
@@ -16,4 +20,4 @@ import { Button } from '@a-front-end-project/a-ui'
 
 ## Props
 
-<Controls />
+<ArgTypes />

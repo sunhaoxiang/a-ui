@@ -1,4 +1,4 @@
-import { Meta, Controls, Stories, Title } from '@storybook/blocks'
+import { Meta, ArgTypes, Stories, Title } from '@storybook/blocks'
 import * as IconStories from './icon.stories.tsx'
 
 <Meta of={IconStories} />
@@ -9,6 +9,10 @@ import * as IconStories from './icon.stories.tsx'
 
 ```jsx
 import { Icon } from '@a-front-end-project/a-ui'
+
+const App = () => (
+  <Icon icon="check" size="3x" />
+)
 ```
 ## Examples
 
@@ -16,6 +20,4 @@ import { Icon } from '@a-front-end-project/a-ui'
 
 ## Props
 
-**The Icon component is based on Font Awesome solid icons. You can find the list of available icons [here](https://fontawesome.com/search?o=r&m=free&s=solid).**
-
-<Controls />
+<ArgTypes />
