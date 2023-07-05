@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
+import { useState } from 'react'
 import AutoComplete, { DataSourceType } from './autoComplete'
 
 interface LakersPlayerProps {
@@ -21,8 +22,7 @@ const autoCompleteMeta: Meta<typeof AutoComplete> = {
         <Story />
       </div>
     )
-  ],
-  tags: ['autodocs']
+  ]
 }
 
 export default autoCompleteMeta
@@ -31,29 +31,24 @@ type Story = StoryObj<typeof AutoComplete>
 
 export const SimpleAutoComplete: Story = {
   render: args => {
-    const lakers = [
-      'bradley',
-      'pope',
-      'caruso',
-      'cook',
-      'cousins',
-      'james',
-      'AD',
-      'green',
-      'howard',
-      'kuzma',
-      'McGee',
-      'rando'
-    ]
+    const [value, setValue] = useState('')
+    const mockVal = (str: string, repeat = 1) => ({
+      value: str.repeat(repeat)
+    })
     const handleFetch = (query: string) => {
-      return lakers
-        .filter(name => name.includes(query))
-        .map(name => ({ value: name }))
+      return !query
+        ? []
+        : [mockVal(query), mockVal(query, 2), mockVal(query, 3)]
+    }
+    const handleSelect = (item: DataSourceType) => {
+      setValue(item.value)
     }
     return (
       <AutoComplete
         {...args}
+        value={value}
         fetchSuggestions={handleFetch}
+        onSelect={handleSelect}
         placeholder="Simple AutoComplete"
       />
     )
@@ -62,36 +57,37 @@ export const SimpleAutoComplete: Story = {
 
 export const CustomAutoComplete: Story = {
   render: args => {
-    const lakersWithNumber = [
-      { value: 'bradley', number: 11 },
-      { value: 'pope', number: 1 },
-      { value: 'caruso', number: 4 },
-      { value: 'cook', number: 2 },
-      { value: 'cousins', number: 15 },
-      { value: 'james', number: 23 },
-      { value: 'AD', number: 3 },
-      { value: 'green', number: 14 },
-      { value: 'howard', number: 39 },
-      { value: 'kuzma', number: 0 }
-    ]
+    const [value, setValue] = useState('')
+    const mockVal = (str: string, repeat = 1) => ({
+      value: str.repeat(repeat),
+      number: Math.floor(Math.random() * 1000)
+    })
     const handleFetch = (query: string) => {
-      return lakersWithNumber.filter(player => player.value.includes(query))
+      return !query
+        ? []
+        : [mockVal(query), mockVal(query, 2), mockVal(query, 3)]
     }
     const renderOption = (item: DataSourceType) => {
       const itemWithNumber = item as DataSourceType<LakersPlayerProps>
       return (
         <>
           <b>Name: {itemWithNumber.value}</b>
+          <span> - </span>
           <span>Number: {itemWithNumber.number}</span>
         </>
       )
     }
+    const handleSelect = (item: DataSourceType) => {
+      setValue(item.value)
+    }
     return (
       <AutoComplete
         {...args}
+        value={value}
         fetchSuggestions={handleFetch}
         placeholder="Custom AutoComplete"
         renderOption={renderOption}
+        onSelect={handleSelect}
       />
     )
   }
