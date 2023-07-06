@@ -4,7 +4,7 @@ import SubMenu from './subMenu'
 import MenuItem from './menuItem'
 
 const MenuItemMeta: Meta<typeof MenuItem> = {
-  title: 'Navigation/Menu/MenuItem',
+  title: 'Navigation/MenuItem',
   component: MenuItem
 }
 
