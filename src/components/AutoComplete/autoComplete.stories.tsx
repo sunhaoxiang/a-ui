@@ -33,6 +33,7 @@ type Story = StoryObj<typeof AutoComplete>
 const simpleAutoCompleteCode = `
 import { useState } from 'react'
 import { AutoComplete } from '@a-front-end-project/a-ui'
+import type { DataSourceType } from '@a-front-end-project/a-ui/types/AutoComplete/autoComplete.d.ts'
 
 const App = () => {
   const [value, setValue] = useState('')
@@ -88,6 +89,12 @@ export const SimpleAutoComplete: Story = {
 const customAutoCompleteCode = `
 import { useState } from 'react'
 import { AutoComplete } from '@a-front-end-project/a-ui'
+import type { DataSourceType } from '@a-front-end-project/a-ui/types/AutoComplete/autoComplete.d.ts'
+
+interface CustomProps {
+  value: string
+  number: number
+}
 
 const App = () => {
   const [value, setValue] = useState('')
@@ -169,6 +176,13 @@ export const CustomAutoComplete: Story = {
 const ajaxAutoCompleteCode = `
 import { useState } from 'react'
 import { AutoComplete } from '@a-front-end-project/a-ui'
+import type { DataSourceType } from '@a-front-end-project/a-ui/types/AutoComplete/autoComplete.d.ts'
+
+interface GithubUserProps {
+  login: string
+  url: string
+  avatar_url: string
+}
 
 const App = () => {
   const [value, setValue] = useState('')
