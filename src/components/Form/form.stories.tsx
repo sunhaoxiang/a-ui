@@ -82,7 +82,7 @@ export const BasicForm: Story = {
 const regFormCode = `
 import { Form, Input, Select, Button } from '@a-front-end-project/a-ui'
 
-const App = () => (
+const App = () => {
   const initialValues = {
     agreement: false
   }
@@ -139,7 +139,7 @@ const App = () => (
       </div>
     </Form>
   )
-)
+}
 `
 
 export const RegForm: Story = {
@@ -204,6 +204,42 @@ export const RegForm: Story = {
   parameters: parameters({ code: regFormCode })
 }
 
+const resetFormCode = `
+import { useRef } from 'react'
+import { Form, Input, Button } from '@a-front-end-project/a-ui'
+import type { IFormRef } from '@a-front-end-project/a-ui/types/Form/form.d.ts'
+
+const App = () => {
+  const ref = useRef<IFormRef>(null)
+  const resetAll = () => {
+    ref.current?.resetFields()
+  }
+
+  return (
+    <Form
+      {...args}
+      ref={ref}
+      initialValues={{
+        username: 'username',
+        password: '1234'
+      }}
+    >
+      <Form.Item label="Username" name="username">
+        <Input />
+      </Form.Item>
+      <Form.Item label="Password" name="password">
+        <Input type="password" />
+      </Form.Item>
+      <div className="a-form-submit-area">
+        <Button type="button" btnType="primary" onClick={resetAll}>
+          Reset
+        </Button>
+      </div>
+    </Form>
+  )
+}
+`
+
 export const ResetForm: Story = {
   render: args => {
     const ref = useRef<IFormRef>(null)
@@ -233,7 +269,8 @@ export const ResetForm: Story = {
         </div>
       </Form>
     )
-  }
+  },
+  parameters: parameters({ code: resetFormCode })
 }
 
 export const FullForm: Story = {
