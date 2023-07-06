@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import Menu from '@/components/Menu'
+import { parameters } from '@/utils/storybook-utils'
 
 const menuMeta: Meta<typeof Menu> = {
   title: 'Navigation/Menu',
@@ -40,13 +41,7 @@ const Template: Story = {
   )
 }
 
-export const DefaultMenu: Story = {
-  ...Template,
-  parameters: {
-    docs: {
-      source: {
-        language: 'tsx',
-        code: `
+const defaultMenuCode = `
 import { Menu } from '@a-front-end-project/a-ui'
 
 const App = () => (
@@ -62,23 +57,14 @@ const App = () => (
     </Menu.SubMenu>
   </Menu>
 )
-        `
-      }
-    }
-  }
+`
+
+export const DefaultMenu: Story = {
+  ...Template,
+  parameters: parameters({ code: defaultMenuCode })
 }
 
-export const VerticalMenu: Story = {
-  ...Template,
-  args: {
-    mode: 'vertical',
-    defaultIndex: '1'
-  },
-  parameters: {
-    docs: {
-      source: {
-        language: 'tsx',
-        code: `
+const verticalMenuCode = `
 import { Menu } from '@a-front-end-project/a-ui'
 
 const App = () => (
@@ -94,8 +80,13 @@ const App = () => (
     </Menu.SubMenu>
   </Menu>
 )
-        `
-      }
-    }
-  }
+`
+
+export const VerticalMenu: Story = {
+  ...Template,
+  args: {
+    mode: 'vertical',
+    defaultIndex: '1'
+  },
+  parameters: parameters({ code: verticalMenuCode })
 }
