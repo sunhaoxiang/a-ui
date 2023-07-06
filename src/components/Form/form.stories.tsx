@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { useRef } from 'react'
-import Form, { IFormRef } from './form'
-import Item from './formItem'
+import Form from '@/components/Form'
+import { IFormRef } from '@/components/Form/form.tsx'
 import { CustomRule } from './useStore'
 import Input from '@/components/Input'
 import Select from '@/components/Select'
@@ -16,8 +16,7 @@ const formMeta: Meta<typeof Form> = {
         <Story />
       </div>
     )
-  ],
-  tags: ['autodocs']
+  ]
 }
 
 export default formMeta
@@ -27,20 +26,20 @@ type Story = StoryObj<typeof Form>
 export const BasicForm: Story = {
   render: args => (
     <Form {...args}>
-      <Item
+      <Form.Item
         label="Username"
         name="Username"
         rules={[{ type: 'string', required: true, min: 3 }]}
       >
         <Input />
-      </Item>
-      <Item
+      </Form.Item>
+      <Form.Item
         label="Password"
         name="password"
         rules={[{ type: 'string', required: true, min: 3, max: 8 }]}
       >
         <Input type="password" />
-      </Item>
+      </Form.Item>
       <div className="a-form-submit-area">
         <Button type="submit" btnType="primary">
           Login
@@ -58,21 +57,21 @@ export const RegForm: Story = {
 
     return (
       <Form {...args} initialValues={initialValues}>
-        <Item
+        <Form.Item
           label="Email"
           name="email"
           rules={[{ type: 'email', required: true }]}
         >
           <Input />
-        </Item>
-        <Item
+        </Form.Item>
+        <Form.Item
           label="Password"
           name="password"
           rules={[{ type: 'string', required: true, min: 3, max: 8 }]}
         >
           <Input type="password" />
-        </Item>
-        <Item
+        </Form.Item>
+        <Form.Item
           label="Gender"
           name="gender"
           rules={[{ type: 'string', required: true }]}
@@ -84,19 +83,19 @@ export const RegForm: Story = {
             <Select.Option value="Female" />
             <Select.Option value="Other" />
           </Select>
-        </Item>
+        </Form.Item>
         <div
           className="agreement-section"
           style={{ display: 'flex', justifyContent: 'center' }}
         >
-          <Item
+          <Form.Item
             name="agreement"
             rules={[{ type: 'enum', enum: [true], message: 'Please agree' }]}
             getValueFromEvent={e => e.target.checked}
             valuePropName="checked"
           >
             <input type="checkbox" />
-          </Item>
+          </Form.Item>
           <span style={{ marginLeft: '5px' }}>
             I have read the <a href="#">agreement</a>
           </span>
@@ -127,12 +126,12 @@ export const ResetForm: Story = {
           password: '1234'
         }}
       >
-        <Item label="Username" name="username">
+        <Form.Item label="Username" name="username">
           <Input />
-        </Item>
-        <Item label="Password" name="password">
+        </Form.Item>
+        <Form.Item label="Password" name="password">
           <Input type="password" />
-        </Item>
+        </Form.Item>
         <div className="a-form-submit-area">
           <Button type="button" btnType="primary" onClick={resetAll}>
             Reset
@@ -172,32 +171,32 @@ export const FullForm: Story = {
       >
         {({ isValid, isSubmitting }) => (
           <>
-            <Item
+            <Form.Item
               label="Username"
               name="username"
               rules={[{ type: 'email', required: true }]}
             >
               <Input />
-            </Item>
-            <Item
+            </Form.Item>
+            <Form.Item
               label="Password"
               name="password"
               rules={[{ type: 'string', required: true, min: 3, max: 12 }]}
             >
               <Input type="password" />
-            </Item>
-            <Item
+            </Form.Item>
+            <Form.Item
               label="Confirm Password"
               name="confirmPassword"
               rules={confirmRules}
             >
               <Input type="password" />
-            </Item>
+            </Form.Item>
             <div
               className="agreement-section"
               style={{ display: 'flex', justifyContent: 'center' }}
             >
-              <Item
+              <Form.Item
                 name="agreement"
                 valuePropName="checked"
                 getValueFromEvent={e => e.target.checked}
@@ -206,7 +205,7 @@ export const FullForm: Story = {
                 ]}
               >
                 <input type="checkbox" />
-              </Item>
+              </Form.Item>
               <span style={{ marginLeft: '5px' }}>
                 I have read the <a href="#">agreement</a>
               </span>
