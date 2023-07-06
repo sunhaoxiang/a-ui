@@ -11,7 +11,7 @@ interface ParametersType {
     | 'tsx'
     | 'typescript'
     | 'graphql'
-  code: string
+  code?: string
 }
 
 export const parameters = ({ language = 'tsx', code }: ParametersType) => ({
