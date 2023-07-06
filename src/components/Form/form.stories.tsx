@@ -6,6 +6,7 @@ import { CustomRule } from './useStore'
 import Input from '@/components/Input'
 import Select from '@/components/Select'
 import Button from '@/components/Button'
+import { parameters } from '@/utils/storybook-utils'
 
 const formMeta: Meta<typeof Form> = {
   title: 'Data Entry/Form',
@@ -22,6 +23,34 @@ const formMeta: Meta<typeof Form> = {
 export default formMeta
 
 type Story = StoryObj<typeof Form>
+
+const basicFormCode = `
+import { Form, Input, Button } from '@a-front-end-project/a-ui'
+
+const App = () => (
+  <Form>
+      <Form.Item
+        label="Username"
+        name="Username"
+        rules={[{ type: 'string', required: true, min: 3 }]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item
+        label="Password"
+        name="password"
+        rules={[{ type: 'string', required: true, min: 3, max: 8 }]}
+      >
+        <Input type="password" />
+      </Form.Item>
+      <div className="a-form-submit-area">
+        <Button type="submit" btnType="primary">
+          Login
+        </Button>
+      </div>
+    </Form>
+)
+`
 
 export const BasicForm: Story = {
   render: args => (
@@ -46,8 +75,72 @@ export const BasicForm: Story = {
         </Button>
       </div>
     </Form>
-  )
+  ),
+  parameters: parameters({ code: basicFormCode })
 }
+
+const regFormCode = `
+import { Form, Input, Select, Button } from '@a-front-end-project/a-ui'
+
+const App = () => (
+  const initialValues = {
+    agreement: false
+  }
+
+  return (
+    <Form initialValues={initialValues}>
+      <Form.Item
+        label="Email"
+        name="email"
+        rules={[{ type: 'email', required: true }]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item
+        label="Password"
+        name="password"
+        rules={[{ type: 'string', required: true, min: 3, max: 8 }]}
+      >
+        <Input type="password" />
+      </Form.Item>
+      <Form.Item
+        label="Gender"
+        name="gender"
+        rules={[{ type: 'string', required: true }]}
+        getValueFromEvent={e => e}
+        valuePropName="defaultValue"
+      >
+        <Select placeholder="Please select Gender">
+          <Select.Option value="Male" />
+          <Select.Option value="Female" />
+          <Select.Option value="Other" />
+        </Select>
+      </Form.Item>
+      <div
+        className="agreement-section"
+        style={{ display: 'flex', justifyContent: 'center' }}
+      >
+        <Form.Item
+          name="agreement"
+          rules={[{ type: 'enum', enum: [true], message: 'Please agree' }]}
+          getValueFromEvent={e => e.target.checked}
+          valuePropName="checked"
+        >
+          <input type="checkbox" />
+        </Form.Item>
+        <span style={{ marginLeft: '5px' }}>
+          I have read the <a href="#">agreement</a>
+        </span>
+      </div>
+      <div className="a-form-submit-area">
+        <Button type="submit" btnType="primary">
+          Submit
+        </Button>
+      </div>
+    </Form>
+  )
+)
+`
 
 export const RegForm: Story = {
   render: args => {
@@ -107,7 +200,8 @@ export const RegForm: Story = {
         </div>
       </Form>
     )
-  }
+  },
+  parameters: parameters({ code: regFormCode })
 }
 
 export const ResetForm: Story = {
@@ -213,7 +307,7 @@ export const FullForm: Story = {
             <div className="a-form-submit-area">
               <Button type="submit" btnType="primary">
                 Register {isSubmitting ? 'is Submitting' : 'Submitted'}
-                {isValid ? ' Passed1' : ' Failed'}
+                {isValid ? ' Passed' : ' Failed'}
               </Button>
             </div>
           </>
