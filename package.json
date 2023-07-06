@@ -12,7 +12,6 @@
       "import": "./dist/a-ui.js",
       "types": "./dist/main.d.ts"
     },
-    "./style.css": "./dist/style.css",
     "./types/": "./dist/components/"
   },
   "license": "MIT",
