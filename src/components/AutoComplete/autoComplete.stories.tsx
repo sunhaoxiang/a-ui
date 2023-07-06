@@ -167,9 +167,11 @@ export const CustomAutoComplete: Story = {
 }
 
 const ajaxAutoCompleteCode = `
+import { useState } from 'react'
 import { AutoComplete } from '@a-front-end-project/a-ui'
 
 const App = () => {
+  const [value, setValue] = useState('')
   const handleFetch = (query: string) => {
     return fetch(\`https://api.github.com/search/users?q=\${query}\`)
       .then(res => res.json())
@@ -191,12 +193,18 @@ const App = () => {
       </>
     )
   }
+  
+  const handleSelect = (item: DataSourceType) => {
+    setValue(item.value)
+  }
 
   return (
     <AutoComplete
+      value={value}
       fetchSuggestions={handleFetch}
       placeholder="Ajax AutoComplete"
       renderOption={renderOption}
+      onSelect={handleSelect}
     />
   )
 }
