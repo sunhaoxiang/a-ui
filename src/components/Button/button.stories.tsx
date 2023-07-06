@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import Button from '@/components/Button'
 import Icon from '@/components/Icon'
+import { parameters } from '@/utils/storybook-utils'
 
 const buttonMeta: Meta<typeof Button> = {
   title: 'General/Button',
@@ -28,14 +29,7 @@ export const DefaultButton: Story = {
   args: {
     children: 'Default Button'
   },
-  parameters: {
-    docs: {
-      source: {
-        language: 'tsx',
-        code: defaultButtonCode
-      }
-    }
-  }
+  parameters: parameters({ code: defaultButtonCode })
 }
 
 const disabledButtonCode = `
@@ -52,14 +46,7 @@ export const DisabledButton: Story = {
     disabled: true,
     children: 'Disabled Button'
   },
-  parameters: {
-    docs: {
-      source: {
-        language: 'tsx',
-        code: disabledButtonCode
-      }
-    }
-  }
+  parameters: parameters({ code: disabledButtonCode })
 }
 
 const primaryButtonCode = `
@@ -76,14 +63,7 @@ export const PrimaryButton: Story = {
     btnType: 'primary',
     children: 'Primary Button'
   },
-  parameters: {
-    docs: {
-      source: {
-        language: 'tsx',
-        code: primaryButtonCode
-      }
-    }
-  }
+  parameters: parameters({ code: primaryButtonCode })
 }
 
 const dangerButtonCode = `
@@ -100,14 +80,7 @@ export const DangerButton: Story = {
     btnType: 'danger',
     children: 'Danger Button'
   },
-  parameters: {
-    docs: {
-      source: {
-        language: 'tsx',
-        code: dangerButtonCode
-      }
-    }
-  }
+  parameters: parameters({ code: dangerButtonCode })
 }
 
 const linkButtonCode = `
@@ -130,14 +103,7 @@ export const LinkButton: Story = {
     href: 'https://www.google.com',
     children: 'Link Button'
   },
-  parameters: {
-    docs: {
-      source: {
-        language: 'tsx',
-        code: linkButtonCode
-      }
-    }
-  }
+  parameters: parameters({ code: linkButtonCode })
 }
 
 const largeButtonCode = `
@@ -154,14 +120,7 @@ export const LargeButton: Story = {
     size: 'lg',
     children: 'Large Button'
   },
-  parameters: {
-    docs: {
-      source: {
-        language: 'tsx',
-        code: largeButtonCode
-      }
-    }
-  }
+  parameters: parameters({ code: largeButtonCode })
 }
 
 const smallButtonCode = `
@@ -178,14 +137,7 @@ export const SmallButton: Story = {
     size: 'sm',
     children: 'Small Button'
   },
-  parameters: {
-    docs: {
-      source: {
-        language: 'tsx',
-        code: smallButtonCode
-      }
-    }
-  }
+  parameters: parameters({ code: smallButtonCode })
 }
 
 const iconButtonCode = `
@@ -204,12 +156,5 @@ export const IconButton: Story = {
       <Icon icon="trash" />
     </Button>
   ),
-  parameters: {
-    docs: {
-      source: {
-        language: 'tsx',
-        code: iconButtonCode
-      }
-    }
-  }
+  parameters: parameters({ code: iconButtonCode })
 }
