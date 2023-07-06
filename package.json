@@ -5,20 +5,15 @@
   "author": "Sunhaoxiang",
   "private": false,
   "type": "module",
-  "main": "./dist/a-ui.umd.cjs",
   "module": "./dist/a-ui.js",
-  "unpkg": "./dist/a-ui.umd.cjs",
   "types": "./dist/main.d.ts",
   "exports": {
     ".": {
       "import": "./dist/a-ui.js",
-      "require": "./dist/a-ui.umd.cjs",
       "types": "./dist/main.d.ts"
     },
-    "./style.css": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
-    }
+    "./style.css": "./dist/style.css",
+    "./types/": "./dist/components/"
   },
   "license": "MIT",
   "keywords": [
