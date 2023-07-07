@@ -273,6 +273,89 @@ export const ResetForm: Story = {
   parameters: parameters({ code: resetFormCode })
 }
 
+const fullFormCode = `
+import { Form, Input, Button } from '@a-front-end-project/a-ui'
+import type { CustomRule } from '@a-front-end-project/a-ui/types/Form/useStore.d.ts'
+
+const App = () => {
+  const confirmRules: CustomRule[] = [
+    { type: 'string', required: true, min: 3, max: 12 },
+    ({ getFieldValue }) => ({
+      asyncValidator(_rule, value) {
+        return new Promise((resolve, reject) => {
+          if (value !== getFieldValue('password')) {
+            reject('The two passwords that you entered do not match!')
+          }
+          setTimeout(() => {
+            resolve()
+          }, 1000)
+        })
+      }
+    })
+  ]
+
+  return (
+    <Form
+      initialValues={{
+        username: 'username',
+        password: '1234',
+        agreement: false
+      }}
+    >
+      {({ isValid, isSubmitting }) => (
+        <>
+          <Form.Item
+            label="Username"
+            name="username"
+            rules={[{ type: 'email', required: true }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[{ type: 'string', required: true, min: 3, max: 12 }]}
+          >
+            <Input type="password" />
+          </Form.Item>
+          <Form.Item
+            label="Confirm Password"
+            name="confirmPassword"
+            rules={confirmRules}
+          >
+            <Input type="password" />
+          </Form.Item>
+          <div
+            className="agreement-section"
+            style={{ display: 'flex', justifyContent: 'center' }}
+          >
+            <Form.Item
+              name="agreement"
+              valuePropName="checked"
+              getValueFromEvent={e => e.target.checked}
+              rules={[
+                { type: 'enum', enum: [true], message: 'Please agree' }
+              ]}
+            >
+              <input type="checkbox" />
+            </Form.Item>
+            <span style={{ marginLeft: '5px' }}>
+              I have read the <a href="#">agreement</a>
+            </span>
+          </div>
+          <div className="a-form-submit-area">
+            <Button type="submit" btnType="primary">
+              Register {isSubmitting ? 'is Submitting' : 'Submitted'}
+              {isValid ? ' Passed' : ' Failed'}
+            </Button>
+          </div>
+        </>
+      )}
+    </Form>
+  )
+}
+`
+
 export const FullForm: Story = {
   render: args => {
     const confirmRules: CustomRule[] = [
@@ -351,5 +434,6 @@ export const FullForm: Story = {
         )}
       </Form>
     )
-  }
+  },
+  parameters: parameters({ code: fullFormCode })
 }
