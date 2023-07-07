@@ -23,8 +23,8 @@ yarn add @a-front-end-project/a-ui
 ## Usage
 
 ```jsx
-import React from 'react';
-import { Button } from '@a-front-end-project/a-ui';
+import React from 'react'
+import { Button } from '@a-front-end-project/a-ui'
 
 const App = () => (
   <>
