@@ -27,6 +27,8 @@ import { Icon } from '@a-front-end-project/a-ui'
 const App = () => (
   <Icon icon="check" size="3x" />
 )
+
+export default App
 `
 
 export const DefaultIcon: Story = {
@@ -44,6 +46,8 @@ import { Icon } from '@a-front-end-project/a-ui'
 const App = () => (
   <Icon icon="check" size="3x" theme="success" />
 )
+
+export default App
 `
 
 export const SuccessIcon: Story = {
@@ -62,6 +66,8 @@ import { Icon } from '@a-front-end-project/a-ui'
 const App = () => (
   <Icon icon="times" size="3x" theme="danger" />
 )
+
+export default App
 `
 
 export const DangerIcon: Story = {
@@ -80,6 +86,8 @@ import { Icon } from '@a-front-end-project/a-ui'
 const App = () => (
   <Icon icon="anchor" size="3x" theme="primary" />
 )
+
+export default App
 `
 
 export const PrimaryIcon: Story = {
@@ -98,6 +106,8 @@ import { Icon } from '@a-front-end-project/a-ui'
 const App = () => (
   <Icon icon="exclamation-circle" size="3x" theme="warning" />
 )
+
+export default App
 `
 
 export const WarningIcon: Story = {
@@ -116,6 +126,8 @@ import { Icon } from '@a-front-end-project/a-ui'
 const App = () => (
   <Icon icon="spinner" size="3x" spin />
 )
+
+export default App
 `
 
 export const SpinIcon: Story = {
@@ -134,6 +146,8 @@ import { Icon } from '@a-front-end-project/a-ui'
 const App = () => (
   <Icon icon="spinner" size="3x" pulse />
 )
+
+export default App
 `
 
 export const PulseIcon: Story = {

@@ -28,6 +28,8 @@ import { Input } from '@a-front-end-project/a-ui'
 const App = () => (
   <Input placeholder="Default Input" />
 )
+
+export default App
 `
 
 export const DefaultInput: Story = {
@@ -44,6 +46,8 @@ import { Input } from '@a-front-end-project/a-ui'
 const App = () => (
   <Input placeholder="Disabled Input" disabled />
 )
+
+export default App
 `
 
 export const DisabledInput: Story = {
@@ -61,6 +65,8 @@ import { Input } from '@a-front-end-project/a-ui'
 const App = () => (
   <Input size="lg" placeholder="Large Input" />
 )
+
+export default App
 `
 
 export const LargeInput: Story = {
@@ -78,6 +84,8 @@ import { Input } from '@a-front-end-project/a-ui'
 const App = () => (
   <Input size="sm" placeholder="Small Input" />
 )
+
+export default App
 `
 
 export const SmallInput: Story = {
@@ -95,6 +103,8 @@ import { Input } from '@a-front-end-project/a-ui'
 const App = () => (
   <Input icon="search" placeholder="Input With Icon" />
 )
+
+export default App
 `
 
 export const InputWithIcon: Story = {
@@ -112,6 +122,8 @@ import { Input } from '@a-front-end-project/a-ui'
 const App = () => (
   <Input prepend="https://" placeholder="google.com" />
 )
+
+export default App
 `
 
 export const InputWithPrepend: Story = {
@@ -129,6 +141,8 @@ import { Input } from '@a-front-end-project/a-ui'
 const App = () => (
   <Input append=".com" placeholder="google" />
 )
+
+export default App
 `
 
 export const InputWithAppend: Story = {

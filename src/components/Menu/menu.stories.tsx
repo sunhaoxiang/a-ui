@@ -57,6 +57,8 @@ const App = () => (
     </Menu.SubMenu>
   </Menu>
 )
+
+export default App
 `
 
 export const DefaultMenu: Story = {
@@ -80,6 +82,8 @@ const App = () => (
     </Menu.SubMenu>
   </Menu>
 )
+
+export default App
 `
 
 export const VerticalMenu: Story = {

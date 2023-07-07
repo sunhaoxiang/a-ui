@@ -22,6 +22,8 @@ import { Button } from '@a-front-end-project/a-ui'
 const App = () => (
   <Button>Default Button</Button>
 )
+
+export default App
 `
 
 export const DefaultButton: Story = {
@@ -38,6 +40,8 @@ import { Button } from '@a-front-end-project/a-ui'
 const App = () => (
   <Button disabled>Disabled Button</Button>
 )
+
+export default App
 `
 
 export const DisabledButton: Story = {
@@ -55,6 +59,8 @@ import { Button } from '@a-front-end-project/a-ui'
 const App = () => (
   <Button btnType="primary">Primary Button</Button>
 )
+
+export default App
 `
 
 export const PrimaryButton: Story = {
@@ -72,6 +78,8 @@ import { Button } from '@a-front-end-project/a-ui'
 const App = () => (
   <Button btnType="danger">Danger Button</Button>
 )
+
+export default App
 `
 
 export const DangerButton: Story = {
@@ -94,6 +102,8 @@ const App = () => (
     Link Button
   </Button>
 )
+
+export default App
 `
 
 export const LinkButton: Story = {
@@ -112,6 +122,8 @@ import { Button } from '@a-front-end-project/a-ui'
 const App = () => (
   <Button size="lg">Large Button</Button>
 )
+
+export default App
 `
 
 export const LargeButton: Story = {
@@ -129,6 +141,8 @@ import { Button } from '@a-front-end-project/a-ui'
 const App = () => (
   <Button size="sm">Small Button</Button>
 )
+
+export default App
 `
 
 export const SmallButton: Story = {
@@ -148,6 +162,8 @@ const App = () => (
     <Icon icon="trash" />
   </Button>
 )
+
+export default App
 `
 
 export const IconButton: Story = {

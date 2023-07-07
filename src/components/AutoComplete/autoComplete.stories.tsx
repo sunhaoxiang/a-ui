@@ -57,6 +57,8 @@ const App = () => {
     />
   )
 }
+
+export default App
 `
 
 export const SimpleAutoComplete: Story = {
@@ -132,6 +134,8 @@ const App = () => {
     />
   )
 }
+
+export default App
 `
 
 export const CustomAutoComplete: Story = {
@@ -222,6 +226,8 @@ const App = () => {
     />
   )
 }
+
+export default App
 `
 
 export const AjaxAutoComplete: Story = {

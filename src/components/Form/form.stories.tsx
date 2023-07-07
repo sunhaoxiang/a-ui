@@ -29,27 +29,29 @@ import { Form, Input, Button } from '@a-front-end-project/a-ui'
 
 const App = () => (
   <Form>
-      <Form.Item
-        label="Username"
-        name="Username"
-        rules={[{ type: 'string', required: true, min: 3 }]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[{ type: 'string', required: true, min: 3, max: 8 }]}
-      >
-        <Input type="password" />
-      </Form.Item>
-      <div className="a-form-submit-area">
-        <Button type="submit" btnType="primary">
-          Login
-        </Button>
-      </div>
-    </Form>
+    <Form.Item
+      label="Username"
+      name="Username"
+      rules={[{ type: 'string', required: true, min: 3 }]}
+    >
+      <Input />
+    </Form.Item>
+    <Form.Item
+      label="Password"
+      name="password"
+      rules={[{ type: 'string', required: true, min: 3, max: 8 }]}
+    >
+      <Input type="password" />
+    </Form.Item>
+    <div className="a-form-submit-area">
+      <Button type="submit" btnType="primary">
+        Login
+      </Button>
+    </div>
+  </Form>
 )
+
+export default App
 `
 
 export const BasicForm: Story = {
@@ -140,6 +142,8 @@ const App = () => {
     </Form>
   )
 }
+
+export default App
 `
 
 export const RegForm: Story = {
@@ -238,6 +242,8 @@ const App = () => {
     </Form>
   )
 }
+
+export default App
 `
 
 export const ResetForm: Story = {
@@ -354,6 +360,8 @@ const App = () => {
     </Form>
   )
 }
+
+export default App
 `
 
 export const FullForm: Story = {
