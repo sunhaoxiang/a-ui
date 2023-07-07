@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
-import Select from './select'
-import Option from './option'
+import Select from '@/components/Select'
+import { parameters } from '@/utils/storybook-utils'
 
 const selectMeta: Meta<typeof Select> = {
   title: 'Data Entry/Select',
@@ -11,43 +11,90 @@ const selectMeta: Meta<typeof Select> = {
         <Story />
       </div>
     )
-  ],
-  tags: ['autodocs']
+  ]
 }
 
 export default selectMeta
 
 type Story = StoryObj<typeof Select>
 
+const defaultSelectCode = `
+import { Select } from '@a-front-end-project/a-ui'
+
+const App = () => (
+  <Select placeholder="Select">
+    <Select.Option value="Jack" />
+    <Select.Option value="Lucy" />
+    <Select.Option value="Hello" />
+    <Select.Option value="disabled" disabled />
+  </Select>
+)
+
+export default App
+`
+
 export const DefaultSelect: Story = {
   render: args => (
     <Select {...args} placeholder="Select">
-      <Option value="Jack" />
-      <Option value="Lucy" />
-      <Option value="Hello" />
-      <Option value="disabled" disabled />
+      <Select.Option value="Jack" />
+      <Select.Option value="Lucy" />
+      <Select.Option value="Hello" />
+      <Select.Option value="disabled" disabled />
     </Select>
-  )
+  ),
+  parameters: parameters({ code: defaultSelectCode })
 }
+
+const multipleSelectCode = `
+import { Select } from '@a-front-end-project/a-ui'
+
+const App = () => (
+  <Select placeholder="Select" multiple>
+    <Select.Option value="Jack" />
+    <Select.Option value="Lucy" />
+    <Select.Option value="Hello" />
+    <Select.Option value="disabled" disabled />
+  </Select>
+)
+
+export default App
+`
 
 export const MultipleSelect: Story = {
   render: args => (
     <Select {...args} placeholder="Select" multiple>
-      <Option value="Jack" />
-      <Option value="Lucy" />
-      <Option value="Hello" />
-      <Option value="disabled" disabled />
+      <Select.Option value="Jack" />
+      <Select.Option value="Lucy" />
+      <Select.Option value="Hello" />
+      <Select.Option value="disabled" disabled />
     </Select>
-  )
+  ),
+  parameters: parameters({ code: multipleSelectCode })
 }
+
+const disabledSelectCode = `
+import { Select } from '@a-front-end-project/a-ui'
+
+const App = () => (
+  <Select placeholder="Select" disabled>
+    <Select.Option value="Jack" />
+    <Select.Option value="Lucy" />
+    <Select.Option value="Hello" />
+    <Select.Option value="disabled" disabled />
+  </Select>
+)
+
+export default App
+`
 
 export const DisabledSelect: Story = {
   render: args => (
     <Select {...args} placeholder="Select" disabled>
-      <Option value="Jack" />
-      <Option value="Lucy" />
-      <Option value="Hello" />
-      <Option value="disabled" disabled />
+      <Select.Option value="Jack" />
+      <Select.Option value="Lucy" />
+      <Select.Option value="Hello" />
+      <Select.Option value="disabled" disabled />
     </Select>
-  )
+  ),
+  parameters: parameters({ code: disabledSelectCode })
 }
