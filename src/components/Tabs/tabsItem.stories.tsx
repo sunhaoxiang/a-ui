@@ -4,7 +4,7 @@ import TabItem from './tabItem'
 import Icon from '@/components/Icon'
 
 const tabsItemMeta: Meta<typeof TabItem> = {
-  title: 'Data Display/Tabs/TabItem',
+  title: 'Data Display/TabItem',
   component: TabItem,
   argTypes: {
     label: {
@@ -12,8 +12,7 @@ const tabsItemMeta: Meta<typeof TabItem> = {
         type: null
       }
     }
-  },
-  tags: ['autodocs']
+  }
 }
 
 export default tabsItemMeta
