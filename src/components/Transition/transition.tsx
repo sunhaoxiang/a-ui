@@ -2,13 +2,13 @@ import { FC, ReactNode } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import { CSSTransitionProps } from 'react-transition-group/CSSTransition'
 
-type AnimationName =
+export type AnimationName =
   | 'zoom-in-top'
   | 'zoom-in-left'
   | 'zoom-in-bottom'
   | 'zoom-in-right'
 
-type TransitionProps = CSSTransitionProps & {
+export type TransitionProps = CSSTransitionProps & {
   animation?: AnimationName
   wrapper?: boolean
   children?: ReactNode

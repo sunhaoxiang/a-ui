@@ -10,7 +10,7 @@ import {
 import classNames from 'classnames'
 import { MenuItemProps } from './menuItem'
 
-type MenuMode = 'horizontal' | 'vertical'
+export type MenuMode = 'horizontal' | 'vertical'
 
 export interface MenuProps {
   defaultIndex?: string

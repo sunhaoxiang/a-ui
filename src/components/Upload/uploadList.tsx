@@ -3,7 +3,7 @@ import { UploadFile } from './upload'
 import Icon from '@/components/Icon'
 import Progress from '@/components/Progress'
 
-interface UploadListProps {
+export interface UploadListProps {
   fileList: UploadFile[]
   onRemove: (_file: UploadFile) => void
 }
