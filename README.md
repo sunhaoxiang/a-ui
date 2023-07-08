@@ -4,11 +4,9 @@
 <div align="center">
 
 [![npm package](https://img.shields.io/npm/v/@a-front-end-project/a-ui.svg)](https://www.npmjs.com/package/@a-front-end-project/a-ui)
-![languages](https://img.shields.io/github/languages/top/sunhaoxiang/a-ui)
 ![test](https://github.com/sunhaoxiang/a-ui/actions/workflows/test.yml/badge.svg)
 ![coverage](https://img.shields.io/codecov/c/github/sunhaoxiang/a-ui/master.svg)
-![minified](https://img.shields.io/bundlephobia/min/@a-front-end-project/a-ui)
-![minzipped](https://img.shields.io/bundlephobia/minzip/@a-front-end-project/a-ui)
+![languages](https://img.shields.io/github/languages/top/sunhaoxiang/a-ui)
 
 </div>
 
