@@ -32,14 +32,29 @@ const App = () => (
     <Form.Item
       label="Username"
       name="Username"
-      rules={[{ type: 'string', required: true, min: 3 }]}
+      rules={[
+        {
+          type: 'string',
+          required: true,
+          min: 3,
+          message: 'Please input your username!'
+        }
+      ]}
     >
       <Input />
     </Form.Item>
     <Form.Item
       label="Password"
       name="password"
-      rules={[{ type: 'string', required: true, min: 3, max: 8 }]}
+      rules={[
+        {
+          type: 'string',
+          required: true,
+          min: 3,
+          max: 8,
+          message: 'Please input your password!'
+        }
+      ]}
     >
       <Input type="password" />
     </Form.Item>
@@ -60,14 +75,29 @@ export const BasicForm: Story = {
       <Form.Item
         label="Username"
         name="Username"
-        rules={[{ type: 'string', required: true, min: 3 }]}
+        rules={[
+          {
+            type: 'string',
+            required: true,
+            min: 3,
+            message: 'Please input your username!'
+          }
+        ]}
       >
         <Input />
       </Form.Item>
       <Form.Item
         label="Password"
         name="password"
-        rules={[{ type: 'string', required: true, min: 3, max: 8 }]}
+        rules={[
+          {
+            type: 'string',
+            required: true,
+            min: 3,
+            max: 8,
+            message: 'Please input your password!'
+          }
+        ]}
       >
         <Input type="password" />
       </Form.Item>
