@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { RuleItem, ValidateError } from 'async-validator';
+import type { RuleItem, ValidateError } from 'async-validator';
 export type CustomRuleFunc = ({ getFieldValue }: {
     getFieldValue: (key: string) => any;
 }) => RuleItem;

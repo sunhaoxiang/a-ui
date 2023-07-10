@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import { InputProps } from '../../components/Input/input';
+import type { FC, ReactElement } from 'react';
+import type { InputProps } from '../../components/Input/input';
 interface DataSourceObject {
     value: string;
 }

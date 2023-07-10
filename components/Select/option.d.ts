@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import type { FC, ReactNode } from 'react';
 export interface SelectOptionProps {
     index?: string;
     value: string;

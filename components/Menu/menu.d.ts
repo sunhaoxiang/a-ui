@@ -1,5 +1,5 @@
-import { FC, CSSProperties, ReactNode } from 'react';
-type MenuMode = 'horizontal' | 'vertical';
+import type { FC, CSSProperties, ReactNode } from 'react';
+export type MenuMode = 'horizontal' | 'vertical';
 export interface MenuProps {
     defaultIndex?: string;
     defaultOpenSubMenus?: string[];

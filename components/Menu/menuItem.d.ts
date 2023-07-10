@@ -1,4 +1,4 @@
-import { FC, CSSProperties, ReactNode } from 'react';
+import type { FC, CSSProperties, ReactNode } from 'react';
 export interface MenuItemProps {
     index: string;
     disabled?: boolean;

@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-interface DraggerProps {
+export interface DraggerProps {
     onFile: (files: FileList) => void;
     children: ReactNode;
 }

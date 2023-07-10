@@ -1,4 +1,4 @@
-import { FC, AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
+import type { FC, AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link';
 export type ButtonSize = 'lg' | 'sm';
 interface BaseButtonProps {

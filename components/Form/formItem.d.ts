@@ -1,5 +1,5 @@
-import { FC, ReactNode } from 'react';
-import { CustomRule } from './useStore';
+import type { FC, ReactNode } from 'react';
+import type { CustomRule } from './useStore';
 export type SomeRequired<T, K extends keyof T> = Required<Pick<T, K>> & Omit<T, K>;
 export interface FormItemProps {
     name: string;

@@ -1,0 +1,4 @@
+import{j as e}from"./jsx-runtime-94f6e698.js";import{T as s,a as l}from"./tabItem-21449026.js";import{I as c}from"./index-f2e15aaf.js";const i={title:"Data Display/TabItem",component:s,argTypes:{label:{control:{type:null}}}},m={render:a=>e.jsxs(l,{children:[e.jsx(s,{...a,label:"Tab One",children:"this is content one"}),e.jsx(s,{...a,label:"Tab Two",children:"this is content two"}),e.jsx(s,{...a,label:e.jsxs(e.Fragment,{children:[e.jsx(c,{icon:"check-circle"})," Tab Three"]}),children:"this is content three"})]})},t={...m};var o,r,n;t.parameters={...t.parameters,docs:{...(o=t.parameters)==null?void 0:o.docs,source:{originalSource:`{
+  ...Template
+}`,...(n=(r=t.parameters)==null?void 0:r.docs)==null?void 0:n.source}}};const p=["DefaultTabsItem"],h=Object.freeze(Object.defineProperty({__proto__:null,DefaultTabsItem:t,__namedExportsOrder:p,default:i},Symbol.toStringTag,{value:"Module"}));export{h as T};
+//# sourceMappingURL=tabsItem.stories-4c01482a.js.map

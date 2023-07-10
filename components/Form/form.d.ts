@@ -1,6 +1,7 @@
-import { ReactNode } from 'react';
-import { ValidateError } from 'async-validator';
-import useStore, { FormState } from './useStore';
+import useStore from './useStore';
+import type { ReactNode } from 'react';
+import type { ValidateError } from 'async-validator';
+import type { FormState } from './useStore';
 export type RenderProps = (form: FormState) => ReactNode;
 export interface FormProps {
     name?: string;
