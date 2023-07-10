@@ -1,7 +1,8 @@
 import { describe, it, expect, vi } from 'vitest'
 import { config } from 'react-transition-group'
 import { fireEvent, render, screen } from '@/utils/test-utils'
-import Alert, { AlertProps } from './alert'
+import Alert from './alert'
+import type { AlertProps } from './alert'
 
 config.disabled = true
 
