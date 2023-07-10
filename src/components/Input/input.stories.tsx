@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react'
 import Input from './input'
 import { parameters } from '@/utils/storybook-utils'
+import type { Meta, StoryObj } from '@storybook/react'
 
 const inputMeta: Meta<typeof Input> = {
   title: 'Data Entry/Input',
