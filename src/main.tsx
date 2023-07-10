@@ -22,7 +22,14 @@ export type {
   FormProps,
   IFormContext,
   IFormRef,
-  FormItemProps
+  FormItemProps,
+  CustomRuleFunc as FormCustomRuleFunc,
+  CustomRule as FormCustomRule,
+  FieldDetail as FormFieldDetail,
+  FieldsState as FormFieldsState,
+  ValidateErrorType as FormValidateErrorType,
+  FormState,
+  FieldAction as FormFieldAction
 } from './components/Form'
 
 export { default as Icon } from './components/Icon'
