@@ -1,6 +1,6 @@
-import { FC } from 'react'
 import Tabs from './tabs'
 import TabItem from './tabItem'
+import type { FC } from 'react'
 import type { TabsProps } from './tabs'
 import type { TabItemProps } from './tabItem'
 
