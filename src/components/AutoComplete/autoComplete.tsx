@@ -1,18 +1,12 @@
-import {
-  useState,
-  useEffect,
-  useRef,
-  FC,
-  ChangeEvent,
-  KeyboardEvent,
-  ReactElement
-} from 'react'
+import { useState, useEffect, useRef } from 'react'
 import classNames from 'classnames'
-import Input, { InputProps } from '@/components/Input/input'
+import Input from '@/components/Input/input'
 import Icon from '@/components/Icon'
 import Transition from '@/components/Transition'
 import useDebounce from '@/hooks/useDebounce'
 import useClickOutside from '@/hooks/useClickOutside'
+import type { FC, ChangeEvent, KeyboardEvent, ReactElement } from 'react'
+import type { InputProps } from '@/components/Input/input'
 
 interface DataSourceObject {
   value: string

@@ -1,13 +1,9 @@
 import { beforeEach, describe, it, expect, vi } from 'vitest'
 import { config } from 'react-transition-group'
-import { AutoComplete, AutoCompleteProps, DataSourceType } from './autoComplete'
-import {
-  fireEvent,
-  render,
-  RenderResult,
-  screen,
-  waitFor
-} from '@/utils/test-utils'
+import { AutoComplete } from './autoComplete'
+import { fireEvent, render, screen, waitFor } from '@/utils/test-utils'
+import type { AutoCompleteProps, DataSourceType } from './autoComplete'
+import type { RenderResult } from '@testing-library/react'
 
 config.disabled = true
 

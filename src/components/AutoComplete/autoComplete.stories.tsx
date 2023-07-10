@@ -1,7 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react'
 import { useState } from 'react'
-import AutoComplete, { DataSourceType } from './autoComplete'
+import AutoComplete from './autoComplete'
 import { parameters } from '@/utils/storybook-utils'
+import type { Meta, StoryObj } from '@storybook/react'
+import type { DataSourceType } from './autoComplete'
 
 interface CustomProps {
   value: string
