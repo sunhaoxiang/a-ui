@@ -1,6 +1,6 @@
-import { FC, ReactNode } from 'react'
 import { CSSTransition } from 'react-transition-group'
-import { CSSTransitionProps } from 'react-transition-group/CSSTransition'
+import type { FC, ReactNode } from 'react'
+import type { CSSTransitionProps } from 'react-transition-group/CSSTransition'
 
 export type AnimationName =
   | 'zoom-in-top'
