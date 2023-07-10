@@ -1,5 +1,6 @@
-import { useState, FC, DragEvent, ReactNode } from 'react'
+import { useState } from 'react'
 import classNames from 'classnames'
+import { FC, DragEvent, ReactNode } from 'react'
 
 export interface DraggerProps {
   onFile: (files: FileList) => void
