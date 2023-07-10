@@ -1,10 +1,10 @@
-import {
+import classNames from 'classnames'
+import type {
   FC,
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
   ReactNode
 } from 'react'
-import classNames from 'classnames'
 
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
 
