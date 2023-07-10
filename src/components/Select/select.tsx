@@ -1,21 +1,18 @@
 import {
-  FC,
   useState,
   createContext,
   useRef,
-  FunctionComponentElement,
   useEffect,
   Children,
-  cloneElement,
-  ReactNode,
-  MouseEvent
+  cloneElement
 } from 'react'
 import classNames from 'classnames'
-import { SelectOptionProps } from './option'
 import Input from '@/components/Input'
 import Icon from '@/components/Icon'
 import Transition from '@/components/Transition'
 import useClickOutside from '@/hooks/useClickOutside'
+import type { FC, FunctionComponentElement, ReactNode, MouseEvent } from 'react'
+import type { SelectOptionProps } from './option'
 
 export interface SelectProps {
   defaultValue?: string | string[]
