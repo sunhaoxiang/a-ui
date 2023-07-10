@@ -1,12 +1,12 @@
-import { Meta, StoryObj } from '@storybook/react'
 import { useRef } from 'react'
 import Form from '@/components/Form'
-import { IFormRef } from '@/components/Form/form.tsx'
-import { CustomRule } from './useStore'
 import Input from '@/components/Input'
 import Select from '@/components/Select'
 import Button from '@/components/Button'
 import { parameters } from '@/utils/storybook-utils'
+import type { Meta, StoryObj } from '@storybook/react'
+import type { IFormRef } from '@/components/Form/form.tsx'
+import type { CustomRule } from './useStore'
 
 const formMeta: Meta<typeof Form> = {
   title: 'Data Entry/Form',

@@ -1,6 +1,6 @@
-import { FC } from 'react'
 import Form from './form'
 import Item from './formItem'
+import type { FC } from 'react'
 import type { RenderProps, FormProps, IFormContext, IFormRef } from './form'
 import type { FormItemProps } from './formItem'
 
