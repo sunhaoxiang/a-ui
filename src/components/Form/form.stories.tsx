@@ -241,7 +241,7 @@ export const RegForm: Story = {
 const resetFormCode = `
 import { useRef } from 'react'
 import { Form, Input, Button } from '@a-front-end-project/a-ui'
-import type { IFormRef } from '@a-front-end-project/a-ui/types/Form/form.d.ts'
+import type { IFormRef } from '@a-front-end-project/a-ui'
 
 const App = () => {
   const ref = useRef<IFormRef>(null)
@@ -311,10 +311,10 @@ export const ResetForm: Story = {
 
 const fullFormCode = `
 import { Form, Input, Button } from '@a-front-end-project/a-ui'
-import type { CustomRule } from '@a-front-end-project/a-ui/types/Form/useStore.d.ts'
+import type { FormCustomRule } from '@a-front-end-project/a-ui'
 
 const App = () => {
-  const confirmRules: CustomRule[] = [
+  const confirmRules: FormCustomRule[] = [
     { type: 'string', required: true, min: 3, max: 12 },
     ({ getFieldValue }) => ({
       asyncValidator(_rule, value) {

@@ -40,7 +40,7 @@ export const SimpleUpload: Story = {
 
 const defaultFilesCode = `
 import { Upload, Button, Icon } from '@a-front-end-project/a-ui'
-import type { UploadFile } from '@a-front-end-project/a-ui/types/Upload/upload.d.ts'
+import type { UploadFile } from '@a-front-end-project/a-ui'
 
 const App = () => {
   const defaultFileList: UploadFile[] = [
