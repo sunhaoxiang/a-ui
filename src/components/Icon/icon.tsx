@@ -1,11 +1,9 @@
-import { FC } from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-import {
-  FontAwesomeIcon,
-  FontAwesomeIconProps
-} from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
+import type { FC } from 'react'
+import type { FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
 
 library.add(fas)
 

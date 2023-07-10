@@ -1,12 +1,8 @@
-import {
-  createContext,
-  forwardRef,
-  useImperativeHandle,
-  ReactNode,
-  FormEvent
-} from 'react'
-import { ValidateError } from 'async-validator'
-import useStore, { FormState } from './useStore'
+import { createContext, forwardRef, useImperativeHandle } from 'react'
+import useStore from './useStore'
+import type { ReactNode, FormEvent } from 'react'
+import type { ValidateError } from 'async-validator'
+import type { FormState } from './useStore'
 
 export type RenderProps = (form: FormState) => ReactNode
 

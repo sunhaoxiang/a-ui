@@ -1,7 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react'
 import { useState } from 'react'
-import AutoComplete, { DataSourceType } from './autoComplete'
+import AutoComplete from './autoComplete'
 import { parameters } from '@/utils/storybook-utils'
+import type { Meta, StoryObj } from '@storybook/react'
+import type { DataSourceType } from './autoComplete'
 
 interface CustomProps {
   value: string
@@ -33,7 +34,7 @@ type Story = StoryObj<typeof AutoComplete>
 const simpleAutoCompleteCode = `
 import { useState } from 'react'
 import { AutoComplete } from '@a-front-end-project/a-ui'
-import type { DataSourceType } from '@a-front-end-project/a-ui/types/AutoComplete/autoComplete.d.ts'
+import type { AutoCompleteDataSourceType } from '@a-front-end-project/a-ui'
 
 const App = () => {
   const [value, setValue] = useState('')
@@ -45,7 +46,7 @@ const App = () => {
       ? []
       : [mockVal(query), mockVal(query, 2), mockVal(query, 3)]
   }
-  const handleSelect = (item: DataSourceType) => {
+  const handleSelect = (item: AutoCompleteDataSourceType) => {
     setValue(item.value)
   }
   return (
@@ -91,7 +92,7 @@ export const SimpleAutoComplete: Story = {
 const customAutoCompleteCode = `
 import { useState } from 'react'
 import { AutoComplete } from '@a-front-end-project/a-ui'
-import type { DataSourceType } from '@a-front-end-project/a-ui/types/AutoComplete/autoComplete.d.ts'
+import type { AutoCompleteDataSourceType } from '@a-front-end-project/a-ui'
 
 interface CustomProps {
   value: string
@@ -109,8 +110,8 @@ const App = () => {
       ? []
       : [mockVal(query), mockVal(query, 2), mockVal(query, 3)]
   }
-  const renderOption = (item: DataSourceType) => {
-    const itemWithNumber = item as DataSourceType<CustomProps>
+  const renderOption = (item: AutoCompleteDataSourceType) => {
+    const itemWithNumber = item as AutoCompleteDataSourceType<CustomProps>
     return (
       <>
         <b>Name: {itemWithNumber.value}</b>
@@ -120,7 +121,7 @@ const App = () => {
     )
   }
 
-  const handleSelect = (item: DataSourceType) => {
+  const handleSelect = (item: AutoCompleteDataSourceType) => {
     setValue(item.value)
   }
 
@@ -180,7 +181,7 @@ export const CustomAutoComplete: Story = {
 const ajaxAutoCompleteCode = `
 import { useState } from 'react'
 import { AutoComplete } from '@a-front-end-project/a-ui'
-import type { DataSourceType } from '@a-front-end-project/a-ui/types/AutoComplete/autoComplete.d.ts'
+import type { AutoCompleteDataSourceType } from '@a-front-end-project/a-ui'
 
 interface GithubUserProps {
   login: string
@@ -202,8 +203,8 @@ const App = () => {
       })
   }
 
-  const renderOption = (item: DataSourceType) => {
-    const itemWithGithub = item as DataSourceType<GithubUserProps>
+  const renderOption = (item: AutoCompleteDataSourceType) => {
+    const itemWithGithub = item as AutoCompleteDataSourceType<GithubUserProps>
     return (
       <>
         <b>Name: {itemWithGithub.value}</b>
@@ -212,7 +213,7 @@ const App = () => {
     )
   }
   
-  const handleSelect = (item: DataSourceType) => {
+  const handleSelect = (item: AutoCompleteDataSourceType) => {
     setValue(item.value)
   }
 

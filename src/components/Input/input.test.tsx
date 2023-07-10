@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { fireEvent, render, screen } from '@/utils/test-utils'
-import { Input, InputProps } from './input'
+import { Input } from './input'
+import type { InputProps } from './input'
 
 const defaultProps: InputProps = {
   onChange: vi.fn(),

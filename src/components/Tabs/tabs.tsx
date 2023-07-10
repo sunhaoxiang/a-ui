@@ -1,12 +1,7 @@
-import {
-  FC,
-  useState,
-  FunctionComponentElement,
-  ReactNode,
-  Children
-} from 'react'
+import { useState, Children } from 'react'
 import classNames from 'classnames'
-import { TabItemProps } from './tabItem'
+import type { FC, FunctionComponentElement, ReactNode } from 'react'
+import type { TabItemProps } from './tabItem'
 
 export interface TabsProps {
   defaultIndex?: number

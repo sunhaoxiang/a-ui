@@ -5,7 +5,7 @@
 
 [![npm package](https://img.shields.io/npm/v/@a-front-end-project/a-ui.svg)](https://www.npmjs.com/package/@a-front-end-project/a-ui)
 ![test](https://github.com/sunhaoxiang/a-ui/actions/workflows/test.yml/badge.svg)
-![coverage](https://img.shields.io/codecov/c/github/sunhaoxiang/a-ui/master.svg)
+[![coverage](https://img.shields.io/codecov/c/github/sunhaoxiang/a-ui/master.svg)](https://app.codecov.io/gh/sunhaoxiang/a-ui)
 ![languages](https://img.shields.io/github/languages/top/sunhaoxiang/a-ui)
 
 </div>

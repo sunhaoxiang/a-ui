@@ -1,9 +1,10 @@
 import { describe, it, expect, vi } from 'vitest'
 import { fireEvent, render, screen, waitFor } from '@/utils/test-utils'
-import Form, { FormProps } from './form'
+import Form from './form'
 import Item from './formItem'
 import Input from '@/components/Input'
 import Button from '@/components/Button'
+import type { FormProps } from './form'
 
 const testProps: FormProps = {
   name: 'test-form',

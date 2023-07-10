@@ -1,12 +1,12 @@
-import { Meta, StoryObj } from '@storybook/react'
 import { useRef } from 'react'
 import Form from '@/components/Form'
-import { IFormRef } from '@/components/Form/form.tsx'
-import { CustomRule } from './useStore'
 import Input from '@/components/Input'
 import Select from '@/components/Select'
 import Button from '@/components/Button'
 import { parameters } from '@/utils/storybook-utils'
+import type { Meta, StoryObj } from '@storybook/react'
+import type { IFormRef } from '@/components/Form/form.tsx'
+import type { CustomRule } from './useStore'
 
 const formMeta: Meta<typeof Form> = {
   title: 'Data Entry/Form',
@@ -241,7 +241,7 @@ export const RegForm: Story = {
 const resetFormCode = `
 import { useRef } from 'react'
 import { Form, Input, Button } from '@a-front-end-project/a-ui'
-import type { IFormRef } from '@a-front-end-project/a-ui/types/Form/form.d.ts'
+import type { IFormRef } from '@a-front-end-project/a-ui'
 
 const App = () => {
   const ref = useRef<IFormRef>(null)
@@ -311,10 +311,10 @@ export const ResetForm: Story = {
 
 const fullFormCode = `
 import { Form, Input, Button } from '@a-front-end-project/a-ui'
-import type { CustomRule } from '@a-front-end-project/a-ui/types/Form/useStore.d.ts'
+import type { FormCustomRule } from '@a-front-end-project/a-ui'
 
 const App = () => {
-  const confirmRules: CustomRule[] = [
+  const confirmRules: FormCustomRule[] = [
     { type: 'string', required: true, min: 3, max: 12 },
     ({ getFieldValue }) => ({
       asyncValidator(_rule, value) {

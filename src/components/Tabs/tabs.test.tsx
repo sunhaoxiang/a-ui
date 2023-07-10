@@ -1,7 +1,8 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, fireEvent, screen, RenderResult } from '@/utils/test-utils'
-import Tabs, { TabsProps } from './tabs'
+import Tabs from './tabs'
 import TabItem from './tabItem'
+import type { TabsProps } from './tabs'
 
 const testProps: TabsProps = {
   defaultIndex: 1,

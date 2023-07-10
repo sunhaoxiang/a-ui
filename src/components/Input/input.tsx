@@ -1,12 +1,8 @@
-import {
-  ReactElement,
-  InputHTMLAttributes,
-  ChangeEvent,
-  forwardRef
-} from 'react'
+import { forwardRef } from 'react'
 import classNames from 'classnames'
 import Icon from '@/components/Icon'
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import type { ReactElement, InputHTMLAttributes, ChangeEvent } from 'react'
+import type { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 type InputSize = 'lg' | 'sm'
 

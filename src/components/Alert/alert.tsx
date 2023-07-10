@@ -1,7 +1,8 @@
-import { FC, useState } from 'react'
+import { useState } from 'react'
 import classNames from 'classnames'
 import Icon from '@/components/Icon'
 import Transition from '@/components/Transition'
+import type { FC } from 'react'
 
 export type AlertType = 'success' | 'default' | 'danger' | 'warning'
 

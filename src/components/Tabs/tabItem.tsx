@@ -1,4 +1,4 @@
-import { FC, ReactNode, ReactElement } from 'react'
+import type { FC, ReactNode, ReactElement } from 'react'
 
 export interface TabItemProps {
   label: string | ReactElement

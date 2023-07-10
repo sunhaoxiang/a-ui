@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react'
 import Tabs from '@/components/Tabs'
 import Icon from '@/components/Icon'
 import { parameters } from '@/utils/storybook-utils'
+import type { Meta, StoryObj } from '@storybook/react'
 
 const tabsMeta: Meta<typeof Tabs> = {
   title: 'Data Display/Tabs',

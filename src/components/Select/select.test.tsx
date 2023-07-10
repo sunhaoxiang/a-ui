@@ -1,8 +1,9 @@
 import { describe, it, expect, vi } from 'vitest'
 import { config } from 'react-transition-group'
-import Select, { SelectProps } from './select'
+import Select from './select'
 import Option from './option'
 import { fireEvent, render, screen } from '@/utils/test-utils'
+import type { SelectProps } from './select'
 
 config.disabled = true
 

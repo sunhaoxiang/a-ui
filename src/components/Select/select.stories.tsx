@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react'
 import Select from '@/components/Select'
 import { parameters } from '@/utils/storybook-utils'
+import type { Meta, StoryObj } from '@storybook/react'
 
 const selectMeta: Meta<typeof Select> = {
   title: 'Data Entry/Select',

@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react'
 import Upload, { UploadFile } from './upload'
 import Button from '@/components/Button'
 import Icon from '@/components/Icon'
 import { parameters } from '@/utils/storybook-utils'
+import type { Meta, StoryObj } from '@storybook/react'
 
 const uploadMeta: Meta<typeof Upload> = {
   title: 'Data Entry/Upload',
@@ -40,7 +40,7 @@ export const SimpleUpload: Story = {
 
 const defaultFilesCode = `
 import { Upload, Button, Icon } from '@a-front-end-project/a-ui'
-import type { UploadFile } from '@a-front-end-project/a-ui/types/Upload/upload.d.ts'
+import type { UploadFile } from '@a-front-end-project/a-ui'
 
 const App = () => {
   const defaultFileList: UploadFile[] = [

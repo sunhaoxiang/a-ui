@@ -1,7 +1,10 @@
-import { describe, it, expect, vi, Mocked } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import axios from 'axios'
-import { fireEvent, render, screen, RenderResult } from '@/utils/test-utils'
-import { Upload, UploadProps } from './upload'
+import { fireEvent, render, screen } from '@/utils/test-utils'
+import { Upload } from './upload'
+import type { Mocked } from 'vitest'
+import type { UploadProps } from './upload'
+import type { RenderResult } from '@/utils/test-utils'
 
 vi.mock('@/components/Icon', () => {
   return {

@@ -1,8 +1,9 @@
 import { beforeEach, describe, it, expect, vi } from 'vitest'
-import Menu, { MenuProps } from './menu'
+import Menu from './menu'
 import MenuItem from './menuItem'
 import SubMenu from './subMenu'
 import { fireEvent, render, screen } from '@/utils/test-utils'
+import type { MenuProps } from './menu'
 
 vi.mock('@/components/Icon', () => {
   return {
