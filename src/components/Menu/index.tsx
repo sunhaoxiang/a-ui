@@ -1,7 +1,7 @@
-import { FC } from 'react'
 import Menu from './menu'
 import MenuItem from './menuItem'
 import SubMenu from './subMenu'
+import type { FC } from 'react'
 import type { MenuMode, MenuProps } from './menu'
 import type { MenuItemProps } from './menuItem'
 import type { SubMenuProps } from './subMenu'

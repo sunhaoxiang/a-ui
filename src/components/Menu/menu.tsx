@@ -1,14 +1,12 @@
-import {
+import { Children, createContext, useState } from 'react'
+import classNames from 'classnames'
+import type {
   FC,
-  Children,
-  createContext,
-  useState,
   CSSProperties,
   FunctionComponentElement,
   ReactNode
 } from 'react'
-import classNames from 'classnames'
-import { MenuItemProps } from './menuItem'
+import type { MenuItemProps } from './menuItem'
 
 export type MenuMode = 'horizontal' | 'vertical'
 

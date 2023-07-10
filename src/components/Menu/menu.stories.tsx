@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react'
 import Menu from '@/components/Menu'
 import { parameters } from '@/utils/storybook-utils'
+import type { Meta, StoryObj } from '@storybook/react'
 
 const menuMeta: Meta<typeof Menu> = {
   title: 'Navigation/Menu',

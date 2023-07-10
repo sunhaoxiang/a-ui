@@ -1,17 +1,10 @@
-import {
-  FC,
-  Children,
-  useContext,
-  useState,
-  FunctionComponentElement,
-  MouseEvent,
-  ReactNode
-} from 'react'
+import { Children, useContext, useState } from 'react'
 import classNames from 'classnames'
 import { MenuContext } from './menu'
-import { MenuItemProps } from './menuItem'
 import Icon from '@/components/Icon'
 import Transition from '@/components/Transition'
+import type { FC, FunctionComponentElement, MouseEvent, ReactNode } from 'react'
+import type { MenuItemProps } from './menuItem'
 
 export interface SubMenuProps {
   index: string
